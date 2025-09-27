@@ -38,7 +38,7 @@ export const CardWebDesign = () => {
   )
 }
 
-export const CardReserch = () => {
+export const CardResearch = () => {
   return <div class="cards__item">
     <div class="cards__card card">
       <div class="card__group">
