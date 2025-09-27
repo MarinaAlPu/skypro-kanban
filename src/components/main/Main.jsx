@@ -1,4 +1,4 @@
-const Main = () => {
+export const Main = () => {
   return (
     <main class="main">
       <div class="container">
@@ -440,5 +440,3 @@ const Main = () => {
     </main>
   )
 }
-
-export default Main

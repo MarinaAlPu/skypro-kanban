@@ -1,4 +1,4 @@
-const PopBrowse = () => {
+export const PopBrowse = () => {
   return (
     <div class="pop-browse" id="popBrowse">
       <div class="pop-browse__container">
@@ -139,5 +139,3 @@ const PopBrowse = () => {
     </div>
   );
 };
-
-export default PopBrowse;
