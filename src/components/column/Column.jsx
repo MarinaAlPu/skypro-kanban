@@ -3,11 +3,11 @@ import { CardWebDesign, CardResearch, CardCopywriting } from "../card/Card"
 
 export const ColumnWithoutStatus = () => {
   return (
-    <div class="main__column column">
-      <div class="column__title">
+    <div className="main__column column">
+      <div className="column__title">
         <p>Без статуса</p>
       </div>
-      <div class="cards">
+      <div className="cards">
         <CardWebDesign />
 
         <CardResearch />
@@ -24,11 +24,11 @@ export const ColumnWithoutStatus = () => {
 
 export const ColumnToDo = () => {
   return (
-    <div class="main__column">
-      <div class="column__title">
+    <div className="main__column">
+      <div className="column__title">
         <p>Нужно сделать</p>
       </div>
-      <div class="cards">
+      <div className="cards">
         <CardResearch />
       </div>
     </div>
@@ -37,11 +37,11 @@ export const ColumnToDo = () => {
 
 export const ColumnInWork = () => {
   return (
-    <div class="main__column">
-      <div class="column__title">
+    <div className="main__column">
+      <div className="column__title">
         <p>В работе</p>
       </div>
-      <div class="cards">
+      <div className="cards">
         <CardResearch/>
 
         <CardCopywriting />
@@ -54,11 +54,11 @@ export const ColumnInWork = () => {
 
 export const ColumnTesting = () => {
   return (
-    <div class="main__column">
-      <div class="column__title">
+    <div className="main__column">
+      <div className="column__title">
         <p>Тестирование</p>
       </div>
-      <div class="cards">
+      <div className="cards">
         <CardResearch />
       </div>
     </div>
@@ -67,11 +67,11 @@ export const ColumnTesting = () => {
 
 export const ColumnReady = () => {
   return (
-    <div class="main__column">
-      <div class="column__title">
+    <div className="main__column">
+      <div className="column__title">
         <p>Готово</p>
       </div>
-      <div class="cards">
+      <div className="cards">
         <CardResearch />
       </div>
     </div>
