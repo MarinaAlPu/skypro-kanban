@@ -15,7 +15,6 @@ export const ColumnWithoutStatus = ({ filteredCardsWithoutStatus }) => {
           return (
             <div className="cards__item" key={card.id}>
               <Card
-                // id={card.id}
                 topic={card.topic}
                 title={card.title}
                 date={card.date}
@@ -42,11 +41,9 @@ export const ColumnToDo = ({ filteredCardsToDo }) => {
           return (
             <div className="cards__item" key={card.id}>
               <Card
-                id={card.id}
                 topic={card.topic}
                 title={card.title}
                 date={card.date}
-              // status={card.status}
               />
             </div>
           )
@@ -67,7 +64,6 @@ export const ColumnInWork = ({ filteredCardsImWork }) => {
           return (
             <div className="cards__item" key={card.id}>
               <Card
-                id={card.id}
                 topic={card.topic}
                 title={card.title}
                 date={card.date}
@@ -91,11 +87,9 @@ export const ColumnTesting = ({ filteredCardsTesting }) => {
           return (
             <div className="cards__item" key={card.id}>
               <Card
-                id={card.id}
                 topic={card.topic}
                 title={card.title}
                 date={card.date}
-              // status={card.status}
               />
             </div>
           )
@@ -116,11 +110,9 @@ export const ColumnReady = ({ filteredCardsReady }) => {
           return (
             <div className="cards__item" key={card.id}>
               <Card
-                id={card.id}
                 topic={card.topic}
                 title={card.title}
                 date={card.date}
-              // status={card.status}
               />
             </div>
           )
