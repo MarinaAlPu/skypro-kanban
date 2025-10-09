@@ -13,12 +13,14 @@ export const ColumnWithoutStatus = ({ filteredCardsWithoutStatus }) => {
       <div className="cards">
         {filteredCardsWithoutStatus.map((card) => {
           return (
-            <Card
-              id={card.id}
-              topic={card.topic}
-              title={card.title}
-              date={card.date}
-            />
+            <div className="cards__item" key={card.id}>
+              <Card
+                // id={card.id}
+                topic={card.topic}
+                title={card.title}
+                date={card.date}
+              />
+            </div>
           )
         })}
       </div>
@@ -38,13 +40,15 @@ export const ColumnToDo = ({ filteredCardsToDo }) => {
       <div className="cards">
         {filteredCardsToDo.map((card) => {
           return (
-            <Card
-              id={card.id}
-              topic={card.topic}
-              title={card.title}
-              date={card.date}
-              status={card.status}
-            />
+            <div className="cards__item" key={card.id}>
+              <Card
+                id={card.id}
+                topic={card.topic}
+                title={card.title}
+                date={card.date}
+              // status={card.status}
+              />
+            </div>
           )
         })}
       </div>
@@ -61,12 +65,14 @@ export const ColumnInWork = ({ filteredCardsImWork }) => {
       <div className="cards">
         {filteredCardsImWork.map((card) => {
           return (
-            <Card
-              id={card.id}
-              topic={card.topic}
-              title={card.title}
-              date={card.date}
-            />
+            <div className="cards__item" key={card.id}>
+              <Card
+                id={card.id}
+                topic={card.topic}
+                title={card.title}
+                date={card.date}
+              />
+            </div>
           )
         })}
       </div>
@@ -83,13 +89,15 @@ export const ColumnTesting = ({ filteredCardsTesting }) => {
       <div className="cards">
         {filteredCardsTesting.map((card) => {
           return (
-            <Card
-              id={card.id}
-              topic={card.topic}
-              title={card.title}
-              date={card.date}
-              status={card.status}
-            />
+            <div className="cards__item" key={card.id}>
+              <Card
+                id={card.id}
+                topic={card.topic}
+                title={card.title}
+                date={card.date}
+              // status={card.status}
+              />
+            </div>
           )
         })}
       </div>
@@ -106,13 +114,15 @@ export const ColumnReady = ({ filteredCardsReady }) => {
       <div className="cards">
         {filteredCardsReady.map((card) => {
           return (
-            <Card
-              id={card.id}
-              topic={card.topic}
-              title={card.title}
-              date={card.date}
-              status={card.status}
-            />
+            <div className="cards__item" key={card.id}>
+              <Card
+                id={card.id}
+                topic={card.topic}
+                title={card.title}
+                date={card.date}
+              // status={card.status}
+              />
+            </div>
           )
         })}
       </div>
