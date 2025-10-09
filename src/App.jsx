@@ -10,6 +10,7 @@ import {Header} from './components/header/Header.jsx'
 import {PopBrowse} from './components/popups/popBrowse/PopBrowse.jsx'
 import {PopNewCard} from './components/popups/popNewCard/PopNewCard.jsx'
 // import PopUser from './components/popups/popUser/PopUser.jsx'
+import {cards} from './data.js'
 
 
 function App() {
@@ -43,7 +44,7 @@ function App() {
         {/* <!-- pop-up end--> */}
 
         <Header/>
-        <Main/>
+        <Main cards={cards}/>
 
       </div>
 
