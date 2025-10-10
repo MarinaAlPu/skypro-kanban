@@ -1,3 +1,5 @@
+export const statuses = [ "Без статуса", "Нужно сделать", "В работе", "Тестирование", "Готово" ];
+
 export const cards = [
   {
     id: 1,
