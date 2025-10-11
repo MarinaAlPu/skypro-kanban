@@ -1,19 +1,20 @@
-import { ColumnReady, ColumnTesting, ColumnInWork, ColumnToDo, ColumnWithoutStatus } from "../column/Column"
+import { statuses } from "../../data";
+import { Column } from "../column/Column"
 
-export const Main = () => {
+
+export const Main = ({ cards }) => {
+  const cardsByStatus = statuses.reduce((acc, status) => {
+    acc[status] = cards.filter((card) => card.status === status);
+    return acc;
+  }, {});
+
+
   return (
     <main className="main">
       <div className="container">
-
         <div className="main__block">
           <div className="main__content">
-            <ColumnWithoutStatus />
-            <ColumnToDo />
-            <ColumnInWork />
-            <ColumnTesting />
-            <ColumnReady />
-
-
+            {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
           </div>
         </div>
       </div>
