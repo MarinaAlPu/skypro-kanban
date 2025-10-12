@@ -1,4 +1,4 @@
-import { SDateContainer, SDateIcon, SDate } from "./Card.styled";
+import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardTheme, SCardTopic, SCardContainer } from "./Card.styled";
 
 
 export const Card = ({ topic, title, date }) => {
@@ -13,11 +13,14 @@ export const Card = ({ topic, title, date }) => {
 
 
   return (
-    <div className="cards__card card">
-      <div className="card__group">
-        <div className={`card__theme ${theme}`}>
-          <p className={`${theme}`}>{topic}</p>
-        </div>
+    // <div className="cards__card card">
+    <SCardContainer>
+      {/* <div className="card__group"> */}
+      <SCardHeader>
+        {/* <div className={`card__theme ${theme}`}> */}
+        <SCardTheme className={`card__theme ${theme}`}>
+          <SCardTopic className={`${theme}`}>{topic}</SCardTopic>
+        </SCardTheme>
         <a href="#popBrowse" target="_self">
           <div className="card__btn">
             <div></div>
@@ -25,11 +28,16 @@ export const Card = ({ topic, title, date }) => {
             <div></div>
           </div>
         </a>
-      </div>
-      <div className="card__content">
-        <a href="" target="_blank">
+      </SCardHeader>
+      {/* <div className="card__content"> */}
+      <SCardContentContainer>
+        {/* <a href="" target="_blank">
           <h3 className="card__title">{title}</h3>
-        </a>
+        </a> */}
+        <SCardContentLink href="" target="_blank">
+          {/* <SCardTitle className="card__title">{title}</SCardTitle> */}
+          <SCardTitle>{title}</SCardTitle>
+        </SCardContentLink>
         {/* <SDateContainer className="card__date"> */}
         <SDateContainer>
           <SDateIcon xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
@@ -45,7 +53,7 @@ export const Card = ({ topic, title, date }) => {
           </SDateIcon>
           <SDate>{date}</SDate>
         </SDateContainer>
-      </div>
-    </div>
+      </SCardContentContainer>
+    </SCardContainer>
   )
 }

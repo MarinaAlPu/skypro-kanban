@@ -1,6 +1,13 @@
 import styled from "styled-components";
 
 
+const themes = {
+  "Web Design": "_orange",
+  "Research": "_green",
+  "Copywriting": "_purple",
+}
+
+
 export const SDateContainer = styled.div`
   display: flex;
   align-items: center;
@@ -18,3 +25,62 @@ export const SDate = styled.p`
   color: #94A6BE;
   letter-spacing: 0.2px;
 `
+
+export const SCardContentContainer = styled.div`
+  height: 64px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+`
+
+export const SCardContentLink = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+`
+
+export const SCardTitle = styled.h3`
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #000000;
+  margin-bottom: 10px;
+`
+
+export const SCardHeader = styled.header`
+  width: 100%;
+  height: 20px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const SCardTheme = styled.div`
+  width: auto;
+  height: 20px;
+  padding: 5px 14px;
+  border-radius: 18px;
+`
+
+export const SCardTopic = styled.p`
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+`
+
+export const SCardContainer = styled.div`
+  width: 220px;
+  height: 130px;
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: stretch;
+  padding: 15px 13px 19px;
+`
+
+
+
+
