@@ -1,79 +1,147 @@
-import { CardWebDesign, CardResearch, CardCopywriting } from "../card/Card"
+import { Card } from "../card/Card";
 
 
-export const ColumnWithoutStatus = () => {
+export const Column = ({ title, cardsByStatus }) => {
   return (
     <div className="main__column column">
       <div className="column__title">
-        <p>Без статуса</p>
+        <p>{title}</p>
       </div>
       <div className="cards">
-        <CardWebDesign />
-
-        <CardResearch />
-
-        <CardWebDesign />
-
-        <CardCopywriting />
-
-        <CardWebDesign />
+        {
+          cardsByStatus[title].map((card) => {
+            return (
+              <div className="cards__item" key={card.id}>
+                <Card
+                  topic={card.topic}
+                  title={card.title}
+                  date={card.date}
+                />
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )
 }
 
-export const ColumnToDo = () => {
-  return (
-    <div className="main__column">
-      <div className="column__title">
-        <p>Нужно сделать</p>
-      </div>
-      <div className="cards">
-        <CardResearch />
-      </div>
-    </div>
-  )
-}
 
-export const ColumnInWork = () => {
-  return (
-    <div className="main__column">
-      <div className="column__title">
-        <p>В работе</p>
-      </div>
-      <div className="cards">
-        <CardResearch/>
+// export const ColumnWithoutStatus = ({ filteredCardsWithoutStatus }) => {
 
-        <CardCopywriting />
+//   return (
+//     <div className="main__column column">
+//       <div className="column__title">
+//         <p>Без статуса</p>
+//       </div>
+//       <div className="cards">
+//         {filteredCardsWithoutStatus.map((card) => {
+//           return (
+//             <div className="cards__item" key={card.id}>
+//               <Card
+//                 topic={card.topic}
+//                 title={card.title}
+//                 date={card.date}
+//               />
+//             </div>
+//           )
+//         })}
+//       </div>
+//     </div>
+//   )
+// }
 
-        <CardWebDesign />
-      </div>
-    </div>
-  )
-}
+// export const ColumnToDo = ({ filteredCardsToDo }) => {
+//   // const status = filteredCardsToDo[0].status;
 
-export const ColumnTesting = () => {
-  return (
-    <div className="main__column">
-      <div className="column__title">
-        <p>Тестирование</p>
-      </div>
-      <div className="cards">
-        <CardResearch />
-      </div>
-    </div>
-  )
-}
+//   return (
+//     <div className="main__column">
+//       <div className="column__title">
+//         <p>Нужно сделать</p>
+//         {/* <p>{status}</p> */}
+//       </div>
+//       <div className="cards">
+//         {filteredCardsToDo.map((card) => {
+//           return (
+//             <div className="cards__item" key={card.id}>
+//               <Card
+//                 topic={card.topic}
+//                 title={card.title}
+//                 date={card.date}
+//               />
+//             </div>
+//           )
+//         })}
+//       </div>
+//     </div>
+//   )
+// }
 
-export const ColumnReady = () => {
-  return (
-    <div className="main__column">
-      <div className="column__title">
-        <p>Готово</p>
-      </div>
-      <div className="cards">
-        <CardResearch />
-      </div>
-    </div>
-  )
-}
+// export const ColumnInWork = ({ filteredCardsImWork }) => {
+//   return (
+//     <div className="main__column">
+//       <div className="column__title">
+//         <p>В работе</p>
+//       </div>
+//       <div className="cards">
+//         {filteredCardsImWork.map((card) => {
+//           return (
+//             <div className="cards__item" key={card.id}>
+//               <Card
+//                 topic={card.topic}
+//                 title={card.title}
+//                 date={card.date}
+//               />
+//             </div>
+//           )
+//         })}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export const ColumnTesting = ({ filteredCardsTesting }) => {
+//   return (
+//     <div className="main__column">
+//       <div className="column__title">
+//         <p>Тестирование</p>
+//       </div>
+//       <div className="cards">
+//         {filteredCardsTesting.map((card) => {
+//           return (
+//             <div className="cards__item" key={card.id}>
+//               <Card
+//                 topic={card.topic}
+//                 title={card.title}
+//                 date={card.date}
+//               />
+//             </div>
+//           )
+//         })}
+//       </div>
+//     </div>
+//   )
+// }
+
+// export const ColumnReady = ({ filteredCardsReady }) => {
+//   return (
+//     <div className="main__column">
+//       <div className="column__title">
+//         <p>Готово</p>
+//       </div>
+//       <div className="cards">
+//         {filteredCardsReady.map((card) => {
+//           return (
+//             <div className="cards__item" key={card.id}>
+//               <Card
+//                 topic={card.topic}
+//                 title={card.title}
+//                 date={card.date}
+//               />
+//             </div>
+//           )
+//         })}
+//       </div>
+//     </div>
+//   )
+// }
