@@ -10,7 +10,6 @@ export const Card = ({ topic, title, date }) => {
 
 
   return (
-    // <div className="cards__item" key={id}>
     <div className="cards__card card">
       <div className="card__group">
         <div className={`card__theme ${theme}`}>
@@ -44,6 +43,5 @@ export const Card = ({ topic, title, date }) => {
         </div>
       </div>
     </div>
-    // </div>
   )
 }

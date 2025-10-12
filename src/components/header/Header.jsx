@@ -6,16 +6,8 @@ export const Header = () => {
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
 
   const handleClick = () => {
-    // console.log("Нажали на ссылку");
-    // const popup = document.querySelector(".header__pop-user-set");
-    // popup.style.display = "block";
-
     setIsPopUserOpen(!isPopUserOpen);
   };
-
-  // useEffect(() => {
-  //   console.log("Состояние isPopUserOpen изменилось:", isPopUserOpen);
-  // }, [isPopUserOpen]);
 
 
   return (
