@@ -882,7 +882,7 @@ body {
   z-index: 2;
 }
 
-.main {
+/* .main {
   width: 100%;
   background-color: #EAEEF6;
 }
@@ -896,7 +896,7 @@ body {
 .main__content {
   width: 100%;
   display: flex;
-}
+} */
 
 .main__column {
   width: 20%;

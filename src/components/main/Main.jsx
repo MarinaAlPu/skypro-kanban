@@ -1,5 +1,6 @@
 import { statuses } from "../../data";
-import { Column } from "../column/Column"
+import { Column } from "../column/Column";
+import { SMain } from "./Main.styled";
 
 
 export const Main = ({ cards }) => {
@@ -10,14 +11,17 @@ export const Main = ({ cards }) => {
 
 
   return (
-    <main className="main">
-      <div className="container">
-        <div className="main__block">
-          <div className="main__content">
-            {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
-          </div>
-        </div>
-      </div>
-    </main>
+    <SMain>
+      {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
+    </SMain>
+    // <main className="main">
+    //   <div className="container">
+    //     <div className="main__block">
+    //       <div className="main__content">
+    //         {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
+    //       </div>
+    //     </div>
+    //   </div>
+    // </main>
   )
 }
