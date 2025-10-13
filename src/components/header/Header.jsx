@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { PopUser } from "../popups/popUser/PopUser";
+import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SHeaderButton, SHeaderButtonLink } from "./Header.styled";
 
 
 export const Header = () => {
@@ -11,26 +12,39 @@ export const Header = () => {
 
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header__block">
-          <div className="header__logo _show _light">
-            <a href="" target="_self"><img src="images/logo.png" alt="logo" /></a>
-          </div>
-          <div className="header__logo _dark">
-            <a href="" target="_self"><img src="images/logo_dark.png" alt="logo" /></a>
-          </div>
-          <nav className="header__nav">
-            <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button>
+    // <header className="header">
+    <SHeader>
+      {/* <div className="container"> */}
+      <SHeaderContainer>
+        {/* <div className="header__block"> */}
+        <SHeaderBlock>
+          {/* <div className="header__logo _show _light"> */}
+          <SHeaderLogo className="_show _light">
+            <a href="" target="_self">
+              <SHeaderLogoLight src="images/logo.png" alt="logo" />
+            </a>
+          </SHeaderLogo>
+          {/* <div className="header__logo _dark"> */}
+          <SHeaderLogo className="_dark">
+            <a href="" target="_self">
+              <SHeaderLogoDark src="images/logo_dark.png" alt="logo" />
+            </a>
+          </SHeaderLogo>
+          {/* <nav className="header__nav"> */}
+          <SHeaderNavigation>
+            {/* <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button> */}
+            <SHeaderButton className="_hover01" id="btnMainNew">
+              <SHeaderButtonLink href="#popNewCard">Создать новую задачу</SHeaderButtonLink>
+            </SHeaderButton>
             <a href="#user-set-target" className="header__user _hover02"
               onClick={handleClick}
             >Ivan Ivanov</a>
             {/* <PopUser />
             <PopUser isPopUserOpen={isPopUserOpen} /> */}
             {isPopUserOpen && <PopUser />}
-          </nav>
-        </div>
-      </div>
-    </header >
+          </SHeaderNavigation>
+        </SHeaderBlock>
+      </SHeaderContainer>
+    </SHeader >
   );
 };
