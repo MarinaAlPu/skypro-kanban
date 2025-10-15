@@ -57,6 +57,9 @@ export const SHeaderButton = styled.button`
   line-height: 1;
   font-weight: 500;
   margin-right: 20px;
+  &:hover {
+    background-color: #33399b;
+  }
 `
 
 export const SHeaderButtonLink = styled.a`

@@ -33,7 +33,7 @@ export const Header = () => {
           {/* <nav className="header__nav"> */}
           <SHeaderNavigation>
             {/* <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button> */}
-            <SHeaderButton className="_hover01" id="btnMainNew">
+            <SHeaderButton id="btnMainNew">
               <SHeaderButtonLink href="#popNewCard">Создать новую задачу</SHeaderButtonLink>
             </SHeaderButton>
             <a href="#user-set-target" className="header__user _hover02"
