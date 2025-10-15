@@ -1,14 +1,21 @@
-import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardTheme, SCardTopic, SCardContainer } from "./Card.styled";
+import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardTopic, SCardContainer } from "./Card.styled";
 
 
 export const Card = ({ topic, title, date }) => {
-  let theme;
+  let labelColor;
+  let textColor;
   if (topic === "Web Design") {
-    theme = "_orange";
+    // labelColor = "orange";
+    labelColor = "#FFE4C2";
+    textColor = "#FF6D00";
   } else if (topic === "Research") {
-    theme = "_green";
+    // labelColor = "green";
+    labelColor = "#B4FDD1";
+    textColor = "#06B16E";
   } else if (topic === "Copywriting") {
-    theme = "_purple";
+    // labelColor = "purple";
+    labelColor = "#E9D4FF";
+    textColor = "#9A48F1";
   }
 
 
@@ -17,10 +24,12 @@ export const Card = ({ topic, title, date }) => {
     <SCardContainer>
       {/* <div className="card__group"> */}
       <SCardHeader>
-        {/* <div className={`card__theme ${theme}`}> */}
-        <SCardTheme className={`card__theme ${theme}`}>
-          <SCardTopic className={`${theme}`}>{topic}</SCardTopic>
-        </SCardTheme>
+        {/* <div className={`card__labelColor ${labelColor}`}> */}
+        {/* <SCardlabelColor className={`card__labelColor ${labelColor}`}> */}
+        <SCardLabel $labelColor={labelColor} $textColor={textColor}>
+          {/* <SCardTopic className={`${labelColor}`}>{topic}</SCardTopic> */}
+          <SCardTopic>{topic}</SCardTopic>
+        </SCardLabel>
         <a href="#popBrowse" target="_self">
           <div className="card__btn">
             <div></div>
@@ -40,7 +49,8 @@ export const Card = ({ topic, title, date }) => {
         </SCardContentLink>
         {/* <SDateContainer className="card__date"> */}
         <SDateContainer>
-          <SDateIcon xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none">
+          {/* <SDateIcon xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 13 13" fill="none"> */}
+          <SDateIcon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 13">
             <g clipPath="url(#clip0_1_415)">
               <path d="M10.5625 2.03125H2.4375C1.7644 2.03125 1.21875 2.5769 1.21875 3.25V10.5625C1.21875 11.2356 1.7644 11.7812 2.4375 11.7812H10.5625C11.2356 11.7812 11.7812 11.2356 11.7812 10.5625V3.25C11.7812 2.5769 11.2356 2.03125 10.5625 2.03125Z" stroke="#94A6BE" strokeWidth="0.8" strokeLinejoin="round" />
               <path d="M11.7812 4.0625H1.21875M3.25 1.21875V2.03125V1.21875ZM9.75 1.21875V2.03125V1.21875Z" stroke="#94A6BE" strokeWidth="0.8" strokeLinecap="round" strokeLinejoin="round" />

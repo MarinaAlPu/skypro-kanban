@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 
-const themes = {
-  "Web Design": "_orange",
-  "Research": "_green",
-  "Copywriting": "_purple",
-}
+// const labelColors = {
+//   "Web Design": "_orange",
+//   "Research": "_green",
+//   "Copywriting": "_purple",
+// }
 
 
 export const SDateContainer = styled.div`
@@ -16,6 +16,8 @@ export const SDateContainer = styled.div`
 
 export const SDateIcon = styled.svg`
   width: 13px;
+  height: 13px;
+  fill: "none";
 `
 
 export const SDate = styled.p`
@@ -56,11 +58,17 @@ export const SCardHeader = styled.header`
   justify-content: space-between;
 `
 
-export const SCardTheme = styled.div`
+export const SCardLabel = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
+  background-color: ${(props) => {
+    return props.$labelColor
+  }};
+  color: ${(props) => {
+    return props.$textColor
+  }};
 `
 
 export const SCardTopic = styled.p`
