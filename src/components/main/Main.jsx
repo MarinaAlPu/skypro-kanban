@@ -20,16 +20,5 @@ export const Main = ({ cards }) => {
         </SBlock>
       </SContainer>
     </SMain>
-
-
-    // <main className="main">
-    //   <div className="container">
-    //     <div className="main__block">
-    //       <div className="main__content">
-    //         {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
-    //       </div>
-    //     </div>
-    //   </div>
-    // </main>
   )
 }

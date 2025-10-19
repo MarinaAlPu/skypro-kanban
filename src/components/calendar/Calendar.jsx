@@ -3,17 +3,11 @@ import { CalendarContainer, CalendarTitle, CalendarBlock, CalendarNavigation, Ca
 
 export const Calendar = () => {
   return (
-    // <div className="pop-new-card__calendar calendar">
     <CalendarContainer>
-      {/* <p className="calendar__ttl subttl">Даты</p> */}
       <CalendarTitle>Даты</CalendarTitle>
-      {/* <div className="calendar__block"> */}
       <CalendarBlock>
-        {/* <div className="calendar__nav"> */}
         <CalendarNavigation>
-          {/* <div className="calendar__month">Сентябрь 2023</div> */}
           <CalendarMonth>Сентябрь 2023</CalendarMonth>
-          {/* <div className="nav__actions"> */}
           <CalendarNavActions>
             <CalendarNavAction data-action="prev">
               <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11">
@@ -27,74 +21,56 @@ export const Calendar = () => {
             </CalendarNavAction>
           </CalendarNavActions>
         </CalendarNavigation>
-        {/* <div className="calendar__content"> */}
         <CalendarContent>
           <CalendarDaysNames>
-            {/* <div className="calendar__day-name">пн</div> */}
             <CalendarDayName>пн</CalendarDayName>
             <CalendarDayName>вт</CalendarDayName>
             <CalendarDayName>ср</CalendarDayName>
             <CalendarDayName>чт</CalendarDayName>
             <CalendarDayName>пт</CalendarDayName>
-            {/* <div className="calendar__day-name -weekend-">сб</div> */}
             <CalendarDayNameWeekend>сб</CalendarDayNameWeekend>
             <CalendarDayNameWeekend>вс</CalendarDayNameWeekend>
           </CalendarDaysNames>
-          {/* <div className="calendar__cells"> */}
           <CalendarCells>
-            {/* <div className="calendar__cell _other-month">28</div> */}
             <CalendarCellOtherMonth>28</CalendarCellOtherMonth>
             <CalendarCellOtherMonth>29</CalendarCellOtherMonth>
             <CalendarCellOtherMonth>30</CalendarCellOtherMonth>
-            {/* <div className="calendar__cell _cell-day">31</div> */}
             <CalendarCellDay>31</CalendarCellDay>
             <CalendarCellDay>1</CalendarCellDay>
-            {/* <div className="calendar__cell _cell-day _weekend">2</div> */}
             <CalendarCellDayWeekend>2</CalendarCellDayWeekend>
             <CalendarCellDayWeekend>3</CalendarCellDayWeekend>
-            {/* <div className="calendar__cell _cell-day">4</div> */}
             <CalendarCellDay>4</CalendarCellDay>
             <CalendarCellDay>5</CalendarCellDay>
             <CalendarCellDay>6</CalendarCellDay>
             <CalendarCellDay>7</CalendarCellDay>
-            {/* <div className="calendar__cell _cell-day _current">8</div> */}
             <CalendarCellDayCurrent>8</CalendarCellDayCurrent>
-            {/* <div className="calendar__cell _cell-day _weekend">9</div> */}
             <CalendarCellDayWeekend>9</CalendarCellDayWeekend>
             <CalendarCellDayWeekend>10</CalendarCellDayWeekend>
-            {/* <div className="calendar__cell _cell-day">11</div> */}
             <CalendarCellDay>11</CalendarCellDay>
             <CalendarCellDay>12</CalendarCellDay>
             <CalendarCellDay>13</CalendarCellDay>
             <CalendarCellDay>14</CalendarCellDay>
             <CalendarCellDay>15</CalendarCellDay>
-            {/* <div className="calendar__cell _cell-day _weekend">16</div> */}
             <CalendarCellDayWeekend>16</CalendarCellDayWeekend>
             <CalendarCellDayWeekend>17</CalendarCellDayWeekend>
-            {/* <div className="calendar__cell _cell-day">18</div> */}
             <CalendarCellDay>18</CalendarCellDay>
             <CalendarCellDay>19</CalendarCellDay>
             <CalendarCellDay>20</CalendarCellDay>
             <CalendarCellDay>21</CalendarCellDay>
             <CalendarCellDay>22</CalendarCellDay>
-            {/* <div className="calendar__cell _cell-day _weekend">23</div> */}
             <CalendarCellDayWeekend>23</CalendarCellDayWeekend>
             <CalendarCellDayWeekend>24</CalendarCellDayWeekend>
-            {/* <div className="calendar__cell _cell-day">25</div> */}
             <CalendarCellDay>25</CalendarCellDay>
             <CalendarCellDay>26</CalendarCellDay>
             <CalendarCellDay>27</CalendarCellDay>
             <CalendarCellDay>28</CalendarCellDay>
             <CalendarCellDay>29</CalendarCellDay>
-            {/* <div className="calendar__cell _cell-day _weekend">30</div> */}
             <CalendarCellDayWeekend>30</CalendarCellDayWeekend>
-            {/* <div className="calendar__cell _other-month _weekend">1</div> */}
             <CalendarCellOtherMonthWeekend>1</CalendarCellOtherMonthWeekend>
           </CalendarCells>
         </CalendarContent>
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
-        {/* <div className="calendar__period"> */}
         <CalendarPeriod>
           <CalendarDateEnd>Выберите срок исполнения <CalendarDateControl></CalendarDateControl>.</CalendarDateEnd>
         </CalendarPeriod>
