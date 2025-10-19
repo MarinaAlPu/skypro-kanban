@@ -1,80 +1,80 @@
-import { CalendarContainer, CalendarTitle, CalendarBlock, CalendarNavigation, CalendarMonth, CalendarNavActions, CalendarNavAction, CalendarContent, CalendarDaysNames, CalendarDayName, CalendarDayNameWeekend, CalendarCells, CalendarCellDay, CalendarCellDayWeekend, CalendarCellDayCurrent, CalendarCellOtherMonth, CalendarCellOtherMonthWeekend, CalendarPeriod, CalendarDateEnd, CalendarDateControl } from "./Calendar.styled";
+import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation, SCalendarMonth, SCalendarNavActions, SCalendarNavAction, SCalendarContent, SCalendarDaysNames, SCalendarDayName, SCalendarDayNameWeekend, SCalendarCells, SCalendarCellDay, SCalendarCellDayWeekend, SCalendarCellDayCurrent, SCalendarCellOtherMonth, SCalendarCellOtherMonthWeekend, SCalendarPeriod, SCalendarDateEnd, SCalendarDateControl } from "./Calendar.styled";
 
 
 export const Calendar = () => {
   return (
-    <CalendarContainer>
-      <CalendarTitle>Даты</CalendarTitle>
-      <CalendarBlock>
-        <CalendarNavigation>
-          <CalendarMonth>Сентябрь 2023</CalendarMonth>
-          <CalendarNavActions>
-            <CalendarNavAction data-action="prev">
+    <SCalendarContainer>
+      <SCalendarTitle>Даты</SCalendarTitle>
+      <SCalendarBlock>
+        <SCalendarNavigation>
+          <SCalendarMonth>Сентябрь 2023</SCalendarMonth>
+          <SCalendarNavActions>
+            <SCalendarNavAction data-action="prev">
               <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11">
                 <path d="M5.72945 1.95273C6.09018 1.62041 6.09018 1.0833 5.72945 0.750969C5.36622 0.416344 4.7754 0.416344 4.41218 0.750969L0.528487 4.32883C-0.176162 4.97799 -0.176162 6.02201 0.528487 6.67117L4.41217 10.249C4.7754 10.5837 5.36622 10.5837 5.72945 10.249C6.09018 9.9167 6.09018 9.37959 5.72945 9.04727L1.87897 5.5L5.72945 1.95273Z" />
               </svg>
-            </CalendarNavAction>
-            <CalendarNavAction data-action="next">
+            </SCalendarNavAction>
+            <SCalendarNavAction data-action="next">
               <svg xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11">
                 <path d="M0.27055 9.04727C-0.0901833 9.37959 -0.0901832 9.9167 0.27055 10.249C0.633779 10.5837 1.2246 10.5837 1.58783 10.249L5.47151 6.67117C6.17616 6.02201 6.17616 4.97799 5.47151 4.32883L1.58782 0.75097C1.2246 0.416344 0.633778 0.416344 0.270549 0.75097C-0.0901831 1.0833 -0.090184 1.62041 0.270549 1.95273L4.12103 5.5L0.27055 9.04727Z" />
               </svg>
-            </CalendarNavAction>
-          </CalendarNavActions>
-        </CalendarNavigation>
-        <CalendarContent>
-          <CalendarDaysNames>
-            <CalendarDayName>пн</CalendarDayName>
-            <CalendarDayName>вт</CalendarDayName>
-            <CalendarDayName>ср</CalendarDayName>
-            <CalendarDayName>чт</CalendarDayName>
-            <CalendarDayName>пт</CalendarDayName>
-            <CalendarDayNameWeekend>сб</CalendarDayNameWeekend>
-            <CalendarDayNameWeekend>вс</CalendarDayNameWeekend>
-          </CalendarDaysNames>
-          <CalendarCells>
-            <CalendarCellOtherMonth>28</CalendarCellOtherMonth>
-            <CalendarCellOtherMonth>29</CalendarCellOtherMonth>
-            <CalendarCellOtherMonth>30</CalendarCellOtherMonth>
-            <CalendarCellDay>31</CalendarCellDay>
-            <CalendarCellDay>1</CalendarCellDay>
-            <CalendarCellDayWeekend>2</CalendarCellDayWeekend>
-            <CalendarCellDayWeekend>3</CalendarCellDayWeekend>
-            <CalendarCellDay>4</CalendarCellDay>
-            <CalendarCellDay>5</CalendarCellDay>
-            <CalendarCellDay>6</CalendarCellDay>
-            <CalendarCellDay>7</CalendarCellDay>
-            <CalendarCellDayCurrent>8</CalendarCellDayCurrent>
-            <CalendarCellDayWeekend>9</CalendarCellDayWeekend>
-            <CalendarCellDayWeekend>10</CalendarCellDayWeekend>
-            <CalendarCellDay>11</CalendarCellDay>
-            <CalendarCellDay>12</CalendarCellDay>
-            <CalendarCellDay>13</CalendarCellDay>
-            <CalendarCellDay>14</CalendarCellDay>
-            <CalendarCellDay>15</CalendarCellDay>
-            <CalendarCellDayWeekend>16</CalendarCellDayWeekend>
-            <CalendarCellDayWeekend>17</CalendarCellDayWeekend>
-            <CalendarCellDay>18</CalendarCellDay>
-            <CalendarCellDay>19</CalendarCellDay>
-            <CalendarCellDay>20</CalendarCellDay>
-            <CalendarCellDay>21</CalendarCellDay>
-            <CalendarCellDay>22</CalendarCellDay>
-            <CalendarCellDayWeekend>23</CalendarCellDayWeekend>
-            <CalendarCellDayWeekend>24</CalendarCellDayWeekend>
-            <CalendarCellDay>25</CalendarCellDay>
-            <CalendarCellDay>26</CalendarCellDay>
-            <CalendarCellDay>27</CalendarCellDay>
-            <CalendarCellDay>28</CalendarCellDay>
-            <CalendarCellDay>29</CalendarCellDay>
-            <CalendarCellDayWeekend>30</CalendarCellDayWeekend>
-            <CalendarCellOtherMonthWeekend>1</CalendarCellOtherMonthWeekend>
-          </CalendarCells>
-        </CalendarContent>
+            </SCalendarNavAction>
+          </SCalendarNavActions>
+        </SCalendarNavigation>
+        <SCalendarContent>
+          <SCalendarDaysNames>
+            <SCalendarDayName>пн</SCalendarDayName>
+            <SCalendarDayName>вт</SCalendarDayName>
+            <SCalendarDayName>ср</SCalendarDayName>
+            <SCalendarDayName>чт</SCalendarDayName>
+            <SCalendarDayName>пт</SCalendarDayName>
+            <SCalendarDayNameWeekend>сб</SCalendarDayNameWeekend>
+            <SCalendarDayNameWeekend>вс</SCalendarDayNameWeekend>
+          </SCalendarDaysNames>
+          <SCalendarCells>
+            <SCalendarCellOtherMonth>28</SCalendarCellOtherMonth>
+            <SCalendarCellOtherMonth>29</SCalendarCellOtherMonth>
+            <SCalendarCellOtherMonth>30</SCalendarCellOtherMonth>
+            <SCalendarCellDay>31</SCalendarCellDay>
+            <SCalendarCellDay>1</SCalendarCellDay>
+            <SCalendarCellDayWeekend>2</SCalendarCellDayWeekend>
+            <SCalendarCellDayWeekend>3</SCalendarCellDayWeekend>
+            <SCalendarCellDay>4</SCalendarCellDay>
+            <SCalendarCellDay>5</SCalendarCellDay>
+            <SCalendarCellDay>6</SCalendarCellDay>
+            <SCalendarCellDay>7</SCalendarCellDay>
+            <SCalendarCellDayCurrent>8</SCalendarCellDayCurrent>
+            <SCalendarCellDayWeekend>9</SCalendarCellDayWeekend>
+            <SCalendarCellDayWeekend>10</SCalendarCellDayWeekend>
+            <SCalendarCellDay>11</SCalendarCellDay>
+            <SCalendarCellDay>12</SCalendarCellDay>
+            <SCalendarCellDay>13</SCalendarCellDay>
+            <SCalendarCellDay>14</SCalendarCellDay>
+            <SCalendarCellDay>15</SCalendarCellDay>
+            <SCalendarCellDayWeekend>16</SCalendarCellDayWeekend>
+            <SCalendarCellDayWeekend>17</SCalendarCellDayWeekend>
+            <SCalendarCellDay>18</SCalendarCellDay>
+            <SCalendarCellDay>19</SCalendarCellDay>
+            <SCalendarCellDay>20</SCalendarCellDay>
+            <SCalendarCellDay>21</SCalendarCellDay>
+            <SCalendarCellDay>22</SCalendarCellDay>
+            <SCalendarCellDayWeekend>23</SCalendarCellDayWeekend>
+            <SCalendarCellDayWeekend>24</SCalendarCellDayWeekend>
+            <SCalendarCellDay>25</SCalendarCellDay>
+            <SCalendarCellDay>26</SCalendarCellDay>
+            <SCalendarCellDay>27</SCalendarCellDay>
+            <SCalendarCellDay>28</SCalendarCellDay>
+            <SCalendarCellDay>29</SCalendarCellDay>
+            <SCalendarCellDayWeekend>30</SCalendarCellDayWeekend>
+            <SCalendarCellOtherMonthWeekend>1</SCalendarCellOtherMonthWeekend>
+          </SCalendarCells>
+        </SCalendarContent>
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
-        <CalendarPeriod>
-          <CalendarDateEnd>Выберите срок исполнения <CalendarDateControl></CalendarDateControl>.</CalendarDateEnd>
-        </CalendarPeriod>
-      </CalendarBlock>
-    </CalendarContainer>
+        <SCalendarPeriod>
+          <SCalendarDateEnd>Выберите срок исполнения <SCalendarDateControl></SCalendarDateControl>.</SCalendarDateEnd>
+        </SCalendarPeriod>
+      </SCalendarBlock>
+    </SCalendarContainer>
   )
 }

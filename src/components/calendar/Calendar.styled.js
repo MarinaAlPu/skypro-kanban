@@ -1,16 +1,16 @@
 import styled from "styled-components";
 
 
-// export const CalendarWrapper = styled.div`
+// export const SCalendarWrapper = styled.div`
 //   width: 100%;
 // `
 
-export const CalendarContainer = styled.div`
+export const SCalendarContainer = styled.div`
   width: 182px;
   margin-bottom: 20px;
 `
 
-export const CalendarTitle = styled.p`
+export const SCalendarTitle = styled.p`
   color: #000;
   font-size: 14px;
   font-weight: 600;
@@ -19,11 +19,11 @@ export const CalendarTitle = styled.p`
   padding: 0 7px;
 `
 
-export const CalendarBlock = styled.div`
+export const SCalendarBlock = styled.div`
   display: block;
 `
 
-export const CalendarNavigation = styled.div`
+export const SCalendarNavigation = styled.div`
   /* padding: 0; */
   display: block;
   width: 100%;
@@ -34,20 +34,20 @@ export const CalendarNavigation = styled.div`
   padding: 0 7px;
 `
 
-export const CalendarMonth = styled.div`
+export const SCalendarMonth = styled.div`
   color: #94A6BE;
   font-size: 14px;
   line-height: 25px;
   font-weight: 600;
 `
 
-export const CalendarNavActions = styled.div`
+export const SCalendarNavActions = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
 
-export const CalendarNavAction = styled.div`
+export const SCalendarNavAction = styled.div`
   width: 18px;
   height: 25px;
   cursor: pointer;
@@ -56,11 +56,11 @@ export const CalendarNavAction = styled.div`
   justify-content: center;
 `
 
-export const CalendarContent = styled.div`
+export const SCalendarContent = styled.div`
   margin-bottom: 12px;
 `
 
-export const CalendarDaysNames = styled.div`
+export const SCalendarDaysNames = styled.div`
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -69,7 +69,7 @@ export const CalendarDaysNames = styled.div`
   padding: 0 7px;
 `
 
-export const CalendarDayName = styled.div`
+export const SCalendarDayName = styled.div`
   color: #94A6BE;
   font-size: 10px;
   font-weight: 500;
@@ -77,7 +77,7 @@ export const CalendarDayName = styled.div`
   letter-spacing: -0.2px;
 `
 
-export const CalendarDayNameWeekend = styled.div`
+export const SCalendarDayNameWeekend = styled.div`
   color: #94A6BE;
   font-size: 10px;
   font-weight: 500;
@@ -85,14 +85,14 @@ export const CalendarDayNameWeekend = styled.div`
   letter-spacing: -0.2px;
 `
 
-export const CalendarCells = styled.div`
+export const SCalendarCells = styled.div`
   width: 182px;
   height: 126px;
   display: flex;
   flex-wrap: wrap;
 `
 
-export const CalendarCellDay = styled.div`
+export const SCalendarCellDay = styled.div`
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -112,7 +112,7 @@ export const CalendarCellDay = styled.div`
 }
 `
 
-export const CalendarCellDayWeekend = styled.div`
+export const SCalendarCellDayWeekend = styled.div`
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -132,7 +132,7 @@ export const CalendarCellDayWeekend = styled.div`
 }
 `
 
-export const CalendarCellDayCurrent = styled.div`
+export const SCalendarCellDayCurrent = styled.div`
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -153,7 +153,7 @@ export const CalendarCellDayCurrent = styled.div`
 }
 `
 
-export const CalendarCellOtherMonth = styled.div`
+export const SCalendarCellOtherMonth = styled.div`
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -170,7 +170,7 @@ export const CalendarCellOtherMonth = styled.div`
   opacity: 0;
 `
 
-export const CalendarCellOtherMonthWeekend = styled.div`
+export const SCalendarCellOtherMonthWeekend = styled.div`
   width: 22px;
   height: 22px;
   margin: 2px;
@@ -186,17 +186,17 @@ export const CalendarCellOtherMonthWeekend = styled.div`
   cursor: pointer;
 `
 
-export const CalendarPeriod = styled.div`
+export const SCalendarPeriod = styled.div`
   padding: 0 7px;
 `
 
-export const CalendarDateEnd = styled.p`
+export const SCalendarDateEnd = styled.p`
   color: #94A6BE;
   font-size: 10px;
   line-height: 1;
 `
 
-export const CalendarDateControl = styled.span`
+export const SCalendarDateControl = styled.span`
   color: #000000;
 `
 
