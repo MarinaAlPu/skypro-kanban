@@ -12,22 +12,29 @@ export const Header = () => {
 
 
   return (
+    // <header className="header">
     <SHeader>
+      {/* <div className="container"> */}
       <SHeaderContainer>
+        {/* <div className="header__block"> */}
         <SHeaderBlock>
+          {/* <div className="header__logo _show _light"> */}
           {/* <SHeaderLogo className="_show _light"> */}
           <SHeaderLogo>
             <a href="" target="_self">
               <SHeaderLogoLight src="images/logo.png" alt="logo" />
             </a>
           </SHeaderLogo>
+          {/* <div className="header__logo _dark"> */}
           {/* <SHeaderLogo className="_dark"> */}
           <SHeaderLogo>
             <a href="" target="_self">
               <SHeaderLogoDark src="images/logo_dark.png" alt="logo" />
             </a>
           </SHeaderLogo>
+          {/* <nav className="header__nav"> */}
           <SHeaderNavigation>
+            {/* <button className="header__btn-main-new _hover01" id="btnMainNew"><a href="#popNewCard">Создать новую задачу</a></button> */}
             <SHeaderButton id="btnMainNew">
               <SHeaderButtonLink href="#popNewCard">Создать новую задачу</SHeaderButtonLink>
             </SHeaderButton>
