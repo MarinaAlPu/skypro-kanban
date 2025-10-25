@@ -16,6 +16,10 @@ import { MainPage } from "../pages/Main.jsx";
 import { ExitPage } from "../pages/Exit.jsx";
 import { NewCardPage } from "../pages/NewCard.jsx";
 // import { PopBrowsePage } from "../pages/PopBrowse.jsx";
+import { EditCardPage } from "../pages/EditCard.jsx";
+import {LoginPage} from "../pages/Login.jsx";
+import {RegistrationPage} from "../pages/Registration.jsx";
+import {NotFoundPage} from "../pages/NotFound.jsx";
 
 
 export function AppRoutes() {
@@ -36,6 +40,7 @@ export function AppRoutes() {
 
         <Route path="/exit" element={<ExitPage />} />
         <Route path="/create-new-card" element={<NewCardPage />} />
+        <Route path="/edit-card" element={<EditCardPage />} />
 
         {/* <Route path="/loading" element={isLoading && <PopBrowsePage isLoading={isLoading} />} /> */}
 
@@ -44,6 +49,9 @@ export function AppRoutes() {
         {/* <Header /> */}
         <Route path="/" element={<MainPage cards={cards} />} />
 
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   )
