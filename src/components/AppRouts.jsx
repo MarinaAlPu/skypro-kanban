@@ -18,7 +18,7 @@ import { PopNewCardPage } from "../pages/PopNewCard.jsx";
 import { PopBrowsePage } from "../pages/PopBrowse.jsx";
 
 
-export function c() {
+export function AppRoutes() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
