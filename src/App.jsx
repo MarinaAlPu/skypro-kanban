@@ -1,48 +1,52 @@
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 // import reactLogo from './assets/react.svg';
 // import viteLogo from '/vite.svg';
 import './App.css';
-import { Main } from './components/main/Main.jsx';
-import { Header } from './components/header/Header.jsx';
-// import {Column} from './components/column/Column.jsx';
-// import {Card} from './components/card/Card.jsx';
-// import {Calendar} from './components/calendar/Calendar.jsx';
-import { PopBrowse } from './components/popups/popBrowse/PopBrowse.jsx';
-import { PopNewCard } from './components/popups/popNewCard/PopNewCard.jsx';
-// import PopUser from './components/popups/popUser/PopUser.jsx';
-import { PopExit } from './components/popups/popExit/PopExit.jsx';
-import { cards } from './data.js';
-import { GlobalStyle } from './components/GlobalStyles.js';
+// import { Main } from './components/main/Main.jsx';
+// import { Header } from './components/header/Header.jsx';
+// // import {Column} from './components/column/Column.jsx';
+// // import {Card} from './components/card/Card.jsx';
+// // import {Calendar} from './components/calendar/Calendar.jsx';
+// import { PopBrowse } from './components/popups/popBrowse/PopBrowse.jsx';
+// import { PopNewCard } from './components/popups/popNewCard/PopNewCard.jsx';
+// // import PopUser from './components/popups/popUser/PopUser.jsx';
+// import { PopExit } from './components/popups/popExit/PopExit.jsx';
+// import { cards } from './data.js';
+// import { GlobalStyle } from './components/GlobalStyles.js';
+import { AppRoutes } from './components/AppRouts.jsx';
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
+  return <AppRoutes />
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 3000);
-  }, [])
+  //всё переносим в AppRoutes.jsx
+  // const [isLoading, setIsLoading] = useState(true);
 
-  return (
-    <>
-      <GlobalStyle />
-      <div className="wrapper">
-        {/* <!-- pop-up start--> */}
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setIsLoading(false)
+  //   }, 3000);
+  // }, [])
 
-        < PopExit />
-        <PopNewCard />
+  // return (
+  //   <>
+  //     <GlobalStyle />
+  //     <div className="wrapper">
+  //       {/* <!-- pop-up start--> */}
 
-        {isLoading && <PopBrowse isLoading={isLoading} />}
+  //       < PopExit />
+  //       <PopNewCard />
 
-        {/* <!-- pop-up end--> */}
+  //       {isLoading && <PopBrowse isLoading={isLoading} />}
 
-        <Header />
-        <Main cards={cards} />
+  //       {/* <!-- pop-up end--> */}
 
-      </div>
-    </>
-  )
+  //       <Header />
+  //       <Main cards={cards} />
+
+  //     </div>
+  //   </>
+  // )
 }
 
 export default App
