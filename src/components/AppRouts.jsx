@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 // import {Column} from './column/Column.jsx';
 // import {Card} from './card/Card.jsx';
 // import {Calendar} from './calendar/Calendar.jsx';
-// import { PopBrowse } from './popups/popBrowse/PopBrowse.jsx';
+import { PopBrowse } from './popups/popBrowse/PopBrowse.jsx';
 // import { PopNewCard } from './popups/popNewCard/PopNewCard.jsx';
 // import PopUser from './popups/popUser/PopUser.jsx';
 // import { PopExit } from './popups/popExit/PopExit.jsx';
@@ -15,7 +15,7 @@ import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
 import { PopExitPage } from "../pages/PopExit.jsx";
 import { PopNewCardPage } from "../pages/PopNewCard.jsx";
-import { PopBrowsePage } from "../pages/PopBrowse.jsx";
+// import { PopBrowsePage } from "../pages/PopBrowse.jsx";
 
 
 export function AppRoutes() {
@@ -30,13 +30,14 @@ export function AppRoutes() {
   return (
     <>
       <GlobalStyle />
+      {isLoading && <PopBrowse isLoading={isLoading} />}
       <Routes>
         {/* <!-- pop-up start--> */}
 
         <Route path="/exit" element={<PopExitPage />} />
         <Route path="/create-new-card" element={<PopNewCardPage />} />
 
-        <Route path="/loading" element={isLoading && <PopBrowsePage isLoading={isLoading} />} />
+        {/* <Route path="/loading" element={isLoading && <PopBrowsePage isLoading={isLoading} />} /> */}
 
         {/* <!-- pop-up end--> */}
 
@@ -66,7 +67,7 @@ export function AppRoutes() {
 //         <PopNewCard />
 //         {isLoading && <PopBrowse isLoading={isLoading} />}
 //         <Header />
-//         <Route path="/" element={<MainPage cards={cards} />} />
+//         <MainPage cards={cards} />
 //       </Wrapper>
 //     </>
 //   )
