@@ -13,8 +13,8 @@ import { PopBrowse } from './popups/popBrowse/PopBrowse.jsx';
 import { cards } from '../data.js';
 import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
-import { PopExitPage } from "../pages/PopExit.jsx";
-import { PopNewCardPage } from "../pages/PopNewCard.jsx";
+import { ExitPage } from "../pages/Exit.jsx";
+import { NewCardPage } from "../pages/NewCard.jsx";
 // import { PopBrowsePage } from "../pages/PopBrowse.jsx";
 
 
@@ -34,8 +34,8 @@ export function AppRoutes() {
       <Routes>
         {/* <!-- pop-up start--> */}
 
-        <Route path="/exit" element={<PopExitPage />} />
-        <Route path="/create-new-card" element={<PopNewCardPage />} />
+        <Route path="/exit" element={<ExitPage />} />
+        <Route path="/create-new-card" element={<NewCardPage />} />
 
         {/* <Route path="/loading" element={isLoading && <PopBrowsePage isLoading={isLoading} />} /> */}
 
