@@ -12,7 +12,7 @@ export const SPageBackground = styled.div`
 
 export const SWrapper = styled.div`
   width: 368px;
-  height: 329px;
+  /* height: 329px; */
   background-color: #FFFFFF;
   border: 0.7px solid #D4DBE5;
   border-radius: 10px;
@@ -45,7 +45,8 @@ export const SFooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 7px;
+  /* gap: 7px; */
+  line-height: 150%;
 `;
 
 export const SFooterText = styled.p`
@@ -60,4 +61,19 @@ export const SFooterLink = styled.p`
   text-decoration: underline;
   color: rgba(148, 166, 190, 0.4);
   cursor: pointer;
+`;
+
+// export const SErrorMessageWrapper = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   gap: 7px;
+// `;
+
+export const SErrorMessageText = styled.p`
+  font-size: 12px;
+  font-weight: 400;
+  color: #F84D4D;
+  text-align: center;
+  line-height: 150%;
 `;
