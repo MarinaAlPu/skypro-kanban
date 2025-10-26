@@ -1,8 +1,9 @@
 import { SInput } from "./Input.styled";
 
 
-export const BaseInput = () => {
+
+export const Input = ({type, placeholder}) => {
   return (
-    <SInput />
+    <SInput type={type} placeholder={placeholder}/>
   )
 };
