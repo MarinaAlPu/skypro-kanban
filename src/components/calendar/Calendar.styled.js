@@ -54,6 +54,11 @@ export const SCalendarNavAction = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  /* fill: #94A6BE; */
+`
+
+export const SCalendarArrow = styled.svg`
+  fill: #94A6BE;
 `
 
 export const SCalendarContent = styled.div`
