@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { PopUser } from "../popups/popUser/PopUser";
-import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SHeaderButton, SHeaderButtonLink } from "./Header.styled";
+import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderButton, SHeaderButtonLink, SHeaderLink } from "./Header.styled";
+import { Button } from "../button/Button";
 
 
 export const Header = () => {
@@ -28,12 +29,14 @@ export const Header = () => {
             </a>
           </SHeaderLogo>
           <SHeaderNavigation>
-            <SHeaderButton id="btnMainNew">
-              <SHeaderButtonLink href="#popNewCard">Создать новую задачу</SHeaderButtonLink>
-            </SHeaderButton>
-            <a href="#user-set-target" className="header__user _hover02"
-              onClick={handleClick}
-            >Ivan Ivanov</a>
+            {/* <SHeaderButton id="btnMainNew"> */}
+            <SButtonWrapper>
+              <Button href="#popNewCard" width="178px" type="primary" text="Создать новую задачу" disabled={false}>
+                {/* <SHeaderButtonLink >Создать новую задачу</SHeaderButtonLink> */}
+              </Button>
+            </SButtonWrapper>
+            {/* </SHeaderButton> */}
+            <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
             {/* <PopUser />
             <PopUser isPopUserOpen={isPopUserOpen} /> */}
             {isPopUserOpen && <PopUser />}
