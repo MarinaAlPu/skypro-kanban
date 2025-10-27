@@ -29,6 +29,9 @@ export const SButton = styled.button`
 export const PrimaryButton = styled(SButton)`
   background-color: #565EEF;
   width: ${({ width }) => width};
+  &:hover {
+    background-color: #33399b;
+  }
 `;
 
 export const SecondaryButton = styled(SButton)`
@@ -37,4 +40,8 @@ export const SecondaryButton = styled(SButton)`
   color: #565EEF;
   border: 0.7px solid #565EEF;
   width: ${({ width }) => width};
+  &:hover {
+    background-color: #33399b;
+    color: #FFFFFF;
+  }
 `;
