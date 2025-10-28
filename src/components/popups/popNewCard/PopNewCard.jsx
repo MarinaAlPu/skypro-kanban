@@ -71,12 +71,12 @@ export const PopNewCard = () => {
                 {/* </div> */}
               </SCategoriesWrapper>
               {/* </div> */}
+            </SContent>
               {/* <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button> */}
               <BSButtonWrapper>
                 {/* <button className="form-new__create _hover01" id="btnCreate" text="Создать задачу" type="primary" disabled={false}></button> */}
                 <Button id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
               </BSButtonWrapper>
-            </SContent>
             {/* </div> */}
           </SBlock>
           {/* </div> */}
