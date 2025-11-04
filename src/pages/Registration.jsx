@@ -5,10 +5,3 @@ export const RegistrationPage = () => {
     <Registration isSignUp/>
   )
 }
-
-
-// export const RegistrationPage = () => {
-//   return (
-//     <AuthForm isSignUp/>
-//   )
-// }

@@ -1,18 +1,15 @@
 import { SPageBackground, SWrapper, STitle, SForm, SInputWrapper, SFooterWrapper, SFooterText, SFooterLink, SErrorMessageWrapper, SErrorMessageText } from "./AuthForm.styled";
 import { Input } from "../Input/Input";
 import { Button } from "../button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export const AuthForm = ({ isSignUp, setIsAuth }) => {
   const navigate = useNavigate();
   const handleLogin = (e) => {
-    // console.log("ВЫзвали функцию handleLogin");
     e.preventDefault();
     setIsAuth(true);
-    // console.log("Поменяли состояние isAuth");
     navigate("/");
-    // console.log('Перешли по адресу "/"');
   }
 
   return (
@@ -32,7 +29,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
           {!isSignUp && (
             <SFooterWrapper>
               <SFooterText>Нужно зарегистрироваться?</SFooterText>
-              {/* <SFooterLink>Регистрируйтесь здесь</SFooterLink> */}
               <SFooterLink to="/registration">
                 Регистрируйтесь здесь
               </SFooterLink>
@@ -43,7 +39,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
             <SFooterWrapper>
               <SFooterText>
                 Уже есть аккаунт? <SFooterLink to="/login">Войдите здесь</SFooterLink>
-                {/* <SFooterLink>Войдите здесь</SFooterLink> */}
               </SFooterText>
             </SFooterWrapper>
           )}

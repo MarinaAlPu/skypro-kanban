@@ -17,33 +17,24 @@ export const Header = ({ setIsAuth }) => {
     <SHeader>
       <SHeaderContainer>
         <SHeaderBlock>
-          {/* <SHeaderLogo className="_show _light"> */}
           <SHeaderLogo>
             <a href="" target="_self">
-              {/* <SHeaderLogoLight src="images/logo.png" alt="logo" /> */}
               <SHeaderLogoLight src="/images/logo.png" alt="logo" />
             </a>
           </SHeaderLogo>
-          {/* <SHeaderLogo className="_dark"> */}
           <SHeaderLogo>
             <a href="" target="_self">
-              {/* <SHeaderLogoDark src="images/logo_dark.png" alt="logo" /> */}
               <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
             </a>
           </SHeaderLogo>
           <SHeaderNavigation>
-            {/* <SHeaderButton id="btnMainNew"> */}
             <SButtonWrapper>
               <Link to="/card/add">
                 <Button href="#popNewCard" width="178px" type="primary" text="Создать новую задачу" disabled={false}>
-                  {/* <SHeaderButtonLink >Создать новую задачу</SHeaderButtonLink> */}
                 </Button>
               </Link>
             </SButtonWrapper>
-            {/* </SHeaderButton> */}
             <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
-            {/* <PopUser />
-            <PopUser isPopUserOpen={isPopUserOpen} /> */}
             {isPopUserOpen && <PopUser />}
           </SHeaderNavigation>
         </SHeaderBlock>
