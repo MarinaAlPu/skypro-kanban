@@ -70,7 +70,8 @@ export const SHeaderButtonLink = styled.a`
   color: #FFFFFF;
 `;
 
-export const SHeaderLink = styled.a`
+export const SHeaderLink = styled.div`
+  cursor: pointer;
   height: 20px;
   display: flex;
   flex-wrap: nowrap;

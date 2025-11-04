@@ -6,7 +6,7 @@ import { Content } from "../content/Content";
 import { SWrapper } from "./Main.styled";
 
 
-export const Main = ({ cards }) => {
+export const Main = ({ setIsAuth, cards, isAuth }) => {
   // const cardsByStatus = statuses.reduce((acc, status) => {
   //   acc[status] = cards.filter((card) => card.status === status);
   //   return acc;
@@ -14,7 +14,7 @@ export const Main = ({ cards }) => {
 
   return (
     <SWrapper>
-      <Header />
+      <Header setIsAuth={setIsAuth}/>
       <Content cards={cards} />
     </SWrapper>
 

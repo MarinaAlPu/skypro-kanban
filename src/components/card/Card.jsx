@@ -1,7 +1,8 @@
-import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardTopic, SCardContainer } from "./Card.styled";
+import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardButton, SCardButtonPoint, SCardTopic, SCardContainer } from "./Card.styled";
+import { Link } from "react-router-dom";
 
 
-export const Card = ({ topic, title, date }) => {
+export const Card = ({ id, topic, title, date }) => {
   let labelColor;
   let textColor;
   if (topic === "Web Design") {
@@ -25,13 +26,27 @@ export const Card = ({ topic, title, date }) => {
         <SCardLabel $labelColor={labelColor} $textColor={textColor}>
           <SCardTopic>{topic}</SCardTopic>
         </SCardLabel>
-        <a href="#popBrowse" target="_self">
+
+        {/* <a href="#popBrowse" target="_self">
           <div className="card__btn">
             <div></div>
             <div></div>
             <div></div>
           </div>
-        </a>
+        </a> */}
+
+        {/* <Link to="/">
+          <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
+        </Link> */}
+
+        <Link to={`/card/${id}`}>
+          <SCardButton>
+            <SCardButtonPoint></SCardButtonPoint>
+            <SCardButtonPoint></SCardButtonPoint>
+            <SCardButtonPoint></SCardButtonPoint>
+          </SCardButton>
+        </Link>
+
       </SCardHeader>
       <SCardContentContainer>
         <SCardContentLink href="" target="_blank">

@@ -41,7 +41,7 @@ export const SBlock = styled.div`
   background-color: #FFFFFF;
   max-width: 370px;
   width: 100%;
-  padding: 50px 60px;
+  padding: 50px 28.5px;
   border-radius: 10px;
   border: 0.7px solid #D4DBE5;
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
@@ -59,11 +59,11 @@ export const STitle = styled.div`
   font-size: 20px;
   font-weight: 700;
   line-height: 30px;
-  /* letter-spacing: -0.4px;
-  margin-bottom: 20px; */
+  letter-spacing: -0.4px;
+  margin-bottom: 20px;
   `;
 
-export const SForm = styled.form`
+export const SForm = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;

@@ -1,4 +1,4 @@
-import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardTopic, SCardContainer } from "./Card.styled";
+import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardButton, SCardButtonPoint, SCardTopic, SCardContainer } from "./Card.styled";
 
 
 export const Card = ({ topic, title, date }) => {
@@ -30,13 +30,23 @@ export const Card = ({ topic, title, date }) => {
           {/* <SCardTopic className={`${labelColor}`}>{topic}</SCardTopic> */}
           <SCardTopic>{topic}</SCardTopic>
         </SCardLabel>
-        <a href="#popBrowse" target="_self">
+
+        {/* <a href="#popBrowse" target="_self">
           <div className="card__btn">
             <div></div>
             <div></div>
             <div></div>
           </div>
-        </a>
+        </a> */}
+        
+        <Link to="/card/:id">
+          <SCardButton>
+            <SCardButtonPoint></SCardButtonPoint>
+            <SCardButtonPoint></SCardButtonPoint>
+            <SCardButtonPoint></SCardButtonPoint>
+          </SCardButton>
+        </Link>
+
       </SCardHeader>
       {/* <div className="card__content"> */}
       <SCardContentContainer>

@@ -1,6 +1,9 @@
 // import styled from "styled-components";
 // import { Header } from "../components/header/Header";
 import { Main } from "../components/main/Main";
+import { Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Loader } from "../components/loader/Loader";
 
 
 // const Wrapper = styled.div`
@@ -11,11 +14,25 @@ import { Main } from "../components/main/Main";
 //   background-color: #F1F1F1;
 // `;
 
-export const MainPage = ({ cards }) => {
+export const MainPage = ({ setIsAuth, cards }) => {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000);
+  }, [])
+
   return (
-    <Main cards={cards} />
+    <>
+      {isLoading && <Loader isLoading={isLoading} />}
+      <Main setIsAuth={setIsAuth} cards={cards} />
+      <Outlet />
+    </>
   )
 }
+
+
 // export const MainPage = ({ cards }) => {
 //   return (
 //     <Wrapper>

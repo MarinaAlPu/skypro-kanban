@@ -1,7 +1,14 @@
-import { AuthForm } from "../components/authForm/AuthForm";
+import { Registration } from "../components/Registration";
 
 export const RegistrationPage = () => {
   return (
-    <AuthForm />
+    <Registration isSignUp/>
   )
 }
+
+
+// export const RegistrationPage = () => {
+//   return (
+//     <AuthForm isSignUp/>
+//   )
+// }

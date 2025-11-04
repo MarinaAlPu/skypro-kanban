@@ -1,5 +1,6 @@
 import { SWrapper, SName, SMail, SThemeButton, SThemeTitle, SThemeInput, SButtonWrapper } from "./PopUser.styled";
 import { Button } from "../../button/Button";
+import { Link } from "react-router-dom";
 
 
 export const PopUser = () => {
@@ -21,7 +22,9 @@ export const PopUser = () => {
       {/* </div> */}
       <SButtonWrapper>
         {/* <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button> */}
-        <Button text="Выйти" type="secondary" width="72px" disabled={false}><a href="#popExit"></a></Button>
+        <Link to="/exit">
+          <Button text="Выйти" type="secondary" width="72px" disabled={false}></Button>
+        </Link>
       </SButtonWrapper>
     </SWrapper>
     // </div>

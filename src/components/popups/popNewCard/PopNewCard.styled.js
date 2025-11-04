@@ -59,7 +59,7 @@ export const STitle = styled.p`
   margin-bottom: 20px;
 `;
 
-export const SXButton = styled.a`
+export const SXButton = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;

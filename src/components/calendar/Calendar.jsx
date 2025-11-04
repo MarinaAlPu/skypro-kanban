@@ -72,7 +72,7 @@ export const Calendar = () => {
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
         <SCalendarPeriod>
-          <SCalendarDateEnd>Выберите срок исполнения <SCalendarDateControl></SCalendarDateControl>.</SCalendarDateEnd>
+          <SCalendarDateEnd>Выберите срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
         </SCalendarPeriod>
       </SCalendarBlock>
     </SCalendarContainer>

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 export const SWrapper = styled.div`
   /* display: none; */
-  display: block;
+  /* display: block; */
   position: absolute;
   top: 61px;
   right: 0;

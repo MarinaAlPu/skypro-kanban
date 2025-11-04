@@ -1,67 +1,86 @@
 import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatusHide, SStatusThemeHide, SStatusGray, SStatusThemeGray, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SCategoriesThemeDownWrapper, SCategoryThemeDownTitle, SCategoriesThemeDownActive, SCategoryThemeDown, SButtonsWrapper, SButtonsGroup } from "./PopBrowse.styled";
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
-import { Link, useParams, useNavigate } from "react-router-dom";
-import { cards } from "../../../data";
-import { useEffect } from "react";
 
 
-export const PopBrowse = ({ isAuth }) => {
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!isAuth) {
-      navigate('/login');
-    }
-  });
-
-  const { id } = useParams();
-
-  const card = cards.find((card) => card.id === id);
-
+export const PopBrowse = () => {
   return (
+    // <div className="pop-browse" id="popBrowse">
     <SWrapper id="popBrowse">
+      {/* <div className="pop-browse__container"> */}
       <SContainer>
+        {/* <div className="pop-browse__block"> */}
         <SBlock>
+          {/* <div className="pop-browse__content"> */}
           <SContent>
+            {/* <div className="pop-browse__top-block"> */}
             <STopBlock>
-              {/* <STitle>Название задачи</STitle> */}
-              <STitle>{card.title}</STitle>
+              {/* <h3 className="pop-browse__ttl">Название задачи</h3> */}
+              <STitle>Название задачи</STitle>
+              {/* <div className="categories__theme theme-top _orange _active-category"> */}
               <SCategoriesThemeTop>
-                {/* <SCategoryThemeTop>Web Design</SCategoryThemeTop> */}
-                <SCategoryThemeTop>{card.topic}</SCategoryThemeTop>
+                {/* <p className="_orange">Web Design</p> */}
+                <SCategoryThemeTop>Web Design</SCategoryThemeTop>
               </SCategoriesThemeTop>
+              {/* </div> */}
             </STopBlock>
+            {/* </div> */}
+            {/* <div className="pop-browse__status status"> */}
             <SStatusesWrapper>
+              {/* <p className="status__p subttl">Статус</p> */}
               <SStatusesTitle>Статус</SStatusesTitle>
+              {/* <div className="status__themes"> */}
               <SStatusesContent>
+                {/* <div className="status__theme _hide"> */}
                 <SStatusHide>
-                  {/* <SStatusThemeHide>Без статуса</SStatusThemeHide> */}
-                  <SStatusThemeHide>{card.status}</SStatusThemeHide>
+                  {/* <p>Без статуса</p> */}
+                  <SStatusThemeHide>Без статуса</SStatusThemeHide>
                 </SStatusHide>
-                {/* <SStatusGray>
+                {/* </div> */}
+                {/* <div className="status__theme _gray"> */}
+                <SStatusGray>
+                  {/* <p class="_gray">Нужно сделать</p> */}
                   <SStatusThemeGray>Нужно сделать</SStatusThemeGray>
                 </SStatusGray>
+                {/* </div> */}
+                {/* <div className="status__theme _hide"> */}
                 <SStatusHide>
+                  {/* <p>В работе</p> */}
                   <SStatusThemeHide>В работе</SStatusThemeHide>
                 </SStatusHide>
+                {/* </div> */}
+                {/* <div className="status__theme _hide"> */}
                 <SStatusHide>
+                  {/* <p>Тестирование</p> */}
                   <SStatusThemeHide>Тестирование</SStatusThemeHide>
                 </SStatusHide>
+                {/* </div> */}
+                {/* <div className="status__theme _hide"> */}
                 <SStatusHide>
+                  {/* <p>Готово</p> */}
                   <SStatusThemeHide>Готово</SStatusThemeHide>
-                </SStatusHide> */}
+                </SStatusHide>
+                {/* </div> */}
               </SStatusesContent>
+              {/* </div> */}
             </SStatusesWrapper>
+            {/* </div> */}
 
 
+            {/* <div className="pop-browse__wrap"> */}
             <SFormWrapper>
+              {/* <form className="pop-browse__form form-browse" id="formBrowseCard" action="#"> */}
               <SForm className="form-browse" id="formBrowseCard" action="#">
+                {/* <div className="form-browse__block"> */}
                 <SFormBlock>
+                  {/* <label htmlFor="textArea01" className="subttl">Описание задачи</label> */}
                   <SFormLabel htmlFor="textArea01">Описание задачи</SFormLabel>
+                  {/* <textarea className="form-browse__area" name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></textarea> */}
                   <SFormText name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></SFormText>
                 </SFormBlock>
+                {/* </div> */}
               </SForm>
+              {/* </form> */}
 
               {/* <div className="pop-new-card__calendar calendar">
                 <p className="calendar__ttl subttl">Даты</p>
@@ -139,39 +158,61 @@ export const PopBrowse = ({ isAuth }) => {
               <Calendar />
 
             </SFormWrapper>
+            {/* </div> */}
 
 
+            {/* <div className="theme-down__categories theme-down"> */}
             <SCategoriesThemeDownWrapper>
+              {/* <p className="categories__p subttl">Категория</p> */}
               <SCategoryThemeDownTitle>Категория</SCategoryThemeDownTitle>
+              {/* <div className="categories__theme _orange _active-category"> */}
               <SCategoriesThemeDownActive>
+                {/* <p className="_orange">Web Design</p> */}
                 <SCategoryThemeDown>Web Design</SCategoryThemeDown>
               </SCategoriesThemeDownActive>
+              {/* </div> */}
             </SCategoriesThemeDownWrapper>
+            {/* </div> */}
 
+            {/* <div className="pop-browse__btn-browse "> */}
             <SButtonsWrapper>
+              {/* <div className="btn-group"> */}
               <SButtonsGroup>
+                {/* <button className="btn-browse__edit _btn-bor _hover03"><a href="#">Редактировать задачу</a></button> */}
                 <Button text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
+                {/* <button className="btn-browse__delete _btn-bor _hover03"><a href="#">Удалить задачу</a></button> */}
                 <Button text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
               </SButtonsGroup>
-              <Link to="/">
-                <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-              </Link>
+              {/* </div> */}
+              {/* <button className="btn-browse__close _btn-bg _hover01"><a href="#">Закрыть</a></button> */}
+              <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
             </SButtonsWrapper>
+            {/* </div> */}
 
+            {/* <div className="pop-browse__btn-edit _hide"> */}
             <SButtonsWrapper>
+              {/* <div className="btn-group"> */}
               <SButtonsGroup>
+                {/* <button className="btn-edit__edit _btn-bg _hover01"><a href="#">Сохранить</a></button> */}
                 <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
+                {/* <button className="btn-edit__edit _btn-bor _hover03"><a href="#">Отменить</a></button> */}
                 <Button text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
+                {/* <button className="btn-edit__delete _btn-bor _hover03" id="btnDelete"><a href="#">Удалить задачу</a></button> */}
                 <Button id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
               </SButtonsGroup>
-              <Link to="/">
-                <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-              </Link>
+              {/* </div> */}
+              {/* <button className="btn-edit__close _btn-bg _hover01"><a href="#">Закрыть</a></button> */}
+              <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
             </SButtonsWrapper>
+            {/* </div> */}
 
           </SContent>
+          {/* </div> */}
         </SBlock>
+        {/* </div> */}
       </SContainer>
+      {/* // </div> */}
     </SWrapper>
+    // </div>
   );
 };

@@ -1,11 +1,22 @@
 import { Calendar } from "../../calendar/Calendar";
 import { SPageBackground, SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapper, SFormNewCard, SFormBlock, SFormTitle, SFormInput, SFormDescribe, SCategoriesWrapper, SCategoriesTitle, SCategoriesThemesWrapper, SCategoriesThemeContainerOrange, SCategoriesThemeOrange, SCategoriesThemeContainerGreen, SCategoriesThemeGreen, SCategoriesThemeContainerPurple, SCategoriesThemePurple, BSButtonWrapper } from "./PopNewCard.styled";
 import { Button } from "../../button/Button";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 
-export const PopNewCard = () => {
-  return (
-    <SPageBackground>
+export const PopNewCard = ({ isAuth }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/login');
+    }
+  }, [isAuth, navigate]);
+
+  return isAuth ? (
+    // <SPageBackground>
+    <>
       {/* <div className="pop-new-card" id="popNewCard"> */}
       <SWrapper>
         {/* <div className="pop-new-card__container"> */}
@@ -17,7 +28,9 @@ export const PopNewCard = () => {
               {/* <h3 className="pop-new-card__ttl">Создание задачи</h3> */}
               <STitle>Создание задачи</STitle>
               {/* <a href="#" className="pop-new-card__close">&#10006;</a> */}
-              <SXButton href="#">&#10006;</SXButton>
+              <Link to="/">
+                <SXButton href="#">&#10006;</SXButton>
+              </Link>
               {/* <div className="pop-new-card__wrap"> */}
               <SNewCardWrapper>
                 {/* <form className="pop-new-card__form form-new" id="formNewCard" action="#"> */}
@@ -72,11 +85,11 @@ export const PopNewCard = () => {
               </SCategoriesWrapper>
               {/* </div> */}
             </SContent>
-              {/* <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button> */}
-              <BSButtonWrapper>
-                {/* <button className="form-new__create _hover01" id="btnCreate" text="Создать задачу" type="primary" disabled={false}></button> */}
-                <Button id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
-              </BSButtonWrapper>
+            {/* <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button> */}
+            <BSButtonWrapper>
+              {/* <button className="form-new__create _hover01" id="btnCreate" text="Создать задачу" type="primary" disabled={false}></button> */}
+              <Button id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
+            </BSButtonWrapper>
             {/* </div> */}
           </SBlock>
           {/* </div> */}
@@ -84,6 +97,47 @@ export const PopNewCard = () => {
         {/* </div> */}
       </SWrapper>
       {/* </div> */}
-    </SPageBackground >
-  );
+      {/* </SPageBackground > */}
+    </>
+  ) : null;
 };
+
+
+
+// export const PopNewCard = ({ isAuth }) => {
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     if (!isAuth) {
+//       navigate('/login');
+//     }
+//   }, [isAuth, navigate]);
+
+//   return isAuth ? (
+//     <>
+//       <SWrapper>
+//         <SContainer>
+//           <SBlock>
+//             <SContent>
+//               <STitle>Создание задачи</STitle>
+//               <Link to="/"><SXButton href="#">&#10006;</SXButton></Link>
+//               <SNewCardWrapper>
+//                 <SFormNewCard>
+//                   <SFormBlock>
+//                     <SFormTitle htmlFor="formTitle">Название задачи</SFormTitle>
+//                     <SFormInput type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
+//                   </SFormBlock>
+//                   <SFormBlock>
+//                     <SFormTitle htmlFor="textArea">Описание задачи</SFormTitle>
+//                     <SFormDescribe name="text" id="textArea" placeholder="Введите описание задачи..."></SFormDescribe>
+//                   </SFormBlock>
+//                 </SFormNewCard>
+//                 <Calendar />
+//               </SNewCardWrapper>
+//             </SContent>
+//           </SBlock>
+//         </SContainer>
+//       </SWrapper>
+//     </>
+//   ) : null;
+// };
