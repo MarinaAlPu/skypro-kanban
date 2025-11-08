@@ -1,14 +1,22 @@
+import { SWrapper, SName, SMail, SThemeButton, SThemeTitle, SThemeInput, SButtonWrapper } from "./PopUser.styled";
+import { Button } from "../../button/Button";
+import { Link } from "react-router-dom";
+
+
 export const PopUser = () => {
   return (
-    <div className="header__pop-user-set pop-user-set" id="user-set-target">
-      {/* <!-- <a href="">x</a> --> */}
-      <p className="pop-user-set__name">Ivan Ivanov</p>
-      <p className="pop-user-set__mail">ivan.ivanov@gmail.com</p>
-      <div className="pop-user-set__theme">
-        <p>Темная тема</p>
-        <input type="checkbox" className="checkbox" name="checkbox" />
-      </div>
-      <button type="button" className="_hover03"><a href="#popExit">Выйти</a></button>
-    </div>
+    <SWrapper id="user-set-target">
+      <SName>Ivan Ivanov</SName>
+      <SMail>ivan.ivanov@gmail.com</SMail>
+      <SThemeButton>
+        <SThemeTitle>Темная тема</SThemeTitle>
+        <SThemeInput type="checkbox" name="checkbox" />
+      </SThemeButton>
+      <SButtonWrapper>
+        <Link to="/exit">
+          <Button text="Выйти" type="secondary" width="72px" disabled={false}></Button>
+        </Link>
+      </SButtonWrapper>
+    </SWrapper>
   )
 }

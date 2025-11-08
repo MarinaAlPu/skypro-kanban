@@ -1,44 +1,63 @@
 import { Calendar } from "../../calendar/Calendar";
+import { SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapper, SFormNewCard, SFormBlock, SFormTitle, SFormInput, SFormDescribe, SCategoriesWrapper, SCategoriesTitle, SCategoriesThemesWrapper, SCategoriesThemeContainerOrange, SCategoriesThemeOrange, SCategoriesThemeContainerGreen, SCategoriesThemeGreen, SCategoriesThemeContainerPurple, SCategoriesThemePurple, BSButtonWrapper } from "./PopNewCard.styled";
+import { Button } from "../../button/Button";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
-export const PopNewCard = () => {
-  return (
-    <div className="pop-new-card" id="popNewCard">
-      <div className="pop-new-card__container">
-        <div className="pop-new-card__block">
-          <div className="pop-new-card__content">
-            <h3 className="pop-new-card__ttl">Создание задачи</h3>
-            <a href="#" className="pop-new-card__close">&#10006;</a>
-            <div className="pop-new-card__wrap">
-              <form className="pop-new-card__form form-new" id="formNewCard" action="#">
-                <div className="form-new__block">
-                  <label htmlFor="formTitle" className="subttl">Название задачи</label>
-                  <input className="form-new__input" type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
-                </div>
-                <div className="form-new__block">
-                  <label htmlFor="textArea" className="subttl">Описание задачи</label>
-                  <textarea className="form-new__area" name="text" id="textArea" placeholder="Введите описание задачи..."></textarea>
-                </div>
-              </form>
-              <Calendar/>
-            </div>
-            <div className="pop-new-card__categories categories">
-              <p className="categories__p subttl">Категория</p>
-              <div className="categories__themes">
-                <div className="categories__theme _orange _active-category">
-                  <p className="_orange">Web Design</p>
-                </div>
-                <div className="categories__theme _green">
-                  <p className="_green">Research</p>
-                </div>
-                <div className="categories__theme _purple">
-                  <p className="_purple">Copywriting</p>
-                </div>
-              </div>
-            </div>
-            <button className="form-new__create _hover01" id="btnCreate">Создать задачу</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+
+export const PopNewCard = ({ isAuth }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuth) {
+      navigate('/login');
+    }
+  }, [isAuth, navigate]);
+
+  return isAuth ? (
+    <SWrapper>
+      <SContainer>
+        <SBlock>
+          <SContent>
+            <STitle>Создание задачи</STitle>
+            <Link to="/">
+              <SXButton href="#">&#10006;</SXButton>
+            </Link>
+            <SNewCardWrapper>
+              <SFormNewCard>
+                <SFormBlock>
+                  <SFormTitle htmlFor="formTitle">Название задачи</SFormTitle>
+                  <SFormInput type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
+                </SFormBlock>
+                <SFormBlock>
+                  <SFormTitle htmlFor="textArea">Описание задачи</SFormTitle>
+                  <SFormDescribe name="text" id="textArea" placeholder="Введите описание задачи..."></SFormDescribe>
+                </SFormBlock>
+              </SFormNewCard>
+              <Calendar />
+            </SNewCardWrapper>
+            <SCategoriesWrapper>
+              <SCategoriesTitle>Категория</SCategoriesTitle>
+              <SCategoriesThemesWrapper>
+                <SCategoriesThemeContainerOrange>
+                  <SCategoriesThemeOrange>Web Design</SCategoriesThemeOrange>
+                </SCategoriesThemeContainerOrange>
+                {/* </div> */}
+                <SCategoriesThemeContainerGreen>
+                  <SCategoriesThemeGreen>Research</SCategoriesThemeGreen>
+                </SCategoriesThemeContainerGreen>
+                {/* </div> */}
+                <SCategoriesThemeContainerPurple>
+                  <SCategoriesThemePurple>Copywriting</SCategoriesThemePurple>
+                </SCategoriesThemeContainerPurple>
+              </SCategoriesThemesWrapper>
+            </SCategoriesWrapper>
+          </SContent>
+          <BSButtonWrapper>
+            <Button id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
+          </BSButtonWrapper>
+        </SBlock>
+      </SContainer>
+    </SWrapper>
+  ) : null;
 };

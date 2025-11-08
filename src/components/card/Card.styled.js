@@ -71,6 +71,22 @@ export const SCardLabel = styled.div`
   }};
 `
 
+export const SCardButton = styled.div`
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 2px;
+`
+
+export const SCardButtonPoint = styled.div`
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: #94A6BE;
+`
+
 export const SCardTopic = styled.p`
   font-size: 10px;
   font-weight: 600;

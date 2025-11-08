@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { PopUser } from "../popups/popUser/PopUser";
-import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SHeaderButton, SHeaderButtonLink } from "./Header.styled";
+import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderButton, SHeaderButtonLink, SHeaderLink } from "./Header.styled";
+import { Button } from "../button/Button";
+import { Link } from "react-router-dom";
 
 
-export const Header = () => {
+export const Header = ({ setIsAuth }) => {
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
 
   const handleClick = () => {
@@ -15,27 +17,24 @@ export const Header = () => {
     <SHeader>
       <SHeaderContainer>
         <SHeaderBlock>
-          {/* <SHeaderLogo className="_show _light"> */}
           <SHeaderLogo>
             <a href="" target="_self">
-              <SHeaderLogoLight src="images/logo.png" alt="logo" />
+              <SHeaderLogoLight src="/images/logo.png" alt="logo" />
             </a>
           </SHeaderLogo>
-          {/* <SHeaderLogo className="_dark"> */}
           <SHeaderLogo>
             <a href="" target="_self">
-              <SHeaderLogoDark src="images/logo_dark.png" alt="logo" />
+              <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
             </a>
           </SHeaderLogo>
           <SHeaderNavigation>
-            <SHeaderButton id="btnMainNew">
-              <SHeaderButtonLink href="#popNewCard">Создать новую задачу</SHeaderButtonLink>
-            </SHeaderButton>
-            <a href="#user-set-target" className="header__user _hover02"
-              onClick={handleClick}
-            >Ivan Ivanov</a>
-            {/* <PopUser />
-            <PopUser isPopUserOpen={isPopUserOpen} /> */}
+            <SButtonWrapper>
+              <Link to="/card/add">
+                <Button href="#popNewCard" width="178px" type="primary" text="Создать новую задачу" disabled={false}>
+                </Button>
+              </Link>
+            </SButtonWrapper>
+            <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
             {isPopUserOpen && <PopUser />}
           </SHeaderNavigation>
         </SHeaderBlock>

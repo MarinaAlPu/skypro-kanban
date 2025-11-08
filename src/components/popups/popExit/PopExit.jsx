@@ -1,19 +1,34 @@
-export const PopExit = () => {
+import { SWrapper, SContainer, SBlock, SContent, STitle, SForm, SButtonWrapper } from "./PopExit.styled";
+import { Button } from "../../button/Button";
+import { Link, useNavigate } from "react-router-dom";
+
+
+export const PopExit = ({ setIsAuth }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    setIsAuth(false);
+    navigate("/login");
+  };
+
   return (
-    <div className="pop-exit" id="popExit">
-      <div className="pop-exit__container">
-        <div className="pop-exit__block">
-          <div className="pop-exit__ttl">
-            <h2>Выйти из аккаунта?</h2>
-          </div>
-          <form className="pop-exit__form" id="formExit" action="#">
-            <div className="pop-exit__form-group">
-              <button className="pop-exit__exit-yes _hover01" id="exitYes"><a href="modal/signin.html">Да, выйти</a> </button>
-              <button className="pop-exit__exit-no _hover03" id="exitNo"><a href="main.html">Нет, остаться</a> </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <SWrapper>
+      <SContainer>
+        <SBlock>
+          <SContent>
+            <STitle>Выйти из аккаунта?</STitle>
+            <SForm >
+              <SButtonWrapper>
+                <Button onClick={handleLogout} width="153px" text="Да, выйти" type="primary" disabled={false}></Button>
+                <Link to="/">
+                  <Button width="153px" text="Нет, остаться" type="secondary" disabled={false}></Button>
+                </Link>
+              </SButtonWrapper>
+            </SForm>
+          </SContent>
+        </SBlock>
+      </SContainer>
+    </SWrapper>
   )
 }

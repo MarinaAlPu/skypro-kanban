@@ -14,6 +14,7 @@ export const Column = ({ title, cardsByStatus }) => {
             return (
               <SCardItem key={card.id}>
                 <Card
+                  id={card.id}
                   topic={card.topic}
                   title={card.title}
                   date={card.date}
