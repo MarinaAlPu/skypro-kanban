@@ -7,10 +7,10 @@ import { SButtonWrapper } from "./NotFound.styled";
 
 
 export const NotFound = ({ isAuth }) => {
-  // console.log(isAuth);
+  console.log(isAuth, " в NotFound");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleOpenMainPage = (e) => {
     e.preventDefault();
     // console.log(isAuth);
     if (!isAuth) {
@@ -43,7 +43,7 @@ export const NotFound = ({ isAuth }) => {
       <SMessage>Страница не найдена</SMessage>
       <SButtonWrapper style={{ marginTop: "50px" }}>
         <Link to="/card/add">
-          <Button onClick={handleLogin} href="#popNewCard" width="178px" type="primary" text="На главную" disabled={false}>
+          <Button onClick={handleOpenMainPage} href="#popNewCard" width="178px" type="primary" text="На главную" disabled={false}>
           </Button>
         </Link>
       </SButtonWrapper>

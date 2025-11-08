@@ -12,24 +12,24 @@ import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
 
 
-export function AppRoutes() {
-  const [isAuth, setIsAuth] = useState(false);
-
+export function AppRoutes({isAuth, setIsAuth}) {
+  // const [isAuth, setIsAuth] = useState(false);
+  console.log(isAuth, " в AppRoutes");
   return (
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute isAuth={isAuth}/>}>
+        <Route element={<PrivateRoute isAuth={isAuth} />}>
           <Route path="/" element={<MainPage setIsAuth={setIsAuth} cards={cards} />} >
-            <Route path="/card/add" element={<NewCardPage isAuth={isAuth}/>} />
-            <Route path="/card/:id" element={<PopBrowsePage isAuth={isAuth}/>} />
-            <Route path="/exit" element={<ExitPage setIsAuth={setIsAuth}/>} />
+            <Route path="/card/add" element={<NewCardPage isAuth={isAuth} />} />
+            <Route path="/card/:id" element={<PopBrowsePage isAuth={isAuth} />} />
+            <Route path="/exit" element={<ExitPage setIsAuth={setIsAuth} />} />
           </Route>
         </Route>
 
-        <Route path="/login" element={<LoginPage setIsAuth={setIsAuth}/>} />
+        <Route path="/login" element={<LoginPage setIsAuth={setIsAuth} />} />
         <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="*" element={<NotFoundPage isAuth={isAuth}/>} />
+        <Route path="*" element={<NotFoundPage isAuth={isAuth} />} />
       </Routes>
     </>
   )
