@@ -9,6 +9,7 @@ export const PopExit = ({ setIsAuth }) => {
   const handleLogout = (e) => {
     e.preventDefault();
     setIsAuth(false);
+    localStorage.removeItem("userInfo");
     navigate("/login");
   };
 
