@@ -12,6 +12,7 @@ export const Content = ({ cards, error, tasks }) => {
 
   return (
     <SContent>
+      <p>{error}</p>
       <SContainer>
         <SBlock>
           <SData>
@@ -19,7 +20,6 @@ export const Content = ({ cards, error, tasks }) => {
           </SData>
         </SBlock>
       </SContainer>
-      <p>{error}</p> // вывод ошибки
     </SContent>
   )
 }

@@ -10,7 +10,7 @@ export async function login(userData) {
         "Content-Type": "",
       },
     });
-    console.log(data);
+    // console.log(data);
     return data.data.user;
   } catch (error) {
     throw new Error(error.response.data.error);
@@ -24,7 +24,7 @@ export async function registration({name, login, password}) {
         "Content-Type": "",
       },
     });
-    console.log(data);
+    // console.log(data);
     return data.data.user;
   } catch (error) {
     throw new Error(error.response.data.error);
