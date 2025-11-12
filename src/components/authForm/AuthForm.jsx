@@ -14,7 +14,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(true);
-  const [buttonType, setButtonType] = useState("primary");
 
   const validateForm = () => {
     const newErrors = { name: "", login: "", password: "" };
@@ -27,25 +26,18 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
-    }
-    
-    if (isSignUp && !formData.login.trim()) {
+    } else if (isSignUp && !formData.login.trim()) {
       newErrors.login = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
-    }
-    
-    if (isSignUp && !formData.password.trim()) {
+    } else if (isSignUp && !formData.password.trim()) {
       newErrors.password = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
     }
 
     // ошибки при регистрации (меньше 3 символов)
@@ -55,36 +47,19 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
-    }
-    
-    if (isSignUp && formData.login.length < 3) {
+    } else if (isSignUp && formData.login.length < 3) {
       newErrors.login = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
-    }
-    
-    if (isSignUp && formData.password.length < 3) {
+    } else if (isSignUp && formData.password.length < 3) {
       newErrors.password = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
     }
-      
-    // // ошибки в почте
-    // if (isSignUp && !formData.login.includes("@")) {
-    //   newErrors.login = true;
-    //   // setError("Заполните все поля");
-    //   setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
-    //   // isValid = false;
-    //   setIsValid(false);
-    //   setButtonType("tertiary");
-    // }
 
     // ошибки при входе (пустые поля)
     if (!isSignUp && !formData.login.trim()) {
@@ -93,16 +68,12 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
-    }
-    
-    if (!isSignUp && !formData.password.trim()) {
+    } else if (!isSignUp && !formData.password.trim()) {
       newErrors.password = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
       // isValid = false;
       setIsValid(false);
-      setButtonType("tertiary");
     }
 
     setErrors(newErrors);
@@ -115,9 +86,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     setFormData({ ...formData, [name]: value })
     setErrors({ ...errors, [name]: false });
     setError("");
-    if(validateForm()) {
-      setButtonType("primary");
-    };
   }
 
   const handleLogin = async (e) => {
@@ -137,6 +105,10 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       setError(err.message);
     }
   }
+
+  useEffect(() => {
+    validateForm();
+  }, [formData])
 
   return (
     <SPageBackground>
@@ -165,13 +137,14 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
 
           {/* {isValid ? <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={false} /> : <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="tertiary" disabled={true} />} */}
 
-          <Button 
-            text={isSignUp ? "Зарегистрироваться" : "Войти"} 
+          {/* <Button
+            text={isSignUp ? "Зарегистрироваться" : "Войти"}
             // type={isValid ? "primary" : "tertiary"} 
-            type={buttonType} 
+            type={buttonType}
             disabled={!isValid}
-          />
+          /> */}
 
+          <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
 
           {!isSignUp && (
             <SFooterWrapper>
