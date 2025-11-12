@@ -106,7 +106,7 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     }
 
     setErrors(newErrors);
-    setIsValid(true);
+    // setIsValid(true);
     return isValid;
   }
 
