@@ -14,6 +14,8 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(true);
+  const [flag, setFlag] = useState(false);
+
 
   const validateForm = () => {
     const newErrors = { name: "", login: "", password: "" };
@@ -83,9 +85,10 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value })
+    setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: false });
     setError("");
+    setFlag(true);
   }
 
   const handleLogin = async (e) => {
@@ -107,7 +110,9 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   }
 
   useEffect(() => {
-    validateForm();
+    if (flag) {
+      validateForm();
+    }
   }, [formData])
 
   return (
