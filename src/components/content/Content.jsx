@@ -3,7 +3,7 @@ import { Column } from "../column/Column";
 import { SContent, SContainer, SBlock, SData } from "./Content.styled";
 
 
-export const Content = ({ cards }) => {
+export const Content = ({ cards, error, tasks }) => {
   const cardsByStatus = statuses.reduce((acc, status) => {
     acc[status] = cards.filter((card) => card.status === status);
     return acc;
@@ -12,6 +12,7 @@ export const Content = ({ cards }) => {
 
   return (
     <SContent>
+      <p>{error}</p>
       <SContainer>
         <SBlock>
           <SData>

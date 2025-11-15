@@ -2,8 +2,14 @@ import { SInput } from "./Input.styled";
 
 
 
-export const Input = ({type, placeholder}) => {
+export const Input = ({ type, placeholder, name, error, onChange }) => {
   return (
-    <SInput type={type} placeholder={placeholder}/>
+    <SInput
+      type={type}
+      placeholder={placeholder}
+      name={name}
+      $error={error}
+      onChange={onChange}
+    />
   )
 };
