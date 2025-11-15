@@ -14,7 +14,7 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(true);
-  const [flag, setFlag] = useState(false);
+  // const [flag, setFlag] = useState(false);
 
 
   const validateForm = () => {
@@ -88,7 +88,7 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: false });
     setError("");
-    setFlag(true);
+    // setFlag(true);
   }
 
   const handleLogin = async (e) => {
@@ -109,11 +109,11 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     }
   }
 
-  useEffect(() => {
-    if (flag) {
-      validateForm();
-    }
-  }, [formData])
+  // useEffect(() => {
+  //   if (flag) {
+  //     validateForm();
+  //   }
+  // }, [formData])
 
   return (
     <SPageBackground>
@@ -150,7 +150,8 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
           /> */}
 
           <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
-
+          {/* <Button onClick={validateForm()} text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} /> */}
+          
           {!isSignUp && (
             <SFooterWrapper>
               <SFooterText>Нужно зарегистрироваться?</SFooterText>

@@ -43,6 +43,12 @@ export const MainPage = ({ setIsAuth, cards }) => {
     getTasks();
   }, [getTasks]);
 
+  // const [cardsArrState, setCardsArrState] = useState(cards);
+
+  // const addTask = (newTask) => {
+  //   setCardsArrState((prevTasks) => [...prevTasks, newTask]);
+  // }
+
   return (
     <>
       {isLoading && <Loader isLoading={isLoading} />}

@@ -18,20 +18,23 @@ export async function fetchTasks({ token }) {
 }
 
 // let task = {
-//   "title": "Новая задача 2!",
-//   "topic": "Research",
-//   "status": "Без статуса",
-//   "description": "Подробное описание задачи",
-//   "date": "2024-01-07T16:26:18.179Z",
+// "title": "Новая задача 2!",
+// "topic": "Research",
+// "status": "Без статуса",
+// "description": "Подробное описание задачи",
+// "date": "2024-01-07T16:26:18.179Z",
 // }
 
 export async function postTask({ token, task }) {
+  const body = JSON.stringify(task);
+  console.log(body);
   try {
     const data = await axios.post(API_URL, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": ""
       },
+      body: JSON.stringify(task)
     });
     console.log(data);
     return data.data.cards;

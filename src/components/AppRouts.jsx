@@ -10,18 +10,32 @@ import { LoginPage } from "../pages/Login.jsx";
 import { RegistrationPage } from "../pages/Registration.jsx";
 import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
+import { postTask } from "../services/api";
 
 
-export function AppRoutes({isAuth, setIsAuth}) {
+export function AppRoutes({ isAuth, setIsAuth }) {
   // const [isAuth, setIsAuth] = useState(false);
-  console.log(isAuth, " в AppRoutes");
+  // console.log(isAuth, " в AppRoutes");
+
+  // console.log(cards);
+
+  const [cardsArrState, setCardsArrState] = useState(cards);
+
+  const addTask = (newTask) => {
+    postTask(newTask)
+      .then((data) => {
+        // setCardsArrState((prevTasks) => [...prevTasks, data]);
+        setCardsArrState(data);
+      })
+  }
+
   return (
     <>
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute isAuth={isAuth} />}>
-          <Route path="/" element={<MainPage setIsAuth={setIsAuth} cards={cards} />} >
-            <Route path="/card/add" element={<NewCardPage isAuth={isAuth} />} />
+          <Route path="/" element={<MainPage setIsAuth={setIsAuth} cards={cardsArrState} />} >
+            <Route path="/card/add" element={<NewCardPage isAuth={isAuth} addTask={addTask} />} />
             <Route path="/card/:id" element={<PopBrowsePage isAuth={isAuth} />} />
             <Route path="/exit" element={<ExitPage setIsAuth={setIsAuth} />} />
           </Route>
@@ -34,3 +48,42 @@ export function AppRoutes({isAuth, setIsAuth}) {
     </>
   )
 }
+
+
+
+
+// import * as React from "react";
+
+// const MOBILE_BREAKPOINT = 768;
+
+// export function useIsMobile() {
+// const [isMobile, setIsMobile] = React.useState(undefined);
+
+// React.useEffect(() => {
+// const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+
+// const onChange = () => {
+// setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+// };
+
+// mql.addEventListener("change", onChange);
+// setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
+
+// return () => {
+// mql.removeEventListener("change", onChange);
+// };
+// }, []);
+
+// return !!isMobile;
+// }
+
+
+// function MyComponent() {
+// const isMobile = useIsMobile();
+
+// return (
+
+// {isMobile ? "Мобильная версия" : "Десктопная версия"}
+
+// );
+// }
