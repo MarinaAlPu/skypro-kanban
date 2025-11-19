@@ -18,23 +18,19 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
 
   const validateForm = () => {
     const newErrors = { name: "", login: "", password: "" };
-    // let isValid = true;
 
     // ошибки при регистрации (пустые поля)
     if (isSignUp && !formData.name.trim()) {
       newErrors.name = true;
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
-      // isValid = false;
       setIsValid(false);
     } else if (isSignUp && !formData.login.trim()) {
       newErrors.login = true;
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
-      // isValid = false;
       setIsValid(false);
     } else if (isSignUp && !formData.password.trim()) {
       newErrors.password = true;
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
-      // isValid = false;
       setIsValid(false);
     }
 
@@ -43,17 +39,14 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       newErrors.name = true;
       // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
-      // isValid = false;
       setIsValid(false);
     } else if (isSignUp && formData.login.length < 3) {
       newErrors.login = true;
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
-      // isValid = false;
       setIsValid(false);
     } else if (isSignUp && formData.password.length < 3) {
       newErrors.password = true;
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
-      // isValid = false;
       setIsValid(false);
     }
 
@@ -61,12 +54,10 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     if (!isSignUp && !formData.login.trim()) {
       newErrors.login = true;
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
-      // isValid = false;
       setIsValid(false);
     } else if (!isSignUp && !formData.password.trim()) {
       newErrors.password = true;
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
-      // isValid = false;
       setIsValid(false);
     }
 
