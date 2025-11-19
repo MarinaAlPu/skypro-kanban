@@ -14,7 +14,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(true);
-  // const [flag, setFlag] = useState(false);
 
 
   const validateForm = () => {
@@ -24,19 +23,16 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     // ошибки при регистрации (пустые поля)
     if (isSignUp && !formData.name.trim()) {
       newErrors.name = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
     } else if (isSignUp && !formData.login.trim()) {
       newErrors.login = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
     } else if (isSignUp && !formData.password.trim()) {
       newErrors.password = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.");
       // isValid = false;
       setIsValid(false);
@@ -51,13 +47,11 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       setIsValid(false);
     } else if (isSignUp && formData.login.length < 3) {
       newErrors.login = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       // isValid = false;
       setIsValid(false);
     } else if (isSignUp && formData.password.length < 3) {
       newErrors.password = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       // isValid = false;
       setIsValid(false);
@@ -66,13 +60,11 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     // ошибки при входе (пустые поля)
     if (!isSignUp && !formData.login.trim()) {
       newErrors.login = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
       // isValid = false;
       setIsValid(false);
     } else if (!isSignUp && !formData.password.trim()) {
       newErrors.password = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.");
       // isValid = false;
       setIsValid(false);
@@ -88,7 +80,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: false });
     setError("");
-    // setFlag(true);
   }
 
   const handleLogin = async (e) => {
@@ -109,12 +100,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     }
   }
 
-  // useEffect(() => {
-  //   if (flag) {
-  //     validateForm();
-  //   }
-  // }, [formData])
-
   return (
     <SPageBackground>
       <SWrapper style={{ height: "329px" }}>
@@ -128,29 +113,8 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
           </SInputWrapper>
 
           <SErrorMessageWrapper><SErrorMessageText>{error}</SErrorMessageText></SErrorMessageWrapper>
-          {/* <SErrorMessageWrapper>
-            <SErrorMessageText>Введенные вами данные не распознаны. Проверьте свой логин и пароль и повторите попытку входа.</SErrorMessageText>
-          </SErrorMessageWrapper> */}
-
-          {/* <SErrorMessageWrapper>
-            <SErrorMessageText>Введенные вами данные не корректны. Чтобы завершить регистрацию, заполните все поля в форме.</SErrorMessageText>
-          </SErrorMessageWrapper> */}
-
-          {/* <SErrorMessageWrapper>
-            <SErrorMessageText>Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.</SErrorMessageText>
-          </SErrorMessageWrapper> */}
-
-          {/* {isValid ? <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={false} /> : <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="tertiary" disabled={true} />} */}
-
-          {/* <Button
-            text={isSignUp ? "Зарегистрироваться" : "Войти"}
-            // type={isValid ? "primary" : "tertiary"} 
-            type={buttonType}
-            disabled={!isValid}
-          /> */}
 
           <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
-          {/* <Button onClick={validateForm()} text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} /> */}
           
           {!isSignUp && (
             <SFooterWrapper>
