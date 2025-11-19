@@ -31,7 +31,8 @@ export const PrimaryButton = styled(SButton)`
   background-color: ${({ disabled }) => (disabled ? "#94A6BE" : "#565EEF")};
   width: ${({ width }) => width};
   &:hover {
-    background-color: #33399b;
+    background-color: ${({ disabled }) => (disabled ? "#94A6BE" : "#33399b")};
+    /* background-color: #33399b; */
   }
 `;
 
