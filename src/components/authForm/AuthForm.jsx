@@ -61,11 +61,11 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     }
 
     setErrors(newErrors);
-    // setIsValid(true);
     return isValid;
   }
 
   const handleChange = (e) => {
+    setIsValid(true);
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: false });
@@ -73,13 +73,15 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
   }
 
   const handleLogin = async (e) => {
+    setIsValid(false);
+
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
     try {
       const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
-
+      
       if (data) {
         setIsAuth(true);
         localStorage.setItem("userInfo", JSON.stringify(data));
@@ -87,6 +89,7 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
       }
     } catch (err) {
       setError(err.message);
+      setIsValid(false)
     }
   }
 
@@ -105,7 +108,7 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
           <SErrorMessageWrapper><SErrorMessageText>{error}</SErrorMessageText></SErrorMessageWrapper>
 
           <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
-          
+
           {!isSignUp && (
             <SFooterWrapper>
               <SFooterText>Нужно зарегистрироваться?</SFooterText>
