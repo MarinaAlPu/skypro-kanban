@@ -37,7 +37,6 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
     // ошибки при регистрации (меньше 3 символов)
     if (isSignUp && formData.name.length < 3) {
       newErrors.name = true;
-      // setError("Заполните все поля");
       setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
       setIsValid(false);
     } else if (isSignUp && formData.login.length < 3) {
