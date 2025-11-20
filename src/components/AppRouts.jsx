@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import { useState } from "react";
-import { cards } from '../data.js';
+import { useState, useEffect, useCallback } from "react";
+// import { cards } from '../data.js';
 import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
 import { ExitPage } from "../pages/Exit.jsx";
@@ -10,7 +10,7 @@ import { LoginPage } from "../pages/Login.jsx";
 import { RegistrationPage } from "../pages/Registration.jsx";
 import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
-import { postTask } from "../services/api";
+import { fetchTasks, postTask } from "../services/api";
 
 
 export function AppRoutes({ isAuth, setIsAuth }) {
@@ -19,13 +19,55 @@ export function AppRoutes({ isAuth, setIsAuth }) {
 
   // console.log(cards);
 
-  const [cardsArrState, setCardsArrState] = useState(cards);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 1000);
+  }, []);
+
+  // const [cardsArrState, setCardsArrState] = useState(cards);
+  // const [cardsArrState, setCardsArrState] = useState([]);
+
+  const [tasks, setTasks] = useState([]);
+  const [error, setError] = useState("");
+
+  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
+  // console.log("userInfo: ", userInfo);
+
+  let token = userInfo.token;
+  // console.log("token: ", token);
+
+  const getTasks = useCallback(async () => {
+    try {
+      setIsLoading(true);
+      const data = await fetchTasks({
+        // token: "bgc0b8awbwas6g5g5k5o5s5w606g37w3cc3bo3b83k39s3co3c83c03ck",
+        token: token,
+      });
+      // console.log("data в getTasks");
+      // console.log(data);
+      if (data) setTasks(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    getTasks();
+  }, [getTasks]);
+
+
 
   const addTask = (newTask) => {
     postTask(newTask)
       .then((data) => {
         // setCardsArrState((prevTasks) => [...prevTasks, data]);
-        setCardsArrState(data);
+        // setCardsArrState(data);
+        setTasks(data);
       })
   }
 
@@ -34,7 +76,7 @@ export function AppRoutes({ isAuth, setIsAuth }) {
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute isAuth={isAuth} />}>
-          <Route path="/" element={<MainPage setIsAuth={setIsAuth} cards={cardsArrState} />} >
+          <Route path="/" element={<MainPage setIsAuth={setIsAuth} tasks={tasks} isLoading={isLoading} error={error} />} >
             <Route path="/card/add" element={<NewCardPage isAuth={isAuth} addTask={addTask} />} />
             <Route path="/card/:id" element={<PopBrowsePage isAuth={isAuth} />} />
             <Route path="/exit" element={<ExitPage setIsAuth={setIsAuth} />} />

@@ -12,7 +12,7 @@ export const Column = ({ title, cardsByStatus }) => {
         {
           cardsByStatus[title].map((card) => {
             return (
-              <SCardItem key={card.id}>
+              <SCardItem key={card._id}>
                 <Card
                   id={card.id}
                   topic={card.topic}

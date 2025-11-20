@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const API_URL = "https://wedev-api.sky.pro/api/kanban/";
+const API_URL = "https://wedev-api.sky.pro/api/kanban";
 
 export async function fetchTasks({ token }) {
   try {
@@ -10,33 +10,27 @@ export async function fetchTasks({ token }) {
         Authorization: "Bearer " + token,
       },
     });
+    // console.log("data в fetchTasks");
     // console.log(data);
-    return data.data.cards;
+    return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
   }
 }
 
-// let task = {
-// "title": "Новая задача 2!",
-// "topic": "Research",
-// "status": "Без статуса",
-// "description": "Подробное описание задачи",
-// "date": "2024-01-07T16:26:18.179Z",
-// }
-
 export async function postTask({ token, task }) {
-  const body = JSON.stringify(task);
-  console.log(body);
+  // const body = JSON.stringify(task);
+  // console.log(body);
   try {
-    const data = await axios.post(API_URL, {
+    const data = await axios.post(API_URL, task, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": ""
       },
-      body: JSON.stringify(task)
+      // body: JSON.stringify(task)
     });
-    console.log(data);
+    // console.log("data в postTask");
+    // console.log(data);
     return data.data.cards;
   } catch (error) {
     throw new Error(error.message);
