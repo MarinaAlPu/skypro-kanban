@@ -5,7 +5,6 @@ import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 
 
-// export const Header = ({ setIsAuth }) => {
 export const Header = () => {
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
 
