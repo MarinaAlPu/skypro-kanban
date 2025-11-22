@@ -5,7 +5,8 @@ import { Loader } from "../components/loader/Loader";
 import { fetchTasks } from "../services/api";
 
 
-export const MainPage = ({ setIsAuth, tasks, isLoading, error }) => {
+// export const MainPage = ({ setIsAuth, tasks, isLoading, error }) => {
+export const MainPage = ({ tasks, isLoading, error }) => {
   // const [isLoading, setIsLoading] = useState(true);
 
   // useEffect(() => {
@@ -52,7 +53,8 @@ export const MainPage = ({ setIsAuth, tasks, isLoading, error }) => {
   return (
     <>
       {isLoading && <Loader isLoading={isLoading} />}
-      <Main setIsAuth={setIsAuth} tasks={tasks} error={error} />
+      {/* <Main setIsAuth={setIsAuth} tasks={tasks} error={error} /> */}
+      <Main tasks={tasks} error={error} />
       <Outlet />
     </>
   )

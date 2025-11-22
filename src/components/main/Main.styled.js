@@ -7,6 +7,8 @@ export const SWrapper = styled.div`
   min-height: 100vh;
   overflow: hidden;
   background-color: #F1F1F1;
+  display: flex;
+  flex-direction: column;
 `;
 // export const SMain = styled.main`
 //     width: 100%;
