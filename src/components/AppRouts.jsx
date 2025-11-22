@@ -1,4 +1,4 @@
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
@@ -14,8 +14,6 @@ import { fetchTasks, postTask } from "../services/api";
 
 export function AppRoutes({ token, setToken }) {
   const navigate = useNavigate();
-  const location = useLocation();
-  // console.log("location: ", location.pathname);
   const [isLoading, setIsLoading] = useState(true);
 
   const [tasks, setTasks] = useState([]);
@@ -46,13 +44,9 @@ export function AppRoutes({ token, setToken }) {
   useEffect(() => {
     if (token) {
       getTasks();
-      // navigate("/");
-      if (location.pathname !== "/") {
-        // navigate("/");
-        navigate(location.pathname);
-      }
+      navigate("/");
     }
-  }, [getTasks, token, location.pathname]);
+  }, [getTasks, token]);
 
   const addTask = async ({ newTask }) => {
     // console.log("newTask в addTask");
