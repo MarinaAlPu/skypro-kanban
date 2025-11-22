@@ -18,19 +18,16 @@ export async function fetchTasks({ token }) {
   }
 }
 
-export async function postTask({ token, task }) {
-  // const body = JSON.stringify(task);
-  // console.log(body);
+export async function postTask({ token, newTask }) {
+  // console.log("task в postTask");
+  // console.log(newTask);
   try {
-    const data = await axios.post(API_URL, task, {
+    const data = await axios.post(API_URL, newTask, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": ""
       },
-      // body: JSON.stringify(task)
     });
-    // console.log("data в postTask");
-    // console.log(data);
     return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);

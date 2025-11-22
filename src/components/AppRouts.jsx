@@ -32,6 +32,8 @@ export function AppRoutes({ token, setToken }) {
         token: token,
       });
       if (data) setTasks(data);
+      // console.log("data в getTasks");
+      // console.log(data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -46,8 +48,10 @@ export function AppRoutes({ token, setToken }) {
     }
   }, [getTasks, token]);
 
-  const addTask = ({ token, newTask }) => {
-    postTask({ token, newTask })
+  const addTask = async ({ newTask }) => {
+    // console.log("newTask в addTask");
+    // console.log(newTask);
+    await postTask({ token, newTask })
       .then((data) => {
         setTasks(data);
       })
@@ -57,17 +61,17 @@ export function AppRoutes({ token, setToken }) {
     <>
       <GlobalStyle />
       <Routes>
-        <Route element={<PrivateRoute token={token}/>}>
-          <Route path="/" element={<MainPage  tasks={tasks} isLoading={isLoading} error={error} />} >
-            <Route path="/card/add" element={<NewCardPage  addTask={addTask} />} />
-            <Route path="/card/:id" element={<PopBrowsePage  />} />
-            <Route path="/exit" element={<ExitPage  />} />
+        <Route element={<PrivateRoute token={token} />}>
+          <Route path="/" element={<MainPage tasks={tasks} isLoading={isLoading} error={error} />} >
+            <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} />} />
+            <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} />
+            <Route path="/exit" element={<ExitPage />} />
           </Route>
         </Route>
 
-        <Route path="/login" element={<LoginPage  setToken={setToken} />} />
+        <Route path="/login" element={<LoginPage setToken={setToken} />} />
         <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="*" element={<NotFoundPage  />} />
+        <Route path="*" element={<NotFoundPage token={token} />} />
       </Routes>
     </>
   )

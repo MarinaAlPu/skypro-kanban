@@ -5,19 +5,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 
-export const PopNewCard = ({ isAuth, addTask }) => {
+export const PopNewCard = ({ token, addTask }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) {
+    if (!token) {
       navigate('/login');
     }
-  }, [isAuth, navigate]);
-
-  let userInfo = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log("userInfo: ", userInfo);
-  let token = userInfo.token;
-  // console.log("token: ", token);
+  }, [token, navigate]);
 
   const currentDate = new Date().toISOString();
 
@@ -27,7 +22,7 @@ export const PopNewCard = ({ isAuth, addTask }) => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
 
-  return isAuth ? (
+  return token ? (
     <SWrapper>
       <SContainer>
         <SBlock>
@@ -81,8 +76,8 @@ export const PopNewCard = ({ isAuth, addTask }) => {
             <Button
               onClick={async() => {
                 await addTask({
-                  token,
-                  task: {
+                  // token,
+                  newTask: {
                     title: title,
                     topic: "Research",
                     status: "Без статуса",
