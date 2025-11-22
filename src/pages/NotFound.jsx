@@ -1,8 +1,8 @@
 import { NotFound } from "../components/notFound/NotFound";
 
 
-export const NotFoundPage = ({isAuth}) => {
+export const NotFoundPage = ({token}) => {
    return (
-      <NotFound isAuth={isAuth}/>
+      <NotFound token={token}/>
    )
 };
