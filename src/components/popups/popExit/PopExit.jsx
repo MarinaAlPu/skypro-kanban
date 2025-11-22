@@ -3,12 +3,12 @@ import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
 
 
-export const PopExit = ({ setIsAuth }) => {
+export const PopExit = () => {
   const navigate = useNavigate();
 
   const handleLogout = (e) => {
     e.preventDefault();
-    setIsAuth(false);
+    localStorage.removeItem("userInfo");
     navigate("/login");
   };
 

@@ -3,11 +3,11 @@ import { Content } from "../content/Content";
 import { SWrapper } from "./Main.styled";
 
 
-export const Main = ({ setIsAuth, cards }) => {
+export const Main = ({ error, tasks }) => {
   return (
     <SWrapper>
-      <Header setIsAuth={setIsAuth}/>
-      <Content cards={cards} />
+      <Header />
+      <Content error={error} tasks={tasks}/>
     </SWrapper>
   )
 }
