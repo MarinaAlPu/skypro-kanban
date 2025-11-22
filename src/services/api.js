@@ -31,7 +31,7 @@ export async function postTask({ token, task }) {
     });
     // console.log("data в postTask");
     // console.log(data);
-    return data.data.cards;
+    return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
   }
