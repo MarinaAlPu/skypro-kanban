@@ -79,13 +79,13 @@ export const PopNewCard = ({ isAuth, addTask }) => {
           </SContent>
           <BSButtonWrapper>
             <Button
-              onClick={() => {
-                addTask({
+              onClick={async() => {
+                await addTask({
                   token,
                   task: {
                     title: title,
                     topic: "Research",
-                    status: "без статуса",
+                    status: "Без статуса",
                     description: description,
                     date: currentDate,
                   }
