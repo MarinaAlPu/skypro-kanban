@@ -1,16 +1,32 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { PopUser } from "../popups/popUser/PopUser";
-import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderButton, SHeaderButtonLink, SHeaderLink } from "./Header.styled";
+import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderLink, SPopUserWrapper } from "./Header.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 
 
 export const Header = () => {
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
-
+  const popUserRef = useRef(null);
   const handleClick = () => {
     setIsPopUserOpen(!isPopUserOpen);
   };
+
+  const handleOutsideClick = (event) => {
+    if (popUserRef.current && !popUserRef.current.contains(event.target)) {
+      setIsPopUserOpen(false); // закрыть PopUser, если клик вне его
+    }
+  };
+
+  useEffect(() => {
+    // добавить обработчик клика вне окна
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => {
+      // удалить обработчик клика вне окна при размонтировании компонента
+      document.removeEventListener('mousedown', handleOutsideClick);
+    };
+  }, []);
+
 
   return (
     <SHeader>
@@ -34,7 +50,7 @@ export const Header = () => {
               </Link>
             </SButtonWrapper>
             <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
-            {isPopUserOpen && <PopUser setIsPopUserOpen={setIsPopUserOpen} />}
+            {isPopUserOpen && <SPopUserWrapper ref={popUserRef}><PopUser setIsPopUserOpen={setIsPopUserOpen} /></SPopUserWrapper>}
           </SHeaderNavigation>
         </SHeaderBlock>
       </SHeaderContainer>
