@@ -1,19 +1,11 @@
 import './App.css';
 import { AppRoutes } from './components/AppRouts.jsx';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 
 function App() {
-  const [token, setToken] = useState(null);
-
-  useEffect(() => {
-    const storedToken = localStorage.getItem("userInfo");
-    if (storedToken) {
-      const userInfo = JSON.parse(storedToken);
-      setToken(userInfo.token);
-    }
-  }, []);
-
+  // опциональная цепочка - получить token, если есть значение перед ?., иначе undefined
+  const [token, setToken] = useState(JSON.parse(localStorage.getItem("userInfo"))?.token);
 
   return <AppRoutes token={token} setToken={setToken} />
 }
