@@ -1,4 +1,3 @@
-// import { useState, useEffect } from "react";
 import { SPageBackground, STitle, SMessage } from "./NotFound.styled";
 import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark } from "../header/Header.styled";
 import { Button } from "../button/Button";
@@ -6,14 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { SButtonWrapper } from "./NotFound.styled";
 
 
-export const NotFound = ({ isAuth }) => {
-  console.log(isAuth, " в NotFound");
+export const NotFound = ({ token }) => {
   const navigate = useNavigate();
 
   const handleOpenMainPage = (e) => {
     e.preventDefault();
-    // console.log(isAuth);
-    if (!isAuth) {
+    if (!token) {
       navigate('/login');
     } else {
       navigate("/");
