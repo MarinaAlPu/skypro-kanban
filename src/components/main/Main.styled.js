@@ -18,7 +18,12 @@ export const SMock = styled.div`
   line-height: 1;
   text-transform: uppercase;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 30px;
   flex-grow: 1;
+`;
+
+export const SMessage = styled.div`
 `;
