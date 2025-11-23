@@ -9,4 +9,16 @@ export const SWrapper = styled.div`
   background-color: #F1F1F1;
   display: flex;
   flex-direction: column;
+  `;
+
+export const SMock = styled.div`
+  color: #94A6BE;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 1;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
 `;
