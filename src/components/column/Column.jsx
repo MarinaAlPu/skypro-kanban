@@ -15,10 +15,9 @@ export const Column = ({ title, cardsByStatus }) => {
             return (
               <SCardItem key={card._id}>
                 <Card
-                  id={card.id}
+                  id={card._id}
                   topic={card.topic}
                   title={card.title}
-                  // date={card.date}
                   date={format(card.date, "dd.MM.yy")}
                 />
               </SCardItem>
