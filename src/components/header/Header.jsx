@@ -12,7 +12,6 @@ export const Header = () => {
     setIsPopUserOpen(!isPopUserOpen);
   };
 
-
   return (
     <SHeader>
       <SHeaderContainer>
@@ -35,7 +34,7 @@ export const Header = () => {
               </Link>
             </SButtonWrapper>
             <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
-            {isPopUserOpen && <PopUser />}
+            {isPopUserOpen && <PopUser setIsPopUserOpen={setIsPopUserOpen} />}
           </SHeaderNavigation>
         </SHeaderBlock>
       </SHeaderContainer>

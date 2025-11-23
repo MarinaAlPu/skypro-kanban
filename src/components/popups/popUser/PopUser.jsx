@@ -3,9 +3,13 @@ import { Button } from "../../button/Button";
 import { Link } from "react-router-dom";
 
 
-export const PopUser = () => {
+export const PopUser = ({setIsPopUserOpen}) => {
+  const handleLogoutClick = () => {
+    setIsPopUserOpen(false);
+  };
+
   return (
-    <SWrapper id="user-set-target">
+    <SWrapper id="user-set-target" >
       <SName>Ivan Ivanov</SName>
       <SMail>ivan.ivanov@gmail.com</SMail>
       <SThemeButton>
@@ -13,7 +17,7 @@ export const PopUser = () => {
         <SThemeInput type="checkbox" name="checkbox" />
       </SThemeButton>
       <SButtonWrapper>
-        <Link to="/exit">
+        <Link to="/exit" onClick={handleLogoutClick}>
           <Button text="Выйти" type="secondary" width="72px" disabled={false}></Button>
         </Link>
       </SButtonWrapper>
