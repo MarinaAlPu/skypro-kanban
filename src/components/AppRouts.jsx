@@ -19,11 +19,6 @@ export function AppRoutes({ token, setToken }) {
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 1000);
-  }, []);
 
   const getTasks = useCallback(async () => {
     try {
@@ -32,8 +27,6 @@ export function AppRoutes({ token, setToken }) {
         token: token,
       });
       if (data) setTasks(data);
-      // console.log("data в getTasks");
-      // console.log(data);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -49,11 +42,11 @@ export function AppRoutes({ token, setToken }) {
   }, [getTasks, token]);
 
   const addTask = async ({ newTask }) => {
-    // console.log("newTask в addTask");
-    // console.log(newTask);
+    setIsLoading(true);
     await postTask({ token, newTask })
       .then((data) => {
         setTasks(data);
+        setIsLoading(false);
       })
   }
 
@@ -63,7 +56,7 @@ export function AppRoutes({ token, setToken }) {
       <Routes>
         <Route element={<PrivateRoute token={token} />}>
           <Route path="/" element={<MainPage tasks={tasks} isLoading={isLoading} error={error} />} >
-            <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} />} />
+            <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} isLoading={isLoading} setIsLoading={setIsLoading} />} />
             <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} />
             <Route path="/exit" element={<ExitPage />} />
           </Route>
@@ -71,7 +64,7 @@ export function AppRoutes({ token, setToken }) {
 
         <Route path="/login" element={<LoginPage setToken={setToken} />} />
         <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="*" element={<NotFoundPage token={token} />} />
+        <Route path="*" element={<NotFoundPage token={!!token} />} />
       </Routes>
     </>
   )
