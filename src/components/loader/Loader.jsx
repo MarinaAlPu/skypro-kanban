@@ -1,7 +1,12 @@
+import { SLoaderWrapper, SLoader, SLoaderText } from "./Loader.styled";
+
+
 export const Loader = () => {
   return (
-    <div id="loader" className="loader">
-      <p>Данные загружаются</p>
-    </div>
+    <SLoaderWrapper>
+      <SLoader id="loader">
+        <SLoaderText>Данные загружаются</SLoaderText>
+      </SLoader>
+    </SLoaderWrapper>
   )
 }
