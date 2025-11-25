@@ -75,6 +75,7 @@ export const PopNewCard = ({ token, addTask }) => {
           <BSButtonWrapper>
             <Button
               onClick={async() => {
+                navigate("/");
                 await addTask({
                   // token,
                   newTask: {
@@ -87,7 +88,7 @@ export const PopNewCard = ({ token, addTask }) => {
                 });
                 setTitle("");
                 setDescription("");
-                navigate("/");
+                // navigate("/");
               }}
               id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
           </BSButtonWrapper>

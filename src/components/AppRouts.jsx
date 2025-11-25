@@ -41,13 +41,19 @@ export function AppRoutes({ token, setToken }) {
     }
   }, [getTasks, token]);
 
+  
   const addTask = async ({ newTask }) => {
     setIsLoading(true);
-    await postTask({ token, newTask })
-      .then((data) => {
-        setTasks(data);
-        setIsLoading(false);
-      })
+    try {
+      await postTask({ token, newTask })
+        .then((data) => {
+          setTasks(data);
+        })
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
