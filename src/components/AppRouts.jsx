@@ -1,5 +1,4 @@
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { useState, useEffect, useCallback } from "react";
+import { Routes, Route } from "react-router-dom";
 import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
 import { ExitPage } from "../pages/Exit.jsx";
@@ -9,59 +8,18 @@ import { LoginPage } from "../pages/Login.jsx";
 import { RegistrationPage } from "../pages/Registration.jsx";
 import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
-import { fetchTasks, postTask } from "../services/api";
+import { useTasks } from "./useTasks.jsx";
 
 
 export function AppRoutes({ token, setToken }) {
-  const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(true);
-
-  const [tasks, setTasks] = useState([]);
-  const [error, setError] = useState("");
-
-
-  const getTasks = useCallback(async () => {
-    try {
-      setIsLoading(true);
-      const data = await fetchTasks({
-        token: token,
-      });
-      if (data) setTasks(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }, [token]);
-
-  useEffect(() => {
-    if (token) {
-      getTasks();
-      navigate("/");
-    }
-  }, [getTasks, token]);
-
-  
-  const addTask = async ({ newTask }) => {
-    setIsLoading(true);
-    try {
-      await postTask({ token, newTask })
-        .then((data) => {
-          setTasks(data);
-        })
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setIsLoading(false);
-    }
-  }
+  const { tasks, error, isLoading, setIsLoading, addTask } = useTasks(token);
 
   return (
     <>
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute token={token} />}>
-          <Route path="/" element={<MainPage tasks={tasks} isLoading={isLoading} error={error} />} >
+          <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
             <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} isLoading={isLoading} setIsLoading={setIsLoading} />} />
             <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} />
             <Route path="/exit" element={<ExitPage />} />

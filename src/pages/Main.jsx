@@ -4,7 +4,6 @@ import { Loader } from "../components/loader/Loader";
 
 
 export const MainPage = ({ tasks, isLoading, error }) => {
-
   return (
     <>
       {isLoading && <Loader isLoading={isLoading} />}
