@@ -34,17 +34,7 @@ export const validateForm = (formData, isSignUp, setErrors, setError, setIsValid
 
 
   // ошибки email при регистрации
-  const regExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+")@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$)/;
-
-  // if (isSignUp && regExp.test(formData.login)) {
-  //   newErrors.login = true;
-  //   setError("Введенные вами данные не корректны. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
-  //   setIsValid(false);
-  // }
-
-  // console.log("почта", formData.login);
-  // console.log("почта содержит @", (formData.login).includes("@"));
-  if (isSignUp && (formData.login).includes("@") === false) {
+    if (isSignUp && (formData.login).includes("@") === false) {
     newErrors.login = true;
     setError("Введенные вами данные не корректны. Не сожержит @. Чтобы завершить регистрацию, введите данные корректно и повторите попытку.");
     setIsValid(false);
