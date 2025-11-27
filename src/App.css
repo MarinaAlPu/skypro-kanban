@@ -1014,7 +1014,7 @@ body {
   letter-spacing: 0.2px;
 } */
 
-.loader {
+/* .loader {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -1033,7 +1033,7 @@ body {
   font-weight: bold;
   color: #111;
   text-transform: uppercase;
-}
+} */
 
 @media screen and (max-width: 1200px) {
   .main__block {

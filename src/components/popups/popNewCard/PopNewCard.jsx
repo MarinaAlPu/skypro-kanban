@@ -2,19 +2,27 @@ import { Calendar } from "../../calendar/Calendar";
 import { SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapper, SFormNewCard, SFormBlock, SFormTitle, SFormInput, SFormDescribe, SCategoriesWrapper, SCategoriesTitle, SCategoriesThemesWrapper, SCategoriesThemeContainerOrange, SCategoriesThemeOrange, SCategoriesThemeContainerGreen, SCategoriesThemeGreen, SCategoriesThemeContainerPurple, SCategoriesThemePurple, BSButtonWrapper } from "./PopNewCard.styled";
 import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
-export const PopNewCard = ({ isAuth }) => {
+export const PopNewCard = ({ token, addTask }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) {
+    if (!token) {
       navigate('/login');
     }
-  }, [isAuth, navigate]);
+  }, [token, navigate]);
 
-  return isAuth ? (
+  const currentDate = new Date().toISOString();
+
+  const [title, setTitle] = useState("");
+  const [topic, setTopic] = useState("");
+  const [status, setStatus] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+
+  return token ? (
     <SWrapper>
       <SContainer>
         <SBlock>
@@ -25,14 +33,25 @@ export const PopNewCard = ({ isAuth }) => {
             </Link>
             <SNewCardWrapper>
               <SFormNewCard>
+
                 <SFormBlock>
                   <SFormTitle htmlFor="formTitle">Название задачи</SFormTitle>
-                  <SFormInput type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
+                  <SFormInput
+                    onChange={(event) => {
+                      setTitle(event.target.value)
+                    }}
+                    value={title} type="text" name="name" id="formTitle" placeholder="Введите название задачи..." autoFocus />
                 </SFormBlock>
+
                 <SFormBlock>
                   <SFormTitle htmlFor="textArea">Описание задачи</SFormTitle>
-                  <SFormDescribe name="text" id="textArea" placeholder="Введите описание задачи..."></SFormDescribe>
+                  <SFormDescribe
+                    onChange={(event) => {
+                      setDescription(event.target.value)
+                    }}
+                    value={description} name="text" id="textArea" placeholder="Введите описание задачи..."></SFormDescribe>
                 </SFormBlock>
+
               </SFormNewCard>
               <Calendar />
             </SNewCardWrapper>
@@ -54,10 +73,27 @@ export const PopNewCard = ({ isAuth }) => {
             </SCategoriesWrapper>
           </SContent>
           <BSButtonWrapper>
-            <Button id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
+            <Button
+              onClick={async() => {
+                navigate("/");
+                await addTask({
+                  // token,
+                  newTask: {
+                    title: title,
+                    topic: "Research",
+                    status: "Без статуса",
+                    description: description,
+                    date: currentDate,
+                  }
+                });
+                setTitle("");
+                setDescription("");
+                // navigate("/");
+              }}
+              id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
           </BSButtonWrapper>
         </SBlock>
       </SContainer>
-    </SWrapper>
+    </SWrapper >
   ) : null;
 };

@@ -2,22 +2,21 @@ import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesT
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { cards } from "../../../data";
 import { useEffect } from "react";
 
 
-export const PopBrowse = ({ isAuth }) => {
+export const PopBrowse = ({ token, tasks }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!isAuth) {
+    if (!token) {
       navigate('/login');
     }
   });
 
   const { id } = useParams();
 
-  const card = cards.find((card) => card.id === id);
+  const card = tasks.find((card) => card._id === id);
 
   return (
     <SWrapper id="popBrowse">

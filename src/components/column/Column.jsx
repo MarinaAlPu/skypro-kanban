@@ -1,5 +1,6 @@
 import { Card } from "../card/Card";
 import { SColumn, SColumnTitleContainer, SColumnTitle, SCards, SCardItem } from "./Column.styled";
+import { format } from "date-fns";
 
 
 export const Column = ({ title, cardsByStatus }) => {
@@ -12,12 +13,12 @@ export const Column = ({ title, cardsByStatus }) => {
         {
           cardsByStatus[title].map((card) => {
             return (
-              <SCardItem key={card.id}>
+              <SCardItem key={card._id}>
                 <Card
-                  id={card.id}
+                  id={card._id}
                   topic={card.topic}
                   title={card.title}
-                  date={card.date}
+                  date={format(card.date, "dd.MM.yy")}
                 />
               </SCardItem>
             )

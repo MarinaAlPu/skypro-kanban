@@ -41,7 +41,7 @@ export const SInputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 7px;
-  margin-bottom: 20px;
+  margin-bottom: 7px;
 `;
 
 export const SFooterWrapper = styled.div`
@@ -71,13 +71,16 @@ export const SFooterLink = styled(Link)`
 `;
 
 export const SErrorMessageWrapper = styled.div`
+  /* width: 250px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 7px;
+  margin-bottom: 20px;
 `;
 
 export const SErrorMessageText = styled.p`
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   font-weight: 400;
   color: #F84D4D;

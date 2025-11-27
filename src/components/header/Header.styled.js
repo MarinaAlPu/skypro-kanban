@@ -100,3 +100,6 @@ export const SHeaderLink = styled.div`
     padding: 0;
   }
 `;
+
+export const SPopUserWrapper = styled.div`
+`;

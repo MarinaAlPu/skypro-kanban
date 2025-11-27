@@ -1,4 +1,3 @@
-// import { useState, useEffect } from "react";
 import { SPageBackground, STitle, SMessage } from "./NotFound.styled";
 import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark } from "../header/Header.styled";
 import { Button } from "../button/Button";
@@ -6,14 +5,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { SButtonWrapper } from "./NotFound.styled";
 
 
-export const NotFound = ({ isAuth }) => {
-  // console.log(isAuth);
+export const NotFound = ({ token }) => {
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleOpenMainPage = (e) => {
     e.preventDefault();
-    // console.log(isAuth);
-    if (!isAuth) {
+    if (!token) {
       navigate('/login');
     } else {
       navigate("/");
@@ -43,7 +40,7 @@ export const NotFound = ({ isAuth }) => {
       <SMessage>Страница не найдена</SMessage>
       <SButtonWrapper style={{ marginTop: "50px" }}>
         <Link to="/card/add">
-          <Button onClick={handleLogin} href="#popNewCard" width="178px" type="primary" text="На главную" disabled={false}>
+          <Button onClick={handleOpenMainPage} href="#popNewCard" width="178px" type="primary" text="На главную" disabled={false}>
           </Button>
         </Link>
       </SButtonWrapper>

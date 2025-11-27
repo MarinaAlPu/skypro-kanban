@@ -2,14 +2,49 @@ import { SPageBackground, SWrapper, STitle, SForm, SInputWrapper, SFooterWrapper
 import { Input } from "../Input/Input";
 import { Button } from "../button/Button";
 import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { login, registration } from "../../services/auth";
+import { validateForm } from "../../utils/helpers";
 
 
-export const AuthForm = ({ isSignUp, setIsAuth }) => {
+export const AuthForm = ({ isSignUp, setToken }) => {
   const navigate = useNavigate();
-  const handleLogin = (e) => {
+
+  const [formData, setFormData] = useState({ name: "", login: "", password: "" });
+  const [errors, setErrors] = useState({ name: false, login: false, password: false });
+  const [error, setError] = useState("");
+  const [isValid, setIsValid] = useState(true);
+
+
+  const handleChange = (e) => {
+    setIsValid(true);
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: false });
+    setError("");
+  }
+
+  const handleLogin = async (e) => {
+    setIsValid(false);
+
     e.preventDefault();
-    setIsAuth(true);
-    navigate("/");
+
+    if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
+      return;
+    }
+
+    try {
+      const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
+
+      if (data) {
+        setToken(data.token);
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate("/");
+      }
+    } catch (err) {
+      setError(err.message);
+      setIsValid(false)
+    }
   }
 
   return (
@@ -19,12 +54,14 @@ export const AuthForm = ({ isSignUp, setIsAuth }) => {
         <SForm id="form" onSubmit={handleLogin}>
 
           <SInputWrapper>
-            {isSignUp && (<Input type="text" placeholder="Имя" />)}
-            <Input type="text" placeholder="Эл. почта" />
-            <Input type="password" placeholder="Пароль" />
+            {isSignUp && (<Input error={errors.name} type="text" placeholder="Имя" name="name" value={formData.name} onChange={handleChange} />)}
+            <Input error={errors.login} type="text" placeholder="Эл. почта" name="login" value={formData.login} onChange={handleChange} />
+            <Input error={errors.password} type="password" placeholder="Пароль" name="password" value={formData.password} onChange={handleChange} />
           </SInputWrapper>
 
-          <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={false} />
+          <SErrorMessageWrapper><SErrorMessageText>{error}</SErrorMessageText></SErrorMessageWrapper>
+
+          <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
 
           {!isSignUp && (
             <SFooterWrapper>
