@@ -31,7 +31,7 @@ export const useTasks = (token) => {
       getTasks();
       navigate("/");
     }
-  }, [getTasks, token, navigate]);
+  }, [getTasks, token]);
 
 
   const addTask = async ({ newTask }) => {
