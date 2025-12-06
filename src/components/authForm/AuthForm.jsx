@@ -2,19 +2,21 @@ import { SPageBackground, SWrapper, STitle, SForm, SInputWrapper, SFooterWrapper
 import { Input } from "../Input/Input";
 import { Button } from "../button/Button";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { login, registration } from "../../services/auth";
 import { validateForm } from "../../utils/helpers";
+import { AuthContext } from "../context/AuthContext";
 
 
 export const AuthForm = ({ isSignUp, setToken }) => {
   const navigate = useNavigate();
 
+  const { updateUserInfo } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({ name: "", login: "", password: "" });
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
   const [isValid, setIsValid] = useState(true);
-
 
   const handleChange = (e) => {
     setIsValid(true);
@@ -26,19 +28,19 @@ export const AuthForm = ({ isSignUp, setToken }) => {
 
   const handleLogin = async (e) => {
     setIsValid(false);
-
     e.preventDefault();
 
     if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
       return;
     }
-
+    
     try {
       const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
 
       if (data) {
-        setToken(data.token);
-        localStorage.setItem("userInfo", JSON.stringify(data));
+        // setToken(data.token);
+        // localStorage.setItem("userInfo", JSON.stringify(data));
+        updateUserInfo(data);
         navigate("/");
       }
     } catch (err) {
