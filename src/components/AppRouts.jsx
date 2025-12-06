@@ -18,8 +18,7 @@ export function AppRoutes({ token, setToken }) {
     <>
       <GlobalStyle />
       <Routes>
-        {/* <Route element={<PrivateRoute token={token} />}> */}
-        <Route element={<PrivateRoute />}>
+        <Route element={<PrivateRoute token={token} />}>
           <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
             <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} isLoading={isLoading} setIsLoading={setIsLoading} />} />
             <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} />
