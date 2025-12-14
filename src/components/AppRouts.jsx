@@ -8,20 +8,30 @@ import { LoginPage } from "../pages/Login.jsx";
 import { RegistrationPage } from "../pages/Registration.jsx";
 import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
-import { useTasks } from "./useTasks.jsx";
+// import { useTasks } from "./useTasks.jsx";
+import { TasksProvider } from "./context/TasksProvider.jsx";
+// import { useContext } from "react";
+// import { TasksContext } from "./context/TasksContext.js";
 
 
 export function AppRoutes({ token, setToken }) {
-  const { tasks, error, isLoading, setIsLoading, addTask } = useTasks(token);
+  // const { tasks, error, isLoading, setIsLoading, addTask } = useTasks(token);
+
+  // const {
+  //   isLoading,
+  // } = useContext(TasksContext);
 
   return (
-    <>
+    <TasksProvider>
       <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute />}>
-          <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
+          {/* <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
             <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} isLoading={isLoading} setIsLoading={setIsLoading} />} />
-            <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} />
+            <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} /> */}
+          <Route path="/" element={<MainPage token={token} />} >
+            <Route path="/card/add" element={<NewCardPage token={token} />} />
+            <Route path="/card/:id" element={<PopBrowsePage token={token} />} />
             <Route path="/exit" element={<ExitPage />} />
           </Route>
         </Route>
@@ -30,7 +40,7 @@ export function AppRoutes({ token, setToken }) {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="*" element={<NotFoundPage token={!!token} />} />
       </Routes>
-    </>
+    </TasksProvider>
   )
 }
 

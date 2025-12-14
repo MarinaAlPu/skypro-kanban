@@ -3,9 +3,15 @@ import { Content } from "../content/Content";
 import { SWrapper, SMock, SMessage } from "./Main.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
+import { TasksContext } from "../context/TasksContext";
+import { useContext } from "react";
 
 
-export const Main = ({ error, tasks }) => {
+// export const Main = ({ error, tasks }) => {
+export const Main = () => {
+  const {
+    tasks,
+  } = useContext(TasksContext);
 
   return (
     <SWrapper>
@@ -19,8 +25,7 @@ export const Main = ({ error, tasks }) => {
           </Link>
         </SMock>
         :
-        <Content error={error} tasks={tasks}
-        />}
+        <Content />}
     </SWrapper>
   )
 }

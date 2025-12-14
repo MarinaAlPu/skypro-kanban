@@ -2,10 +2,16 @@ import { Calendar } from "../../calendar/Calendar";
 import { SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapper, SFormNewCard, SFormBlock, SFormTitle, SFormInput, SFormDescribe, SCategoriesWrapper, SCategoriesTitle, SCategoriesThemesWrapper, SCategoriesThemeContainerOrange, SCategoriesThemeOrange, SCategoriesThemeContainerGreen, SCategoriesThemeGreen, SCategoriesThemeContainerPurple, SCategoriesThemePurple, BSButtonWrapper } from "./PopNewCard.styled";
 import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { TasksContext } from "../../context/TasksContext";
 
 
-export const PopNewCard = ({ token, addTask }) => {
+// export const PopNewCard = ({ token, addTask }) => {
+export const PopNewCard = ({ token }) => {
+  const {
+    addTask,
+  } = useContext(TasksContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -74,7 +80,7 @@ export const PopNewCard = ({ token, addTask }) => {
           </SContent>
           <BSButtonWrapper>
             <Button
-              onClick={async() => {
+              onClick={async () => {
                 navigate("/");
                 await addTask({
                   // token,
