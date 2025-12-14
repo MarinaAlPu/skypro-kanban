@@ -23,11 +23,11 @@ export const AuthProvider = ({ children }) => {
     } else {
       localStorage.removeItem("userInfo");
     };
-
-    return (
-      <AuthContext.Provider value={{ user, updateUserInfo }}>
-        {children}
-      </AuthContext.Provider>
-    )
   }
+
+  return (
+    <AuthContext.Provider value={{ user, updateUserInfo }}>
+      {children}
+    </AuthContext.Provider>
+  )
 }
