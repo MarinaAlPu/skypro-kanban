@@ -2,11 +2,17 @@ import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesT
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { TasksContext } from "../../context/TasksContext";
 
 
-export const PopBrowse = ({ token, tasks }) => {
+// export const PopBrowse = ({ token, tasks }) => {
+export const PopBrowse = ({ token }) => {
   const navigate = useNavigate();
+
+  const {
+    tasks,
+  } = useContext(TasksContext);
 
   useEffect(() => {
     if (!token) {
