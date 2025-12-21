@@ -10,7 +10,7 @@ export const TasksProvider = ({ children }) => {
 
   const {token} = useContext(AuthContext);
 
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState("");
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
 
