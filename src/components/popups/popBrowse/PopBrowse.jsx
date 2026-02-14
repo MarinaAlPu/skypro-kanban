@@ -7,12 +7,16 @@ import { TasksContext } from "../../context/TasksContext";
 
 
 // export const PopBrowse = ({ token, tasks }) => {
-export const PopBrowse = ({ token }) => {
+// export const PopBrowse = ({ token }) => {
+export const PopBrowse = () => {
   const navigate = useNavigate();
 
   const {
     tasks,
+    token
   } = useContext(TasksContext);
+
+  console.log("token в PopBrowse: ", token);
 
   useEffect(() => {
     if (!token) {

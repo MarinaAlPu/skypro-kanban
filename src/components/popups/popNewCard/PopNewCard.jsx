@@ -7,9 +7,10 @@ import { TasksContext } from "../../context/TasksContext";
 
 
 // export const PopNewCard = ({ token, addTask }) => {
-export const PopNewCard = ({ token }) => {
+export const PopNewCard = () => {
   const {
     addTask,
+    token
   } = useContext(TasksContext);
 
   const navigate = useNavigate();
