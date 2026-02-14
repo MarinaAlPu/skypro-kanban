@@ -11,7 +11,9 @@ import { useContext } from "react";
 
 export function PrivateRoute() {
   const { user } = useContext(AuthContext);
+  const token = user.token;
+  // console.log(token);
   return (
-    user ? <Outlet /> : <Navigate to="/login" />
+    token ? <Outlet /> : <Navigate to="/login" />
   )
 }
