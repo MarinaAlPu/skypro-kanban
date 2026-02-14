@@ -16,7 +16,7 @@ export const PopBrowse = () => {
     token
   } = useContext(TasksContext);
 
-  console.log("token в PopBrowse: ", token);
+  // console.log("token в PopBrowse: ", token);
 
   useEffect(() => {
     if (!token) {
