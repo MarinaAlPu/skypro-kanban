@@ -22,8 +22,8 @@ export function AppRoutes({ token, setToken }) {
   // } = useContext(TasksContext);
 
   return (
-    <TasksProvider>
-      <GlobalStyle />
+    // <TasksProvider>
+      // <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute />}>
           {/* <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
@@ -40,7 +40,7 @@ export function AppRoutes({ token, setToken }) {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="*" element={<NotFoundPage token={!!token} />} />
       </Routes>
-    </TasksProvider>
+    // /* </TasksProvider> */
   )
 }
 

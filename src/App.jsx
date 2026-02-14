@@ -2,6 +2,8 @@ import './App.css';
 import { AppRoutes } from './components/AppRouts.jsx';
 import { useState } from 'react';
 import { AuthProvider } from './components/context/AuthProvider.jsx';
+import { TasksProvider } from './components/context/TasksProvider.jsx';
+import { GlobalStyle } from './components/GlobalStyles.js';
 
 
 function App() {
@@ -10,7 +12,10 @@ function App() {
 
   return (
     <AuthProvider>
-      <AppRoutes token={token} setToken={setToken} />
+      <TasksProvider>
+        <GlobalStyle />
+        <AppRoutes token={token} setToken={setToken} />
+      </TasksProvider>
     </AuthProvider>
   )
 }
