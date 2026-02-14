@@ -40,7 +40,7 @@ export const TasksProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       getTasks();
-      navigate("/");
+      // navigate("/");
     }
   }, [getTasks, token]);
 
@@ -66,7 +66,8 @@ export const TasksProvider = ({ children }) => {
         setTasks,
         error,
         isLoading,
-        getTasks, addTask
+        getTasks, addTask,
+        token
       }}
     >
       {children}
