@@ -11,12 +11,14 @@ function App() {
   const [token, setToken] = useState(JSON.parse(localStorage.getItem("userInfo"))?.token);
 
   return (
-    <AuthProvider>
-      <TasksProvider>
-        <GlobalStyle />
-        <AppRoutes token={token} setToken={setToken} />
-      </TasksProvider>
-    </AuthProvider>
+    <>
+      <GlobalStyle />
+      <AuthProvider>
+        <TasksProvider>
+          <AppRoutes token={token} setToken={setToken} />
+        </TasksProvider>
+      </AuthProvider>
+    </>
   )
 }
 
