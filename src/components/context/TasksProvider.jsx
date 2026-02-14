@@ -8,7 +8,14 @@ import { AuthContext } from "./AuthContext";
 export const TasksProvider = ({ children }) => {
   const navigate = useNavigate();
 
-  const {token} = useContext(AuthContext);
+  // const data = useContext(AuthContext);
+  // console.log("data в TasksProvider: ", data);
+  
+  const {user} = useContext(AuthContext);
+  // console.log("user в TasksProvider: ", user);
+
+  const token = user.token;
+  // console.log("token в TasksProvider: ", token);
 
   const [isLoading, setIsLoading] = useState("");
   const [tasks, setTasks] = useState([]);
