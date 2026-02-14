@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-import { GlobalStyle } from './GlobalStyles.js';
 import { MainPage } from "../pages/Main.jsx";
 import { ExitPage } from "../pages/Exit.jsx";
 import { NewCardPage } from "../pages/NewCard.jsx";
@@ -8,29 +7,15 @@ import { LoginPage } from "../pages/Login.jsx";
 import { RegistrationPage } from "../pages/Registration.jsx";
 import { NotFoundPage } from "../pages/NotFound.jsx";
 import { PrivateRoute } from "./PrivateRoute.jsx";
-// import { useTasks } from "./useTasks.jsx";
-import { TasksProvider } from "./context/TasksProvider.jsx";
-// import { useContext } from "react";
-// import { TasksContext } from "./context/TasksContext.js";
 
 
 export function AppRoutes({ token, setToken }) {
-  // const { tasks, error, isLoading, setIsLoading, addTask } = useTasks(token);
-
-  // const {
-  //   isLoading,
-  // } = useContext(TasksContext);
-
   return (
-    // <TasksProvider>
-      // <GlobalStyle />
       <Routes>
         <Route element={<PrivateRoute />}>
-          {/* <Route path="/" element={<MainPage token={token} tasks={tasks} isLoading={isLoading} error={error} />} >
-            <Route path="/card/add" element={<NewCardPage token={token} addTask={addTask} isLoading={isLoading} setIsLoading={setIsLoading} />} />
-            <Route path="/card/:id" element={<PopBrowsePage token={token} tasks={tasks} />} /> */}
           <Route path="/" element={<MainPage token={token} />} >
-            <Route path="/card/add" element={<NewCardPage token={token} />} />
+            {/* <Route path="/card/add" element={<NewCardPage token={token} />} /> */}
+            <Route path="/card/add" element={<NewCardPage />} />
             <Route path="/card/:id" element={<PopBrowsePage token={token} />} />
             <Route path="/exit" element={<ExitPage />} />
           </Route>
@@ -40,45 +25,5 @@ export function AppRoutes({ token, setToken }) {
         <Route path="/registration" element={<RegistrationPage />} />
         <Route path="*" element={<NotFoundPage token={!!token} />} />
       </Routes>
-    // /* </TasksProvider> */
   )
 }
-
-
-
-
-// import * as React from "react";
-
-// const MOBILE_BREAKPOINT = 768;
-
-// export function useIsMobile() {
-// const [isMobile, setIsMobile] = React.useState(undefined);
-
-// React.useEffect(() => {
-// const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
-
-// const onChange = () => {
-// setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-// };
-
-// mql.addEventListener("change", onChange);
-// setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
-
-// return () => {
-// mql.removeEventListener("change", onChange);
-// };
-// }, []);
-
-// return !!isMobile;
-// }
-
-
-// function MyComponent() {
-// const isMobile = useIsMobile();
-
-// return (
-
-// {isMobile ? "Мобильная версия" : "Десктопная версия"}
-
-// );
-// }
