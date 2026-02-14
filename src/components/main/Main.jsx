@@ -11,12 +11,13 @@ import { useContext } from "react";
 export const Main = () => {
   const {
     tasks,
+    isLoading
   } = useContext(TasksContext);
 
   return (
     <SWrapper>
       <Header />
-      {!tasks.length ?
+      {!isLoading && !tasks.length ?
         <SMock>
           <SMessage>У вас пока нет задач &#128123;</SMessage>
           <Link to="/card/add">
