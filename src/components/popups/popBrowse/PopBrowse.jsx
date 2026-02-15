@@ -1,4 +1,4 @@
-import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatusHide, SStatusThemeHide, SStatusGray, SStatusThemeGray, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SCategoriesThemeDownWrapper, SCategoryThemeDownTitle, SCategoriesThemeDownActive, SCategoryThemeDown, SButtonsWrapper, SButtonsGroup } from "./PopBrowse.styled";
+import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatus, SStatusTheme, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SButtonsWrapper, SButtonsGroup } from "./PopBrowse.styled";
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -6,8 +6,6 @@ import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
 
 
-// export const PopBrowse = ({ token, tasks }) => {
-// export const PopBrowse = ({ token }) => {
 export const PopBrowse = () => {
   const navigate = useNavigate();
 
@@ -15,10 +13,23 @@ export const PopBrowse = () => {
     tasks,
     token
   } = useContext(TasksContext);
-
   // console.log("token в PopBrowse: ", token);
 
   const [isEditTask, setIsEditTask] = useState(false);
+  
+  const { id } = useParams();
+  
+  const card = tasks.find((card) => card._id === id);
+  // console.log("card в поп апе для редактирования: ", card);
+  
+  const taskCategory = card.topic;
+  // console.log("категория в поп апе для редактирования: ", card.topic);
+  
+  const initialTaskStatus = card.status;
+  // console.log("статус в поп апе для редактирования: ", card.status);
+  
+  const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
+
 
   useEffect(() => {
     if (!token) {
@@ -26,17 +37,13 @@ export const PopBrowse = () => {
     }
   });
 
-  const { id } = useParams();
-
-  const card = tasks.find((card) => card._id === id);
-  // console.log("card в поп апе для редактирования: ", card);
-
-  const taskCategory = card.topic;
-  // console.log("категория в поп апе для редактирования: ", card.topic);
-
-
   const onEditTask = () => {
     setIsEditTask(true);
+  };
+
+  const onSelectTaskNewStatus = (newStatus) => {
+    // console.log("newStatus: ", newStatus);
+    setCurrentTaskStatus(newStatus);
   };
 
 
@@ -55,29 +62,79 @@ export const PopBrowse = () => {
             </STopBlock>
             <SStatusesWrapper>
               <SStatusesTitle>Статус</SStatusesTitle>
-              <SStatusesContent>
-                <SStatusGray>
-                  {/* <SStatusThemeHide>Без статуса</SStatusThemeHide> */}
-                  <SStatusThemeGray>{card.status}</SStatusThemeGray>
-                </SStatusGray>
-                {/* <SStatusGray>
-                  <SStatusThemeGray>Нужно сделать</SStatusThemeGray>
-                </SStatusGray> */}
-                {/* <SStatusHide>
-                  <SStatusThemeHide>Нужно сделать</SStatusThemeHide>
-                </SStatusHide>
-                <SStatusHide>
-                  <SStatusThemeHide>В работе</SStatusThemeHide>
-                </SStatusHide>
-                <SStatusHide>
-                  <SStatusThemeHide>Тестирование</SStatusThemeHide>
-                </SStatusHide>
-                <SStatusHide>
-                  <SStatusThemeHide>Готово</SStatusThemeHide>
-                </SStatusHide> */}
-              </SStatusesContent>
-            </SStatusesWrapper>
+              {
+                isEditTask
+                  ?
+                  // <SStatusesContent>
+                  //   <SStatusGray $isStatusSelected={isStatusSelected}>
+                  //     <SStatusThemeGray>Без статуса</SStatusThemeGray>
+                  //   </SStatusGray>
 
+                  //   <SStatusHide>
+                  //     <SStatusThemeHide>Нужно сделать</SStatusThemeHide>
+                  //   </SStatusHide>
+
+                  //   <SStatusHide>
+                  //     <SStatusThemeHide>В работе</SStatusThemeHide>
+                  //   </SStatusHide>
+
+                  //   <SStatusHide>
+                  //     <SStatusThemeHide>Тестирование</SStatusThemeHide>
+                  //   </SStatusHide>
+
+                  //   <SStatusHide>
+                  //     <SStatusThemeHide>Готово</SStatusThemeHide>
+                  //   </SStatusHide>
+                  // </SStatusesContent>
+                  <SStatusesContent>
+                    <SStatus
+                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                      $isStatusSelected={currentTaskStatus === "Без статуса"}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Без статуса"}>Без статуса</SStatusTheme>
+                    </SStatus>
+
+                    <SStatus
+                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                      $isStatusSelected={currentTaskStatus === "Нужно сделать"}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Нужно сделать"}>Нужно сделать</SStatusTheme>
+                    </SStatus>
+
+                    <SStatus
+                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                      $isStatusSelected={currentTaskStatus === "В работе"}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === "В работе"}>В работе</SStatusTheme>
+                    </SStatus>
+
+                    <SStatus
+                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                      $isStatusSelected={currentTaskStatus === "Тестирование"}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Тестирование"}>Тестирование</SStatusTheme>
+                    </SStatus>
+
+                    <SStatus
+                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                      $isStatusSelected={currentTaskStatus === "Готово"}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Готово"}>Готово</SStatusTheme>
+                    </SStatus>
+                  </SStatusesContent>
+                  :
+                  <SStatusesContent>
+                    <SStatus $isStatusSelected={currentTaskStatus === card.status}>
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === card.status}>{card.status}</SStatusTheme>
+                    </SStatus>
+                  </SStatusesContent>
+              }
+            </SStatusesWrapper>
 
             <SFormWrapper>
               <SForm className="form-browse" id="formBrowseCard" action="#">
@@ -163,26 +220,6 @@ export const PopBrowse = () => {
               <Calendar />
 
             </SFormWrapper>
-
-
-            {/* <SCategoriesThemeDownWrapper>
-              <SCategoryThemeDownTitle>Категория</SCategoryThemeDownTitle>
-              <SCategoriesThemeDownActive>
-                <SCategoryThemeDown>Web Design</SCategoryThemeDown>
-              </SCategoriesThemeDownActive>
-            </SCategoriesThemeDownWrapper> */}
-
-            {/* <SButtonsWrapper>
-              <SButtonsGroup>
-                <Button
-                  onClick={onEditTask}
-                  text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
-                <Button text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
-              </SButtonsGroup>
-              <Link to="/">
-                <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-              </Link>
-            </SButtonsWrapper> */}
 
             {
               isEditTask

@@ -69,6 +69,11 @@ const categoryColors = {
   "Copywriting": "#9A48F1",
 };
 
+// const statusesBackgroundColors = {
+//   currentStatus
+// };
+
+
 export const SCategoriesThemeTop = styled.div`
   /* display: inline-block; */
   width: auto;
@@ -108,49 +113,58 @@ export const SStatusesContent = styled.div`
   justify-content: flex-start;
 `;
 
-export const SStatusHide = styled.div`
+export const SStatus = styled.div`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
   padding: 11px 14px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
+  background-color: ${({ $isStatusSelected }) => $isStatusSelected ? "#94A6BE" : "transparent"};
+  `;
 
-  // hide
-  /* display: none; */
-`;
-
-export const SStatusThemeHide = styled.p`
+export const SStatusTheme = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-
-  // hide
-  /* display: none; */
+  color: ${({ $isStatusSelected }) => $isStatusSelected ? "#FFFFFF" : "#94A6BE"};
 `;
 
-export const SStatusGray = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
+// export const SStatusHide = styled.div`
+//   border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94A6BE;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
+//   background-color: ${({ $isStatusSelected }) => $isStatusSelected ? "#94A6BE" : transparent};
+// `;
 
-  // gray
-  background: #94A6BE;
-  color: #FFFFFF;
-`;
+// export const SStatusThemeHide = styled.p`
+//   font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+// `;
 
-export const SStatusThemeGray = styled.p`
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
+// export const SStatusGray = styled.div`
+//   border-radius: 24px;
+//   border: 0.7px solid rgba(148, 166, 190, 0.4);
+//   color: #94A6BE;
+//   padding: 11px 14px 10px;
+//   margin-right: 7px;
+//   margin-bottom: 7px;
 
-  // gray
-  background: #94A6BE;
-  color: #FFFFFF;
-`;
+//   background-color: #94A6BE;
+//   color: #FFFFFF;
+// `;
+
+// export const SStatusThemeGray = styled.p`
+//   font-size: 14px;
+//   line-height: 1;
+//   letter-spacing: -0.14px;
+
+//   background: #94A6BE;
+//   color: #FFFFFF;
+// `;
 
 export const SFormWrapper = styled.div`
   display: flex;
@@ -206,46 +220,46 @@ export const SFormText = styled.textarea`
   }
 `;
 
-export const SCategoriesThemeDownWrapper = styled.div`
-  margin-bottom: 20px;
-`;
+// export const SCategoriesThemeDownWrapper = styled.div`
+//   margin-bottom: 20px;
+// `;
 
-export const SCategoryThemeDownTitle = styled.p`
-  margin-bottom: 14px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`;
+// export const SCategoryThemeDownTitle = styled.p`
+//   margin-bottom: 14px;
+//   color: #000;
+//   font-size: 14px;
+//   font-weight: 600;
+//   line-height: 1;
+// `;
 
-export const SCategoriesThemeDownActive = styled.div`
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
-  /* display: block; */
+// export const SCategoriesThemeDownActive = styled.div`
+//   display: inline-block;
+//   width: auto;
+//   height: 30px;
+//   padding: 8px 20px;
+//   border-radius: 24px;
+//   margin-right: 7px;
+//   opacity: 0.4;
+//   /* display: block; */
 
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
+// // orange
+//   background-color: #FFE4C2;
+//   color: #FF6D00;
 
-// active
-  opacity: 1 !important;
-`;
+// // active
+//   opacity: 1 !important;
+// `;
 
-export const SCategoryThemeDown = styled.p`
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
-  white-space: nowrap;
+// export const SCategoryThemeDown = styled.p`
+//   font-size: 14px;
+//   font-weight: 600;
+//   line-height: 14px;
+//   white-space: nowrap;
 
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
-`;
+// // orange
+//   background-color: #FFE4C2;
+//   color: #FF6D00;
+// `;
 
 export const SButtonsWrapper = styled.div`
   display: flex;
