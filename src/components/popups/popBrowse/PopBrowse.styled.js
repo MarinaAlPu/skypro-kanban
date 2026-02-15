@@ -56,6 +56,19 @@ export const STitle = styled.h3`
   line-height: 24px;
 `;
 
+
+const categoryBackgroundColors = {
+  "Web Design": "#FFE4C2",
+  "Research": "#B4FDD1",
+  "Copywriting": "#E9D4FF",
+};
+
+const categoryColors = {
+  "Web Design": "#FF6D00",
+  "Research": "#06B16E",
+  "Copywriting": "#9A48F1",
+};
+
 export const SCategoriesThemeTop = styled.div`
   /* display: inline-block; */
   width: auto;
@@ -63,26 +76,17 @@ export const SCategoriesThemeTop = styled.div`
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
-  opacity: 0.4;
   display: block;
 
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
-
-// active
-  opacity: 1 !important;
-`;
+  background-color: ${({ $taskCategory }) => categoryBackgroundColors[$taskCategory]};
+  color: ${({ $taskCategory }) => categoryColors[$taskCategory]};
+  `;
 
 export const SCategoryThemeTop = styled.p`
   font-size: 14px;
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
-
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
 `;
 
 export const SStatusesWrapper = styled.div`

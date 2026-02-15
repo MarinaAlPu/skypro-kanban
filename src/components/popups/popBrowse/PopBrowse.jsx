@@ -2,7 +2,7 @@ import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesT
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
 
 
@@ -18,6 +18,8 @@ export const PopBrowse = () => {
 
   // console.log("token в PopBrowse: ", token);
 
+  const [isEditTask, setIsEditTask] = useState(false);
+
   useEffect(() => {
     if (!token) {
       navigate('/login');
@@ -27,6 +29,16 @@ export const PopBrowse = () => {
   const { id } = useParams();
 
   const card = tasks.find((card) => card._id === id);
+  // console.log("card в поп апе для редактирования: ", card);
+
+  const taskCategory = card.topic;
+  // console.log("категория в поп апе для редактирования: ", card.topic);
+
+
+  const onEditTask = () => {
+    setIsEditTask(true);
+  };
+
 
   return (
     <SWrapper id="popBrowse">
@@ -34,23 +46,26 @@ export const PopBrowse = () => {
         <SBlock>
           <SContent>
             <STopBlock>
-              {/* <STitle>Название задачи</STitle> */}
               <STitle>{card.title}</STitle>
-              <SCategoriesThemeTop>
-                {/* <SCategoryThemeTop>Web Design</SCategoryThemeTop> */}
+
+              <SCategoriesThemeTop $taskCategory={taskCategory}>
                 <SCategoryThemeTop>{card.topic}</SCategoryThemeTop>
               </SCategoriesThemeTop>
+
             </STopBlock>
             <SStatusesWrapper>
               <SStatusesTitle>Статус</SStatusesTitle>
               <SStatusesContent>
-                <SStatusHide>
+                <SStatusGray>
                   {/* <SStatusThemeHide>Без статуса</SStatusThemeHide> */}
-                  <SStatusThemeHide>{card.status}</SStatusThemeHide>
-                </SStatusHide>
+                  <SStatusThemeGray>{card.status}</SStatusThemeGray>
+                </SStatusGray>
                 {/* <SStatusGray>
                   <SStatusThemeGray>Нужно сделать</SStatusThemeGray>
-                </SStatusGray>
+                </SStatusGray> */}
+                {/* <SStatusHide>
+                  <SStatusThemeHide>Нужно сделать</SStatusThemeHide>
+                </SStatusHide>
                 <SStatusHide>
                   <SStatusThemeHide>В работе</SStatusThemeHide>
                 </SStatusHide>
@@ -150,33 +165,52 @@ export const PopBrowse = () => {
             </SFormWrapper>
 
 
-            <SCategoriesThemeDownWrapper>
+            {/* <SCategoriesThemeDownWrapper>
               <SCategoryThemeDownTitle>Категория</SCategoryThemeDownTitle>
               <SCategoriesThemeDownActive>
                 <SCategoryThemeDown>Web Design</SCategoryThemeDown>
               </SCategoriesThemeDownActive>
-            </SCategoriesThemeDownWrapper>
+            </SCategoriesThemeDownWrapper> */}
 
-            <SButtonsWrapper>
+            {/* <SButtonsWrapper>
               <SButtonsGroup>
-                <Button text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
+                <Button
+                  onClick={onEditTask}
+                  text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
                 <Button text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
               </SButtonsGroup>
               <Link to="/">
                 <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
               </Link>
-            </SButtonsWrapper>
+            </SButtonsWrapper> */}
 
-            <SButtonsWrapper>
-              <SButtonsGroup>
-                <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
-                <Button text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
-                <Button id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
-              </SButtonsGroup>
-              <Link to="/">
-                <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-              </Link>
-            </SButtonsWrapper>
+            {
+              isEditTask
+                ?
+                <SButtonsWrapper>
+                  <SButtonsGroup>
+                    <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
+                    <Button text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
+                    <Button id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
+                  </SButtonsGroup>
+                  <Link to="/">
+                    <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
+                  </Link>
+                </SButtonsWrapper>
+                :
+                <SButtonsWrapper>
+                  <SButtonsGroup>
+                    <Button
+                      onClick={onEditTask}
+                      text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
+                    <Button text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
+                  </SButtonsGroup>
+                  <Link to="/">
+                    <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
+                  </Link>
+                </SButtonsWrapper>
+            }
+
 
           </SContent>
         </SBlock>
