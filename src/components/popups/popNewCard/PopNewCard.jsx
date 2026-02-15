@@ -8,6 +8,8 @@ import { TasksContext } from "../../context/TasksContext";
 
 // export const PopNewCard = ({ token, addTask }) => {
 export const PopNewCard = () => {
+
+
   const {
     addTask,
     token
@@ -28,6 +30,14 @@ export const PopNewCard = () => {
   const [status, setStatus] = useState("");
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
+  const [isCategorySelected, setIsCategorySelected] = useState("");
+
+
+  const onSelectCategory = (categoryName) => {
+    // console.log("Выбрана категория:", categoryName);
+    setIsCategorySelected(categoryName);
+  };
+
 
   return token ? (
     <SWrapper>
@@ -65,15 +75,22 @@ export const PopNewCard = () => {
             <SCategoriesWrapper>
               <SCategoriesTitle>Категория</SCategoriesTitle>
               <SCategoriesThemesWrapper>
-                <SCategoriesThemeContainerOrange>
+                <SCategoriesThemeContainerOrange
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemeOrange>Web Design</SCategoriesThemeOrange>
                 </SCategoriesThemeContainerOrange>
-                {/* </div> */}
-                <SCategoriesThemeContainerGreen>
+                <SCategoriesThemeContainerGreen
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemeGreen>Research</SCategoriesThemeGreen>
                 </SCategoriesThemeContainerGreen>
-                {/* </div> */}
-                <SCategoriesThemeContainerPurple>
+                <SCategoriesThemeContainerPurple
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemePurple>Copywriting</SCategoriesThemePurple>
                 </SCategoriesThemeContainerPurple>
               </SCategoriesThemesWrapper>

@@ -180,9 +180,8 @@ export const SCategoriesThemeContainerOrange = styled.div`
   margin-right: 7px;
   background-color: #FFE4C2;
   color: #FF6D00;
-  opacity: 0.4;
-  /* ._active-category */
-  opacity: 1 !important;
+  cursor: pointer;
+  opacity: ${({ $isCategorySelected }) => ($isCategorySelected === "Web Design" ? 1 : 0.4)};
 `
 
 export const SCategoriesThemeOrange = styled.p`
@@ -202,6 +201,9 @@ export const SCategoriesThemeContainerGreen = styled.div`
   opacity: 0.4;
   background-color: #B4FDD1;
   color: #06B16E;
+  cursor: pointer;
+  opacity: ${({ $isCategorySelected }) => ($isCategorySelected === "Research" ? 1 : 0.4)};
+
 `
 
 export const SCategoriesThemeGreen = styled.p`
@@ -221,6 +223,9 @@ export const SCategoriesThemeContainerPurple = styled.div`
   opacity: 0.4;
   background-color: #E9D4FF;
   color: #9A48F1;
+  cursor: pointer;
+  opacity: ${({ $isCategorySelected }) => ($isCategorySelected === "Copywriting" ? 1 : 0.4)};
+
 `
 
 export const SCategoriesThemePurple = styled.p`
