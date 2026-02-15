@@ -43,7 +43,7 @@ export const SecondaryButton = styled(SButton)`
   border: 0.7px solid #565EEF;
   width: ${({ width }) => width};
   &:hover {
-    background-color: #33399b;
+    background-color: #565EEF;
     color: #FFFFFF;
   }
 `;
