@@ -4,8 +4,11 @@ import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
+import { deleteTask } from "../../../services/api";
 
 
+// export const PopBrowse = ({ token, tasks }) => {
+// export const PopBrowse = ({ token }) => {
 export const PopBrowse = () => {
   const navigate = useNavigate();
 
@@ -15,19 +18,20 @@ export const PopBrowse = () => {
   } = useContext(TasksContext);
   // console.log("token в PopBrowse: ", token);
 
+  const [newTasks, setNewTasks] = useState(tasks);
   const [isEditTask, setIsEditTask] = useState(false);
-  
+
   const { id } = useParams();
-  
-  const card = tasks.find((card) => card._id === id);
+
+  const card = newTasks.find((card) => card._id === id);
   // console.log("card в поп апе для редактирования: ", card);
-  
+
   const taskCategory = card.topic;
   // console.log("категория в поп апе для редактирования: ", card.topic);
-  
+
   const initialTaskStatus = card.status;
   // console.log("статус в поп апе для редактирования: ", card.status);
-  
+
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
 
 
@@ -37,6 +41,11 @@ export const PopBrowse = () => {
     }
   });
 
+  useEffect(() => {
+    setNewTasks(tasks);
+  }, [tasks]);
+
+
   const onEditTask = () => {
     setIsEditTask(true);
   };
@@ -45,6 +54,20 @@ export const PopBrowse = () => {
     // console.log("newStatus: ", newStatus);
     setCurrentTaskStatus(newStatus);
   };
+
+  const onDeleteTask = async () => {
+    try {
+      await deleteTask(token, id);
+      setNewTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+      navigate("/");
+    } catch (error) {
+      console.error("Ошибка при удалении задачи:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    setNewTasks(tasks);
+  }, [tasks]);
 
 
   return (
@@ -228,7 +251,11 @@ export const PopBrowse = () => {
                   <SButtonsGroup>
                     <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
                     <Button text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
-                    <Button id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
+                    <Button
+                      onClick={onDeleteTask}
+                      id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}>
+                      <a href="#"></a>
+                    </Button>
                   </SButtonsGroup>
                   <Link to="/">
                     <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
@@ -240,7 +267,9 @@ export const PopBrowse = () => {
                     <Button
                       onClick={onEditTask}
                       text="Редактировать задачу" type="secondary" width="176px" disabled={false}><a href="#"></a></Button>
-                    <Button text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
+                    <Button
+                      onClick={onDeleteTask}
+                      text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
                   </SButtonsGroup>
                   <Link to="/">
                     <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
