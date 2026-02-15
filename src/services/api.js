@@ -64,9 +64,9 @@ export async function editTask({ token, id, task }) {
   }
 }
 
-export async function deleteTask({ token, id }) {
+export async function deleteTask(token, id) {
   try {
-    const data = await axios.delete(API_URL + id, {
+    const data = await axios.delete(API_URL + "/" + id, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": "text"
