@@ -104,7 +104,7 @@ export const PopNewCard = () => {
                   // token,
                   newTask: {
                     title: title,
-                    topic: "Research",
+                    topic: isCategorySelected,
                     status: "Без статуса",
                     description: description,
                     date: currentDate,
