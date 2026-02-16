@@ -60,6 +60,10 @@ export const PopBrowse = () => {
     }
   };
 
+  const onCancel = () => {
+    navigate("/");
+  };
+
 
   return (
     <SWrapper id="popBrowse">
@@ -238,7 +242,9 @@ export const PopBrowse = () => {
                 <SButtonsWrapper>
                   <SButtonsGroup>
                     <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
-                    <Button text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
+                    <Button
+                      onClick={onCancel}
+                      text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
                     <Button
                       onClick={onDeleteTask}
                       id="btnDelete" text="Удалить задачу" type="secondary" width="131px" disabled={false}>
