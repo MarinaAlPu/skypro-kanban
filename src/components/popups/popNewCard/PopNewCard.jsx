@@ -31,12 +31,40 @@ export const PopNewCard = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
+  // const [errorMessage, setErrorMessage] = useState("");
 
 
   const onSelectCategory = (categoryName) => {
     // console.log("Выбрана категория:", categoryName);
+    setTopic(categoryName);
     setIsCategorySelected(categoryName);
   };
+
+  const handleCreateTask = async () => {
+    if (!description.trim()) {
+      // console.log("Описание задачи не может быть пустым");
+      // setErrorMessage("Описание задачи не может быть пустым");
+      alert("Описание задачи не может быть пустым");
+      return;
+    };
+
+    // setErrorMessage("");
+
+    navigate("/");
+    
+    await addTask({
+      newTask: {
+        title: title || "Новая задача",
+        topic: topic || "Research",
+        status: "Без статуса",
+        description: description,
+        date: currentDate,
+      }
+    });
+    setTitle("");
+    setDescription("");
+    setTopic("");
+  }
 
 
   return token ? (
@@ -98,22 +126,7 @@ export const PopNewCard = () => {
           </SContent>
           <BSButtonWrapper>
             <Button
-              onClick={async () => {
-                navigate("/");
-                await addTask({
-                  // token,
-                  newTask: {
-                    title: title,
-                    topic: isCategorySelected,
-                    status: "Без статуса",
-                    description: description,
-                    date: currentDate,
-                  }
-                });
-                setTitle("");
-                setDescription("");
-                // navigate("/");
-              }}
+              onClick={handleCreateTask}
               id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
           </BSButtonWrapper>
         </SBlock>
