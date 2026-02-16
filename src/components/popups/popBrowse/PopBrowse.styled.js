@@ -127,7 +127,7 @@ export const SStatusTheme = styled.p`
   line-height: 1;
   letter-spacing: -0.14px;
   color: ${({ $isStatusSelected }) => $isStatusSelected ? "#FFFFFF" : "#94A6BE"};
-`;
+  `;
 
 // export const SStatusHide = styled.div`
 //   border-radius: 24px;
@@ -170,33 +170,34 @@ export const SFormWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-`;
+  `;
 
 export const SForm = styled.form`
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-`;
+  `;
 
 export const SFormBlock = styled.div`
   display: flex;
   flex-direction: column;
-`;
+  `;
 
 export const SFormLabel = styled.label`
   color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-`;
+  `;
 
 export const SFormText = styled.textarea`
   max-width: 370px;
   width: 100%;
   outline: none;
   padding: 14px;
-  background: #EAEEF6;
+  /* background: #EAEEF6; */
+  background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "#EAEEF6"};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
