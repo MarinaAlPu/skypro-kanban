@@ -4,7 +4,7 @@ import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
-import { deleteTask } from "../../../services/api";
+import { deleteTask, editTask } from "../../../services/api";
 import { statuses } from "../../../data";
 
 
@@ -52,6 +52,25 @@ export const PopBrowse = () => {
   const onSelectTaskNewStatus = (newStatus) => {
     // console.log("newStatus: ", newStatus);
     setCurrentTaskStatus(newStatus);
+  };
+
+  const onSaveTask = async () => {
+    try {
+      const updatedTask = {
+        ...card,
+        description: currentTaskDescription,
+        status: currentTaskStatus,
+      };
+
+      const updatedTasks = await editTask(token, id, updatedTask);
+      // console.log("updatedTasks: ", updatedTasks);
+
+      updateTasks(updatedTasks);
+
+      navigate("/");
+    } catch (error) {
+      console.error("Ошибка при сохранении отдерактированной задачи:", error.message);
+    }
   };
 
   const onDeleteTask = async () => {
@@ -253,7 +272,9 @@ export const PopBrowse = () => {
                 ?
                 <SButtonsWrapper>
                   <SButtonsGroup>
-                    <Button text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
+                    <Button
+                      onClick={onSaveTask}
+                      text="Сохранить" type="primary" width="99px" disabled={false}><a href="#"></a></Button>
                     <Button
                       onClick={onCancel}
                       text="Отменить" type="secondary" width="93px" disabled={false}><a href="#"></a></Button>
