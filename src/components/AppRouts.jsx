@@ -14,7 +14,6 @@ export function AppRoutes({ token, setToken }) {
       <Routes>
         <Route element={<PrivateRoute />}>
           <Route path="/" element={<MainPage token={token} />} >
-            {/* <Route path="/card/add" element={<NewCardPage token={token} />} /> */}
             <Route path="/card/add" element={<NewCardPage />} />
             <Route path="/card/:id" element={<PopBrowsePage token={token} />} />
             <Route path="/exit" element={<ExitPage />} />

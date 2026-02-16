@@ -7,7 +7,6 @@ import { TasksContext } from "../context/TasksContext";
 import { useContext } from "react";
 
 
-// export const Main = ({ error, tasks }) => {
 export const Main = () => {
   const {
     tasks,
@@ -21,7 +20,6 @@ export const Main = () => {
         <SMock>
           <SMessage>У вас пока нет задач &#128123;</SMessage>
           <Link to="/card/add">
-            {/* <Button href="#popNewCard" width="212px" type="primary" text="Создать мою первую задачу" disabled={false}> */}
             <Button width="212px" type="primary" text="Создать мою первую задачу" disabled={false}>
             </Button>
           </Link>

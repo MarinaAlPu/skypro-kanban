@@ -6,15 +6,12 @@ export const Card = ({ id, topic, title, date }) => {
   let labelColor;
   let textColor;
   if (topic === "Web Design") {
-    // labelColor = "orange";
     labelColor = "#FFE4C2";
     textColor = "#FF6D00";
   } else if (topic === "Research") {
-    // labelColor = "green";
     labelColor = "#B4FDD1";
     textColor = "#06B16E";
   } else if (topic === "Copywriting") {
-    // labelColor = "purple";
     labelColor = "#E9D4FF";
     textColor = "#9A48F1";
   }
@@ -26,18 +23,6 @@ export const Card = ({ id, topic, title, date }) => {
         <SCardLabel $labelColor={labelColor} $textColor={textColor}>
           <SCardTopic>{topic}</SCardTopic>
         </SCardLabel>
-
-        {/* <a href="#popBrowse" target="_self">
-          <div className="card__btn">
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
-        </a> */}
-
-        {/* <Link to="/">
-          <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-        </Link> */}
 
         <Link to={`/card/${id}`}>
           <SCardButton>

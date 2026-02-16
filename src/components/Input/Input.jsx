@@ -1,7 +1,6 @@
 import { SInput } from "./Input.styled";
 
 
-
 export const Input = ({ type, placeholder, name, error, onChange }) => {
   return (
     <SInput

@@ -1,8 +1,20 @@
 import styled from "styled-components";
 
 
+const categoryBackgroundColors = {
+  "Web Design": "#FFE4C2",
+  "Research": "#B4FDD1",
+  "Copywriting": "#E9D4FF",
+};
+
+const categoryColors = {
+  "Web Design": "#FF6D00",
+  "Research": "#06B16E",
+  "Copywriting": "#9A48F1",
+};
+
+
 export const SWrapper = styled.div`
-  /* display: none; */
   width: 100%;
   height: 100%;
   min-width: 375px;
@@ -56,26 +68,7 @@ export const STitle = styled.h3`
   line-height: 24px;
 `;
 
-
-const categoryBackgroundColors = {
-  "Web Design": "#FFE4C2",
-  "Research": "#B4FDD1",
-  "Copywriting": "#E9D4FF",
-};
-
-const categoryColors = {
-  "Web Design": "#FF6D00",
-  "Research": "#06B16E",
-  "Copywriting": "#9A48F1",
-};
-
-// const statusesBackgroundColors = {
-//   currentStatus
-// };
-
-
 export const SCategoriesThemeTop = styled.div`
-  /* display: inline-block; */
   width: auto;
   height: 30px;
   padding: 8px 20px;
@@ -129,43 +122,6 @@ export const SStatusTheme = styled.p`
   color: ${({ $isStatusSelected }) => $isStatusSelected ? "#FFFFFF" : "#94A6BE"};
   `;
 
-// export const SStatusHide = styled.div`
-//   border-radius: 24px;
-//   border: 0.7px solid rgba(148, 166, 190, 0.4);
-//   color: #94A6BE;
-//   padding: 11px 14px 10px;
-//   margin-right: 7px;
-//   margin-bottom: 7px;
-//   background-color: ${({ $isStatusSelected }) => $isStatusSelected ? "#94A6BE" : transparent};
-// `;
-
-// export const SStatusThemeHide = styled.p`
-//   font-size: 14px;
-//   line-height: 1;
-//   letter-spacing: -0.14px;
-// `;
-
-// export const SStatusGray = styled.div`
-//   border-radius: 24px;
-//   border: 0.7px solid rgba(148, 166, 190, 0.4);
-//   color: #94A6BE;
-//   padding: 11px 14px 10px;
-//   margin-right: 7px;
-//   margin-bottom: 7px;
-
-//   background-color: #94A6BE;
-//   color: #FFFFFF;
-// `;
-
-// export const SStatusThemeGray = styled.p`
-//   font-size: 14px;
-//   line-height: 1;
-//   letter-spacing: -0.14px;
-
-//   background: #94A6BE;
-//   color: #FFFFFF;
-// `;
-
 export const SFormWrapper = styled.div`
   display: flex;
   align-items: flex-start;
@@ -196,7 +152,6 @@ export const SFormText = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  /* background: #EAEEF6; */
   background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "#EAEEF6"};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
@@ -221,50 +176,8 @@ export const SFormText = styled.textarea`
   }
 `;
 
-// export const SCategoriesThemeDownWrapper = styled.div`
-//   margin-bottom: 20px;
-// `;
-
-// export const SCategoryThemeDownTitle = styled.p`
-//   margin-bottom: 14px;
-//   color: #000;
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 1;
-// `;
-
-// export const SCategoriesThemeDownActive = styled.div`
-//   display: inline-block;
-//   width: auto;
-//   height: 30px;
-//   padding: 8px 20px;
-//   border-radius: 24px;
-//   margin-right: 7px;
-//   opacity: 0.4;
-//   /* display: block; */
-
-// // orange
-//   background-color: #FFE4C2;
-//   color: #FF6D00;
-
-// // active
-//   opacity: 1 !important;
-// `;
-
-// export const SCategoryThemeDown = styled.p`
-//   font-size: 14px;
-//   font-weight: 600;
-//   line-height: 14px;
-//   white-space: nowrap;
-
-// // orange
-//   background-color: #FFE4C2;
-//   color: #FF6D00;
-// `;
-
 export const SButtonsWrapper = styled.div`
   display: flex;
-  /* flex-wrap: wrap; */
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
@@ -276,4 +189,3 @@ export const SButtonsGroup = styled.div`
   flex-direction: row;
   gap: 8px;
 `;
-

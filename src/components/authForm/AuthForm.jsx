@@ -2,13 +2,13 @@ import { SPageBackground, SWrapper, STitle, SForm, SInputWrapper, SFooterWrapper
 import { Input } from "../Input/Input";
 import { Button } from "../button/Button";
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { login, registration } from "../../services/auth";
 import { validateForm } from "../../utils/helpers";
 import { AuthContext } from "../context/AuthContext";
 
 
-export const AuthForm = ({ isSignUp, setToken }) => {
+export const AuthForm = ({ isSignUp }) => {
   const navigate = useNavigate();
 
   const { updateUserInfo } = useContext(AuthContext);
@@ -38,8 +38,6 @@ export const AuthForm = ({ isSignUp, setToken }) => {
       const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
 
       if (data) {
-        // setToken(data.token);
-        // localStorage.setItem("userInfo", JSON.stringify(data));
         updateUserInfo(data);
         navigate("/");
       }

@@ -5,16 +5,6 @@ import { TasksContext } from "../components/context/TasksContext";
 import { useContext } from "react";
 
 
-// export const MainPage = ({ tasks, isLoading, error }) => {
-//   return (
-//     <>
-//       {isLoading && <Loader isLoading={isLoading} />}
-//       <Main tasks={tasks} error={error} />
-//       <Outlet />
-//     </>
-//   )
-// }
-
 export const MainPage = () => {
   const {
     isLoading,

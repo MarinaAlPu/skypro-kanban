@@ -6,7 +6,6 @@ import { useState, useEffect, useContext } from "react";
 import { TasksContext } from "../../context/TasksContext";
 
 
-// export const PopNewCard = ({ token, addTask }) => {
 export const PopNewCard = () => {
 
 
@@ -31,24 +30,18 @@ export const PopNewCard = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
-  // const [errorMessage, setErrorMessage] = useState("");
 
 
   const onSelectCategory = (categoryName) => {
-    // console.log("Выбрана категория:", categoryName);
     setTopic(categoryName);
     setIsCategorySelected(categoryName);
   };
 
   const handleCreateTask = async () => {
     if (!description.trim()) {
-      // console.log("Описание задачи не может быть пустым");
-      // setErrorMessage("Описание задачи не может быть пустым");
       alert("Описание задачи не может быть пустым");
       return;
     };
-
-    // setErrorMessage("");
 
     navigate("/");
     

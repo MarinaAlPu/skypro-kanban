@@ -5,7 +5,6 @@ import { TasksContext } from "../context/TasksContext";
 import { useContext } from "react";
 
 
-// export const Content = ({  error, tasks }) => {
 export const Content = () => {
   const {
     tasks,
