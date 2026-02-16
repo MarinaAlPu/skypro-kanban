@@ -7,29 +7,27 @@ import { TasksContext } from "../../context/TasksContext";
 import { deleteTask } from "../../../services/api";
 
 
-// export const PopBrowse = ({ token, tasks }) => {
-// export const PopBrowse = ({ token }) => {
 export const PopBrowse = () => {
   const navigate = useNavigate();
 
   const {
     tasks,
-    token
+    token,
+    updateTasks
   } = useContext(TasksContext);
   // console.log("token в PopBrowse: ", token);
 
-  const [newTasks, setNewTasks] = useState(tasks);
   const [isEditTask, setIsEditTask] = useState(false);
 
   const { id } = useParams();
 
-  const card = newTasks.find((card) => card._id === id);
+  const card = tasks.find((card) => card._id === id);
   // console.log("card в поп апе для редактирования: ", card);
 
-  const taskCategory = card.topic;
+  const taskCategory = card?.topic;
   // console.log("категория в поп апе для редактирования: ", card.topic);
 
-  const initialTaskStatus = card.status;
+  const initialTaskStatus = card?.status;
   // console.log("статус в поп апе для редактирования: ", card.status);
 
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
@@ -40,10 +38,6 @@ export const PopBrowse = () => {
       navigate('/login');
     }
   });
-
-  useEffect(() => {
-    setNewTasks(tasks);
-  }, [tasks]);
 
 
   const onEditTask = () => {
@@ -58,16 +52,12 @@ export const PopBrowse = () => {
   const onDeleteTask = async () => {
     try {
       await deleteTask(token, id);
-      setNewTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+      updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
       navigate("/");
     } catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
     }
   };
-
-  useEffect(() => {
-    setNewTasks(tasks);
-  }, [tasks]);
 
 
   return (
@@ -76,10 +66,10 @@ export const PopBrowse = () => {
         <SBlock>
           <SContent>
             <STopBlock>
-              <STitle>{card.title}</STitle>
+              <STitle>{card?.title}</STitle>
 
               <SCategoriesThemeTop $taskCategory={taskCategory}>
-                <SCategoryThemeTop>{card.topic}</SCategoryThemeTop>
+                <SCategoryThemeTop>{card?.topic}</SCategoryThemeTop>
               </SCategoriesThemeTop>
 
             </STopBlock>
@@ -152,8 +142,8 @@ export const PopBrowse = () => {
                   </SStatusesContent>
                   :
                   <SStatusesContent>
-                    <SStatus $isStatusSelected={currentTaskStatus === card.status}>
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === card.status}>{card.status}</SStatusTheme>
+                    <SStatus $isStatusSelected={currentTaskStatus === card?.status}>
+                      <SStatusTheme $isStatusSelected={currentTaskStatus === card?.status}>{card?.status}</SStatusTheme>
                     </SStatus>
                   </SStatusesContent>
               }
