@@ -4,7 +4,6 @@ import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
-import { deleteTask, editTask } from "../../../services/api";
 import { statuses } from "../../../data";
 
 
@@ -14,7 +13,8 @@ export const PopBrowse = () => {
   const {
     tasks,
     token,
-    updateTasks
+    editTasks,
+    deleteTasks
   } = useContext(TasksContext);
   // console.log("token в PopBrowse: ", token);
 
@@ -62,10 +62,10 @@ export const PopBrowse = () => {
         status: currentTaskStatus,
       };
 
-      const updatedTasks = await editTask(token, id, updatedTask);
+      const updatedTasks = await editTasks(token, id, updatedTask);
       // console.log("updatedTasks: ", updatedTasks);
 
-      updateTasks(updatedTasks);
+      // updateTasks(updatedTasks);
 
       navigate("/");
     } catch (error) {
@@ -75,10 +75,11 @@ export const PopBrowse = () => {
 
   const onDeleteTask = async () => {
     try {
-      await deleteTask(token, id);
-      updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+      await deleteTasks(token, id);
+      // updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
       navigate("/");
-    } catch (error) {
+    }
+    catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
     }
   };
