@@ -31,7 +31,11 @@ export const PopBrowse = () => {
   const initialTaskStatus = card?.status;
   // console.log("статус в поп апе для редактирования: ", card.status);
 
+  const initialTaskDescription = card?.description;
+  // console.log("статус в поп апе для редактирования: ", card.status);
+
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
+  const [currentTaskDescription, setCurrentTaskDescription] = useState(initialTaskDescription || "");
 
 
   useEffect(() => {
@@ -155,7 +159,15 @@ export const PopBrowse = () => {
               <SForm className="form-browse" id="formBrowseCard" action="#">
                 <SFormBlock>
                   <SFormLabel htmlFor="textArea01">Описание задачи</SFormLabel>
-                  <SFormText name="text" id="textArea01" readOnly placeholder="Введите описание задачи..."></SFormText>
+                  <SFormText
+                    $isEditTask={isEditTask}
+                    name="text" id="textArea01"
+                    readOnly={!isEditTask}
+                    value={currentTaskDescription}
+                    placeholder="Введите описание задачи..."
+                    onChange={(e) => setCurrentTaskDescription(e.target.value)}
+                  >
+                  </SFormText>
                 </SFormBlock>
               </SForm>
 
