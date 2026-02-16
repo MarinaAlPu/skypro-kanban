@@ -14,7 +14,7 @@ export const TasksProvider = ({ children }) => {
   const { user } = useContext(AuthContext);
   // console.log("user в TasksProvider: ", user);
 
-  const token = user.token;
+  const token = user?.token;
   // console.log("token в TasksProvider: ", token);
 
   const [isLoading, setIsLoading] = useState("");
