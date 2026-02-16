@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback, useContext } from "react";
-import { fetchTasks, postTask } from "../../services/api.js";
+import { deleteTask, editTask, fetchTasks, postTask } from "../../services/api.js";
 import { TasksContext } from "./TasksContext";
 import { AuthContext } from "./AuthContext";
 
@@ -63,6 +63,40 @@ export const TasksProvider = ({ children }) => {
     setTasks(newTasks);
   };
 
+  const editTasks = async (token, id, task) => {
+    setIsLoading(true);
+    try {
+      await editTask(token, id, task)
+        .then((data) => {
+          setTasks(data);
+        })
+
+      // const updatedTasks = await editTask(token, id, task);
+      // setTasks(updatedTasks);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const deleteTasks = async (token, id) => {
+    setIsLoading(true);
+    try {
+      await deleteTask(token, id)
+        .then((data) => {
+          setTasks(data);
+        })
+
+      // await deleteTask(token, id);
+      // setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
 
   return (
     <TasksContext.Provider
@@ -70,10 +104,12 @@ export const TasksProvider = ({ children }) => {
         tasks,
         setTasks,
         error,
-        isLoading,
+        isLoading, setIsLoading,
         getTasks, addTask,
         token,
-        updateTasks
+        updateTasks,
+        editTasks,
+        deleteTasks
       }}
     >
       {children}
