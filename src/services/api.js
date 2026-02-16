@@ -58,9 +58,7 @@ export async function editTask(token, id, task ) {
       },
     });
     // console.log("data: ", data);
-    console.log("data.data.tasks: ", data.data.tasks);
-    // console.log("data.data.cards: ", data.data.cards);
-    // return data.data.cards;
+    // console.log("data.data.tasks: ", data.data.tasks);
     return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
@@ -76,7 +74,7 @@ export async function deleteTask(token, id) {
       },
     });
     // console.log(data);
-    return data.data.cards;
+    return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
   }
