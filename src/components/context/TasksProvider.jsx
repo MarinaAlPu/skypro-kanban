@@ -10,8 +10,8 @@ export const TasksProvider = ({ children }) => {
 
   // const data = useContext(AuthContext);
   // console.log("data в TasksProvider: ", data);
-  
-  const {user} = useContext(AuthContext);
+
+  const { user } = useContext(AuthContext);
   // console.log("user в TasksProvider: ", user);
 
   const token = user.token;
@@ -59,6 +59,11 @@ export const TasksProvider = ({ children }) => {
     }
   };
 
+  const updateTasks = (newTasks) => {
+    setTasks(newTasks);
+  };
+
+
   return (
     <TasksContext.Provider
       value={{
@@ -67,7 +72,8 @@ export const TasksProvider = ({ children }) => {
         error,
         isLoading,
         getTasks, addTask,
-        token
+        token,
+        updateTasks
       }}
     >
       {children}
