@@ -5,6 +5,7 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { TasksContext } from "../../context/TasksContext";
 import { deleteTask } from "../../../services/api";
+import { statuses } from "../../../data";
 
 
 export const PopBrowse = () => {
@@ -79,67 +80,64 @@ export const PopBrowse = () => {
                 isEditTask
                   ?
                   // <SStatusesContent>
-                  //   <SStatusGray $isStatusSelected={isStatusSelected}>
-                  //     <SStatusThemeGray>Без статуса</SStatusThemeGray>
-                  //   </SStatusGray>
+                  //   <SStatus
+                  //     onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                  //     $isStatusSelected={currentTaskStatus === "Без статуса"}
+                  //     style={{ cursor: "pointer" }}
+                  //   >
+                  //     <SStatusTheme $isStatusSelected={currentTaskStatus === "Без статуса"}>Без статуса</SStatusTheme>
+                  //   </SStatus>
 
-                  //   <SStatusHide>
-                  //     <SStatusThemeHide>Нужно сделать</SStatusThemeHide>
-                  //   </SStatusHide>
+                  //   <SStatus
+                  //     onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                  //     $isStatusSelected={currentTaskStatus === "Нужно сделать"}
+                  //     style={{ cursor: "pointer" }}
+                  //   >
+                  //     <SStatusTheme $isStatusSelected={currentTaskStatus === "Нужно сделать"}>Нужно сделать</SStatusTheme>
+                  //   </SStatus>
 
-                  //   <SStatusHide>
-                  //     <SStatusThemeHide>В работе</SStatusThemeHide>
-                  //   </SStatusHide>
+                  //   <SStatus
+                  //     onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                  //     $isStatusSelected={currentTaskStatus === "В работе"}
+                  //     style={{ cursor: "pointer" }}
+                  //   >
+                  //     <SStatusTheme $isStatusSelected={currentTaskStatus === "В работе"}>В работе</SStatusTheme>
+                  //   </SStatus>
 
-                  //   <SStatusHide>
-                  //     <SStatusThemeHide>Тестирование</SStatusThemeHide>
-                  //   </SStatusHide>
+                  //   <SStatus
+                  //     onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                  //     $isStatusSelected={currentTaskStatus === "Тестирование"}
+                  //     style={{ cursor: "pointer" }}
+                  //   >
+                  //     <SStatusTheme $isStatusSelected={currentTaskStatus === "Тестирование"}>Тестирование</SStatusTheme>
+                  //   </SStatus>
 
-                  //   <SStatusHide>
-                  //     <SStatusThemeHide>Готово</SStatusThemeHide>
-                  //   </SStatusHide>
+                  //   <SStatus
+                  //     onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                  //     $isStatusSelected={currentTaskStatus === "Готово"}
+                  //     style={{ cursor: "pointer" }}
+                  //   >
+                  //     <SStatusTheme $isStatusSelected={currentTaskStatus === "Готово"}>Готово</SStatusTheme>
+                  //   </SStatus>
                   // </SStatusesContent>
+
                   <SStatusesContent>
-                    <SStatus
-                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
-                      $isStatusSelected={currentTaskStatus === "Без статуса"}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Без статуса"}>Без статуса</SStatusTheme>
-                    </SStatus>
-
-                    <SStatus
-                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
-                      $isStatusSelected={currentTaskStatus === "Нужно сделать"}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Нужно сделать"}>Нужно сделать</SStatusTheme>
-                    </SStatus>
-
-                    <SStatus
-                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
-                      $isStatusSelected={currentTaskStatus === "В работе"}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === "В работе"}>В работе</SStatusTheme>
-                    </SStatus>
-
-                    <SStatus
-                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
-                      $isStatusSelected={currentTaskStatus === "Тестирование"}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Тестирование"}>Тестирование</SStatusTheme>
-                    </SStatus>
-
-                    <SStatus
-                      onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
-                      $isStatusSelected={currentTaskStatus === "Готово"}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <SStatusTheme $isStatusSelected={currentTaskStatus === "Готово"}>Готово</SStatusTheme>
-                    </SStatus>
+                    {
+                      statuses.map((status) => {
+                        return (
+                          <SStatus
+                            key={status}
+                            onClick={(e) => onSelectTaskNewStatus(e.target.textContent)}
+                            $isStatusSelected={currentTaskStatus === status}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <SStatusTheme $isStatusSelected={currentTaskStatus === status}>{status}</SStatusTheme>
+                          </SStatus>
+                        )
+                      })
+                    }
                   </SStatusesContent>
+
                   :
                   <SStatusesContent>
                     <SStatus $isStatusSelected={currentTaskStatus === card?.status}>
