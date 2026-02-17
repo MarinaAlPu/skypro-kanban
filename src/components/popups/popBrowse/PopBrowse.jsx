@@ -85,7 +85,9 @@ export const PopBrowse = () => {
   };
 
   const onCancel = () => {
-    navigate("/");
+    setCurrentTaskStatus(initialTaskStatus);
+    setCurrentTaskDescription(initialTaskDescription);
+    // navigate("/");
   };
 
 
