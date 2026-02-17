@@ -3,7 +3,7 @@ import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation
 
 
 export const Calendar = ({ isEditTask }) => {
-  console.log("isEditTask: ", isEditTask);
+  // console.log("isEditTask: ", isEditTask);
 
   // const [currentDate, setCurrentDate] = useState(new Date());
 
