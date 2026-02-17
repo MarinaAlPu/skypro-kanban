@@ -30,6 +30,7 @@ export const PopNewCard = () => {
   const [description, setDescription] = useState("");
   const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
+  const [isEditTask, setIsEditTask] = useState(false);
 
 
   const onSelectCategory = (categoryName) => {
@@ -91,7 +92,7 @@ export const PopNewCard = () => {
                 </SFormBlock>
 
               </SFormNewCard>
-              <Calendar />
+              <Calendar isEditTask={true}/>
             </SNewCardWrapper>
             <SCategoriesWrapper>
               <SCategoriesTitle>Категория</SCategoriesTitle>

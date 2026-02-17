@@ -1,7 +1,21 @@
+import { useState } from "react";
 import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation, SCalendarMonth, SCalendarNavActions, SCalendarNavAction, SCalendarArrow, SCalendarContent, SCalendarDaysNames, SCalendarDayName, SCalendarDayNameWeekend, SCalendarCells, SCalendarCellDay, SCalendarCellDayWeekend, SCalendarCellDayCurrent, SCalendarCellOtherMonth, SCalendarCellOtherMonthWeekend, SCalendarPeriod, SCalendarDateEnd, SCalendarDateControl } from "./Calendar.styled";
 
 
-export const Calendar = () => {
+export const Calendar = ({ isEditTask }) => {
+  console.log("isEditTask: ", isEditTask);
+
+  // const [currentDate, setCurrentDate] = useState(new Date());
+
+  // console.log("currentDate: ", currentDate);
+
+  // const currentYear = currentDate.getFullYear();
+  // console.log("currentYear: ", currentYear);
+  // const currentMonth = Number(currentDate.getMonth()) + 1;
+  // console.log("currentMonth: ", currentMonth);
+  // const currentDay = currentDate.getDay();
+  // console.log("currentDay: ", currentDay);
+
   return (
     <SCalendarContainer>
       <SCalendarTitle>Даты</SCalendarTitle>
@@ -72,8 +86,12 @@ export const Calendar = () => {
 
         <input type="hidden" id="datepick_value" value="08.09.2023" />
         <SCalendarPeriod>
-          <SCalendarDateEnd>Выберите срок исполнения.<SCalendarDateControl></SCalendarDateControl></SCalendarDateEnd>
-          <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
+          {
+            isEditTask ?
+            <SCalendarDateEnd>Выберите срок исполнения.<SCalendarDateControl></SCalendarDateControl></SCalendarDateEnd>
+            :
+            <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
+          }
         </SCalendarPeriod>
       </SCalendarBlock>
     </SCalendarContainer>

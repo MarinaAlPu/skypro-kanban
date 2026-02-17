@@ -264,7 +264,7 @@ export const PopBrowse = () => {
                   </div>
                 </div>
               </div> */}
-              <Calendar />
+              <Calendar isEditTask={isEditTask}/>
 
             </SFormWrapper>
 
