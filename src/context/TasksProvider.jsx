@@ -17,7 +17,7 @@ export const TasksProvider = ({ children }) => {
   const token = user?.token;
   // console.log("token в TasksProvider: ", token);
 
-  const [isLoading, setIsLoading] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
 
