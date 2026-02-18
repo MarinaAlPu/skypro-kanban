@@ -46,6 +46,7 @@ export const PopBrowse = () => {
   };
 
   const onSaveTask = async () => {
+    navigate("/");
     try {
       const updatedTask = {
         ...card,
@@ -55,17 +56,16 @@ export const PopBrowse = () => {
 
       await editTasks(token, id, updatedTask);
 
-      navigate("/");
     } catch (error) {
       console.error("Ошибка при сохранении отдерактированной задачи:", error.message);
     }
   };
 
   const onDeleteTask = async () => {
+    navigate("/");
     try {
       await deleteTasks(token, id);
       // updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
-      navigate("/");
     }
     catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
