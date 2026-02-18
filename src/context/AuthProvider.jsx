@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { AuthContext } from "./AuthContext";
-// import { useNavigate } from "react-router-dom";
 import { login, registration } from "../services/auth";
 import { validateForm } from "../utils/helpers";
 
 
 export const AuthProvider = ({ children }) => {
-  // const [token, setToken] = useState(JSON.parse(localStorage.getItem("userInfo"))?.token);
-
   function checkLs() {
     try {
       return localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null
@@ -29,10 +26,6 @@ export const AuthProvider = ({ children }) => {
   }
 
 
-
-
-  // const navigate = useNavigate();
-
   const [formData, setFormData] = useState({ name: "", login: "", password: "" });
   const [errors, setErrors] = useState({ name: false, login: false, password: false });
   const [error, setError] = useState("");
@@ -46,10 +39,8 @@ export const AuthProvider = ({ children }) => {
     setError("");
   };
 
-  // const handleLogin = async (e) => {
   const handleLogin = async (isSignUp) => {
     setIsValid(false);
-    // e.preventDefault();
 
     if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
       return;
@@ -60,7 +51,6 @@ export const AuthProvider = ({ children }) => {
 
       if (data) {
         updateUserInfo(data);
-        // navigate("/");
         return true;
       }
     } catch (err) {
@@ -71,9 +61,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleLogout = (e) => {
-    // e.preventDefault();
-    // localStorage.removeItem("userInfo");
-    // navigate("/login");
     updateUserInfo(null);
   };
 

@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback, useContext } from "react";
 import { deleteTask, editTask, fetchTasks, postTask } from "../services/api.js";
 import { TasksContext } from "./TasksContext.js";
@@ -6,16 +5,8 @@ import { AuthContext } from "./AuthContext.js";
 
 
 export const TasksProvider = ({ children }) => {
-  const navigate = useNavigate();
-
-  // const data = useContext(AuthContext);
-  // console.log("data в TasksProvider: ", data);
-
   const { user } = useContext(AuthContext);
-  // console.log("user в TasksProvider: ", user);
-
   const token = user?.token;
-  // console.log("token в TasksProvider: ", token);
 
   const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState([]);
@@ -40,7 +31,6 @@ export const TasksProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       getTasks();
-      // navigate("/");
     }
   }, [getTasks, token]);
 

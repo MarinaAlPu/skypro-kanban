@@ -2,9 +2,7 @@ import { SPageBackground, SWrapper, STitle, SForm, SInputWrapper, SFooterWrapper
 import { Input } from "../Input/Input";
 import { Button } from "../button/Button";
 import { useNavigate } from "react-router-dom";
-import { useState, useContext } from "react";
-import { login, registration } from "../../services/auth";
-import { validateForm } from "../../utils/helpers";
+import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 
 
@@ -16,45 +14,6 @@ export const AuthForm = ({ isSignUp }) => {
     formData, errors,
     error, isValid
   } = useContext(AuthContext);
-
-
-
-  // const { updateUserInfo } = useContext(AuthContext);
-
-  // const [formData, setFormData] = useState({ name: "", login: "", password: "" });
-  // const [errors, setErrors] = useState({ name: false, login: false, password: false });
-  // const [error, setError] = useState("");
-  // const [isValid, setIsValid] = useState(true);
-
-  // const handleChange = (e) => {
-  //   setIsValid(true);
-  //   const { name, value } = e.target;
-  //   setFormData({ ...formData, [name]: value });
-  //   setErrors({ ...errors, [name]: false });
-  //   setError("");
-  // }
-
-  // const handleLogin = async (e) => {
-  //   setIsValid(false);
-  //   e.preventDefault();
-
-  //   if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
-  //     return;
-  //   }
-
-  //   try {
-  //     const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
-
-  //     if (data) {
-  //       updateUserInfo(data);
-  //       navigate("/");
-  //     }
-  //   } catch (err) {
-  //     setError(err.message);
-  //     setIsValid(false)
-  //   }
-  // }
-
 
 
   const handleSubmit = async (e) => {
@@ -70,7 +29,6 @@ export const AuthForm = ({ isSignUp }) => {
     <SPageBackground>
       <SWrapper style={{ height: "329px" }}>
         <STitle>{isSignUp ? "Регистрация" : "Вход"}</STitle>
-        {/* <SForm id="form" onSubmit={handleLogin}> */}
         <SForm id="form" onSubmit={handleSubmit}>
 
           <SInputWrapper>
