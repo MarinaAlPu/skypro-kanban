@@ -11,47 +11,67 @@ import { AuthContext } from "../../context/AuthContext";
 export const AuthForm = ({ isSignUp }) => {
   const navigate = useNavigate();
 
-  const { updateUserInfo } = useContext(AuthContext);
+  const {
+    handleChange, handleLogin,
+    formData, errors,
+    error, isValid
+  } = useContext(AuthContext);
 
-  const [formData, setFormData] = useState({ name: "", login: "", password: "" });
-  const [errors, setErrors] = useState({ name: false, login: false, password: false });
-  const [error, setError] = useState("");
-  const [isValid, setIsValid] = useState(true);
 
-  const handleChange = (e) => {
-    setIsValid(true);
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-    setErrors({ ...errors, [name]: false });
-    setError("");
-  }
 
-  const handleLogin = async (e) => {
-    setIsValid(false);
+  // const { updateUserInfo } = useContext(AuthContext);
+
+  // const [formData, setFormData] = useState({ name: "", login: "", password: "" });
+  // const [errors, setErrors] = useState({ name: false, login: false, password: false });
+  // const [error, setError] = useState("");
+  // const [isValid, setIsValid] = useState(true);
+
+  // const handleChange = (e) => {
+  //   setIsValid(true);
+  //   const { name, value } = e.target;
+  //   setFormData({ ...formData, [name]: value });
+  //   setErrors({ ...errors, [name]: false });
+  //   setError("");
+  // }
+
+  // const handleLogin = async (e) => {
+  //   setIsValid(false);
+  //   e.preventDefault();
+
+  //   if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
+  //     return;
+  //   }
+
+  //   try {
+  //     const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
+
+  //     if (data) {
+  //       updateUserInfo(data);
+  //       navigate("/");
+  //     }
+  //   } catch (err) {
+  //     setError(err.message);
+  //     setIsValid(false)
+  //   }
+  // }
+
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
-      return;
+    const success = await handleLogin(isSignUp);
+    if (success) {
+      navigate("/");
     }
-    
-    try {
-      const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
+  };
 
-      if (data) {
-        updateUserInfo(data);
-        navigate("/");
-      }
-    } catch (err) {
-      setError(err.message);
-      setIsValid(false)
-    }
-  }
 
   return (
     <SPageBackground>
       <SWrapper style={{ height: "329px" }}>
         <STitle>{isSignUp ? "Регистрация" : "Вход"}</STitle>
-        <SForm id="form" onSubmit={handleLogin}>
+        {/* <SForm id="form" onSubmit={handleLogin}> */}
+        <SForm id="form" onSubmit={handleSubmit}>
 
           <SInputWrapper>
             {isSignUp && (<Input error={errors.name} type="text" placeholder="Имя" name="name" value={formData.name} onChange={handleChange} />)}
