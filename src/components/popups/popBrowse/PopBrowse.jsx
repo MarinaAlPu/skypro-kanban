@@ -3,7 +3,7 @@ import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { TasksContext } from "../../context/TasksContext";
+import { TasksContext } from "../../../context/TasksContext";
 import { statuses } from "../../../data";
 
 
@@ -266,7 +266,7 @@ export const PopBrowse = () => {
                   </div>
                 </div>
               </div> */}
-              <Calendar isEditTask={isEditTask}/>
+              <Calendar isEditTask={isEditTask} />
 
             </SFormWrapper>
 

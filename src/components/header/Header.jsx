@@ -3,7 +3,7 @@ import { PopUser } from "../popups/popUser/PopUser";
 import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderLink, SPopUserWrapper } from "./Header.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export const Header = () => {

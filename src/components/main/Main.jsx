@@ -3,7 +3,7 @@ import { Content } from "../content/Content";
 import { SWrapper, SMock, SMessage } from "./Main.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
-import { TasksContext } from "../context/TasksContext";
+import { TasksContext } from "../../context/TasksContext";
 import { useContext } from "react";
 
 

@@ -3,7 +3,7 @@ import { SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapp
 import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
-import { TasksContext } from "../../context/TasksContext";
+import { TasksContext } from "../../../context/TasksContext";
 
 
 export const PopNewCard = () => {

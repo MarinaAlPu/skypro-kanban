@@ -1,8 +1,8 @@
 import './App.css';
 import { AppRoutes } from './components/AppRouts.jsx';
 import { useState } from 'react';
-import { AuthProvider } from './components/context/AuthProvider.jsx';
-import { TasksProvider } from './components/context/TasksProvider.jsx';
+import { AuthProvider } from './context/AuthProvider.jsx';
+import { TasksProvider } from './context/TasksProvider.jsx';
 import { GlobalStyle } from './components/GlobalStyles.js';
 
 

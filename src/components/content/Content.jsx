@@ -1,7 +1,7 @@
 import { statuses } from "../../data";
 import { Column } from "../column/Column";
 import { SContent, SContainer, SBlock, SData } from "./Content.styled";
-import { TasksContext } from "../context/TasksContext";
+import { TasksContext } from "../../context/TasksContext";
 import { useContext } from "react";
 
 
@@ -10,9 +10,9 @@ export const Content = () => {
     tasks,
     error,
   } = useContext(TasksContext);
-
-  const cardsByStatus = statuses.reduce((acc, status) => {
-    acc[status] = tasks.filter((task) => task.status === status);
+    
+    const cardsByStatus = statuses.reduce((acc, status) => {
+      acc[status] = tasks.filter((task) => task.status === status);
     return acc;
   }, {});
 

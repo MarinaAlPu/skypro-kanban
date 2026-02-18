@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback, useContext } from "react";
-import { deleteTask, editTask, fetchTasks, postTask } from "../../services/api.js";
-import { TasksContext } from "./TasksContext";
-import { AuthContext } from "./AuthContext";
+import { deleteTask, editTask, fetchTasks, postTask } from "../services/api.js";
+import { TasksContext } from "./TasksContext.js";
+import { AuthContext } from "./AuthContext.js";
 
 
 export const TasksProvider = ({ children }) => {

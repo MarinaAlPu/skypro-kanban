@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useContext } from "react";
 import { login, registration } from "../../services/auth";
 import { validateForm } from "../../utils/helpers";
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export const AuthForm = ({ isSignUp }) => {

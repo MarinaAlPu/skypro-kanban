@@ -2,7 +2,7 @@ import { SWrapper, SName, SMail, SThemeButton, SThemeTitle, SThemeInput, SButton
 import { Button } from "../../button/Button";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../../context/AuthContext";
 
 
 export const PopUser = ({setIsPopUserOpen}) => {
