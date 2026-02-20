@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation, SCalendarMonth, SCalendarNavActions, SCalendarNavAction, SCalendarArrow, SCalendarContent, SCalendarDaysNames, SCalendarDayName, SCalendarDayNameWeekend, SCalendarCells, SCalendarCellDay, SCalendarPeriod, SCalendarDateEnd, SCalendarDateControl } from "./Calendar.styled";
+import { TasksContext } from "../../context/TasksContext";
 
 
 export const Calendar = ({ isEditTask }) => {
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
   // const [isDateSelected, setIsDateSelected] = useState(false);
-  const [selectedDate, setSelectedDate] = useState("");
+  const [selectedDateInCalendar, setSelectedDateInCalendar] = useState(null);
+  const { selectedDate, updateSelectedDate } = useContext(TasksContext);
 
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
   // console.log("currentDateToDisplay: ", currentDateToDisplay);
@@ -81,8 +83,13 @@ export const Calendar = ({ isEditTask }) => {
   // console.log("datesToDisplay: ", datesToDisplay);
 
   const onSelectDate = (date) => {
+    const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
+    console.log("dateToSave: ", dateToSave);
+    
+    console.log("date: ", date);
     // setIsDateSelected(!isDateSelected);
-    setSelectedDate(date);
+    setSelectedDateInCalendar(date);
+    updateSelectedDate(dateToSave);
   };
 
 
@@ -130,7 +137,7 @@ export const Calendar = ({ isEditTask }) => {
                     onSelectDate(date);
                     // console.log(date);
                   }}
-                  $isDateSelected={selectedDate === date}
+                  $isDateSelected={selectedDateInCalendar === date}
                 >
                   {date}
                 </SCalendarCellDay>
