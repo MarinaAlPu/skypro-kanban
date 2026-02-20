@@ -5,23 +5,46 @@ import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation
 export const Calendar = ({ isEditTask }) => {
   // console.log("isEditTask: ", isEditTask);
 
+    const currentDate = new Date();
+
   // const [currentDate, setCurrentDate] = useState(new Date());
+  // const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
+  // const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
 
   // console.log("currentDate: ", currentDate);
 
-  // const currentYear = currentDate.getFullYear();
-  // console.log("currentYear: ", currentYear);
-  // const currentMonth = Number(currentDate.getMonth()) + 1;
-  // console.log("currentMonth: ", currentMonth);
-  // const currentDay = currentDate.getDay();
-  // console.log("currentDay: ", currentDay);
+  // const currentYear1 = currentDate.getFullYear();
+  // console.log("currentYear1: ", currentYear1);
+  // let currentMonth1 = Number(currentDate.getMonth()) + 1;
+  // console.log("currentMonth1: ", currentMonth1);
+  // if (currentMonth1 < 10) {
+  //   currentMonth1 = 0 + String(currentMonth1);
+  //   console.log("currentMonth1: ", currentMonth1);
+  // }
+
+  let currentMonthName = currentDate.toLocaleString('ru-RU', { month: 'long' });
+  currentMonthName = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
+  const currentMonthYear = currentMonthName + " " + currentDate.getFullYear();
+
+
+  // let currentDate1 = currentDate.getDate();
+  // console.log("currentDay1: ", currentDate1);
+  // if (currentDate1 < 10) {
+  //   currentDate1 = 0 + String(currentDate1);
+  //   console.log("currentDate1: ", currentDate1);
+  // }
+
+
+  // const currentDateForTask = currentDate1 + "." + currentMonth1 + "." + currentYear1
+  // console.log("currentDateForTask: ", currentDateForTask);
+
 
   return (
     <SCalendarContainer>
       <SCalendarTitle>Даты</SCalendarTitle>
       <SCalendarBlock>
         <SCalendarNavigation>
-          <SCalendarMonth>Сентябрь 2023</SCalendarMonth>
+          <SCalendarMonth>{currentMonthYear}</SCalendarMonth>
           <SCalendarNavActions>
             <SCalendarNavAction data-action="prev">
               <SCalendarArrow xmlns="http://www.w3.org/2000/svg" width="6" height="11" viewBox="0 0 6 11">
@@ -88,9 +111,9 @@ export const Calendar = ({ isEditTask }) => {
         <SCalendarPeriod>
           {
             isEditTask ?
-            <SCalendarDateEnd>Выберите срок исполнения.<SCalendarDateControl></SCalendarDateControl></SCalendarDateEnd>
-            :
-            <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
+              <SCalendarDateEnd>Выберите срок исполнения.<SCalendarDateControl></SCalendarDateControl></SCalendarDateEnd>
+              :
+              <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
           }
         </SCalendarPeriod>
       </SCalendarBlock>
