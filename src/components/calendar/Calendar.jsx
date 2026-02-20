@@ -4,6 +4,20 @@ import { TasksContext } from "../../context/TasksContext";
 
 
 export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate, setCurrentTaskDate, onSelectTaskNewDate }) => {
+  // console.log("\ncurrentTaskDate в календаре: ", currentTaskDate);
+  // console.log("\nтип данных currentTaskDate в календаре: ", typeof(currentTaskDate));
+
+  let formattedCurrentTaskDate = null;
+  if (currentTaskDate) {
+    const dateObj = new Date(currentTaskDate);
+    if (!isNaN(dateObj.getTime())) {
+      formattedCurrentTaskDate = dateObj.toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
+    }
+  }
+
+  // console.log("formattedCurrentTaskDate в календаре после преобразования: ", formattedCurrentTaskDate);
+  // console.log("тип данных formattedCurrentTaskDate в календаре после преобразования: ", typeof(formattedCurrentTaskDate));
+
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
   // const [isDateSelected, setIsDateSelected] = useState(false);
@@ -84,6 +98,8 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
   // console.log("datesToDisplay: ", datesToDisplay);
 
   const onSelectDate = (date) => {
+    if (!date) return;
+    
     const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
     // console.log("dateToSave: ", dateToSave);
 
@@ -91,12 +107,35 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
     // setIsDateSelected(!isDateSelected);
     setSelectedDateInCalendar(date);
 
-    onSelectTaskNewDate(dateToSave);
     updateSelectedDate(dateToSave);
 
     if (isEditTask) {
-      setCurrentTaskDate(dateToSave);
+      if (onSelectTaskNewDate) {
+        onSelectTaskNewDate(dateToSave);
+      }
+      if (setCurrentTaskDate) {
+        setCurrentTaskDate(dateToSave);
+      }
     }
+  };
+
+  const isDateSelected = (date) => {
+    if (!date) return false;
+
+    if (isEditTask && currentTaskDate) {
+      try {
+        const taskDate = new Date(currentTaskDate);
+        if (isNaN(taskDate.getTime())) return false;
+        
+        return taskDate.getDate() === date &&
+          taskDate.getMonth() === currentMonthToDisplay &&
+          taskDate.getFullYear() === currentYearToDisplay;
+      } catch {
+        return false;
+      }
+    }
+
+    return selectedDateInCalendar === date;
   };
 
 
@@ -144,7 +183,7 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
                     onSelectDate(date);
                     // console.log(date);
                   }}
-                  $isDateSelected={selectedDateInCalendar === date}
+                  $isDateSelected={isDateSelected(date)}
                 >
                   {date}
                 </SCalendarCellDay>

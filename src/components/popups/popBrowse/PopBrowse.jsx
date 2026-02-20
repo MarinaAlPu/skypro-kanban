@@ -154,7 +154,13 @@ export const PopBrowse = () => {
                 </SFormBlock>
               </SForm>
 
-              <Calendar isEditTask={isEditTask} initialTaskDateToDisplay={initialTaskDateToDisplay} currentTaskDate={currentTaskDate} setCurrentTaskDate={setCurrentTaskDate} onSelectTaskNewDate={onSelectTaskNewDate}/>
+              <Calendar
+              isEditTask={isEditTask}
+              initialTaskDateToDisplay={initialTaskDateToDisplay}
+              currentTaskDate={currentTaskDate}
+              setCurrentTaskDate={isEditTask ? setCurrentTaskDate : undefined}
+              onSelectTaskNewDate={isEditTask ? onSelectTaskNewDate : undefined}
+              />
 
             </SFormWrapper>
 
