@@ -5,6 +5,8 @@ import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation
 export const Calendar = ({ isEditTask }) => {
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
+  // const [isDateSelected, setIsDateSelected] = useState(false);
+  const [selectedDate, setSelectedDate] = useState("");
 
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
   // console.log("currentDateToDisplay: ", currentDateToDisplay);
@@ -78,6 +80,11 @@ export const Calendar = ({ isEditTask }) => {
   const datesToDisplay = [...dates, ...datesOfMonth];
   // console.log("datesToDisplay: ", datesToDisplay);
 
+  const onSelectDate = (date) => {
+    // setIsDateSelected(!isDateSelected);
+    setSelectedDate(date);
+  };
+
 
   return (
     <SCalendarContainer>
@@ -116,8 +123,18 @@ export const Calendar = ({ isEditTask }) => {
           </SCalendarDaysNames>
           <SCalendarCells>
             {
-              datesToDisplay.map((date, index) => <SCalendarCellDay key={index}>{date}</SCalendarCellDay>)
-            }
+              datesToDisplay.map((date, index) =>
+                <SCalendarCellDay
+                  key={index}
+                  onClick={() => {
+                    onSelectDate(date);
+                    // console.log(date);
+                  }}
+                  $isDateSelected={selectedDate === date}
+                >
+                  {date}
+                </SCalendarCellDay>
+              )}
           </SCalendarCells>
         </SCalendarContent>
 
