@@ -7,12 +7,15 @@ import { TasksContext } from "../../../context/TasksContext";
 
 
 export const PopNewCard = () => {
-
-
   const {
     addTask,
-    token
+    token,
+    selectedDate,
+    updateSelectedDate
   } = useContext(TasksContext);
+
+  // console.log("selectedDate в карточке новой задачи: ", selectedDate);
+  // selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
 
   const navigate = useNavigate();
 
@@ -26,11 +29,11 @@ export const PopNewCard = () => {
 
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
   const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
-  const [isEditTask, setIsEditTask] = useState(false);
+  // const [isEditTask, setIsEditTask] = useState(false);
 
 
   const onSelectCategory = (categoryName) => {
@@ -45,19 +48,20 @@ export const PopNewCard = () => {
     };
 
     navigate("/");
-    
+
     await addTask({
       newTask: {
         title: title || "Новая задача",
         topic: topic || "Research",
         status: "Без статуса",
         description: description,
-        date: currentDate,
+        date: selectedDate.toISOString() || currentDate,
       }
     });
     setTitle("");
     setDescription("");
     setTopic("");
+    updateSelectedDate(null);
   }
 
 
@@ -92,7 +96,7 @@ export const PopNewCard = () => {
                 </SFormBlock>
 
               </SFormNewCard>
-              <Calendar isEditTask={true}/>
+              <Calendar isEditTask={true} />
             </SNewCardWrapper>
             <SCategoriesWrapper>
               <SCategoriesTitle>Категория</SCategoriesTitle>
