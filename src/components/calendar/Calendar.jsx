@@ -3,7 +3,7 @@ import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation
 import { TasksContext } from "../../context/TasksContext";
 
 
-export const Calendar = ({ isEditTask }) => {
+export const Calendar = ({ isEditTask, initialTaskDateToDisplay }) => {
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
   // const [isDateSelected, setIsDateSelected] = useState(false);
@@ -151,7 +151,7 @@ export const Calendar = ({ isEditTask }) => {
             isEditTask ?
               <SCalendarDateEnd>Выберите срок исполнения.<SCalendarDateControl></SCalendarDateControl></SCalendarDateEnd>
               :
-              <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>09.09.23</SCalendarDateControl>.</SCalendarDateEnd>
+              <SCalendarDateEnd>Срок исполнения <SCalendarDateControl>{initialTaskDateToDisplay}</SCalendarDateControl>.</SCalendarDateEnd>
           }
         </SCalendarPeriod>
       </SCalendarBlock>

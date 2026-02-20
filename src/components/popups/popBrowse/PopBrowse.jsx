@@ -14,8 +14,12 @@ export const PopBrowse = () => {
     tasks,
     token,
     editTasks,
-    deleteTasks
+    deleteTasks,
+    // selectedDate,
+    updateSelectedDate
   } = useContext(TasksContext);
+  // console.log(tasks);
+
 
   const [isEditTask, setIsEditTask] = useState(false);
 
@@ -25,9 +29,14 @@ export const PopBrowse = () => {
   const taskCategory = card?.topic;
   const initialTaskStatus = card?.status;
   const initialTaskDescription = card?.description;
+  const initialTaskDate = card?.date;
+  // console.log("initialTaskDate: ", initialTaskDate);
+  const initialTaskDateToDisplay = new Date(initialTaskDate).toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
+  // console.log("initialTaskDateToDisplay: ", initialTaskDateToDisplay);
 
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
   const [currentTaskDescription, setCurrentTaskDescription] = useState(initialTaskDescription || "");
+  const [currentTaskDate, setCurrentTaskDate] = useState(initialTaskDate);
 
 
   useEffect(() => {
@@ -138,7 +147,7 @@ export const PopBrowse = () => {
                 </SFormBlock>
               </SForm>
 
-              <Calendar isEditTask={isEditTask} />
+              <Calendar isEditTask={isEditTask} initialTaskDateToDisplay={initialTaskDateToDisplay} />
 
             </SFormWrapper>
 
