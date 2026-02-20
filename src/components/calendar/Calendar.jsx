@@ -10,20 +10,20 @@ export const Calendar = ({ isEditTask }) => {
   // let currentMonthName = currentDateForTitle.toLocaleString('ru-RU', { month: 'long' });
   // currentMonthName = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
   // let currentMonthYear = currentMonthName + " " + currentDateForTitle.getFullYear();
-  
-  
+
+
   // const [currentDateToDisplay, setCurrentDateToDisplay] = useState(new Date());
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
   // const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState("");
   // const [currentYearToDisplay, setCurrentYearToDisplay] = useState("");
-  
+
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
   // console.log("currentDateToDisplay: ", currentDateToDisplay);
-  
+
   const currentMonthName = currentDateToDisplay.toLocaleString('ru-RU', { month: 'long' });
   // console.log("currentMonthName: ", currentMonthName);
-  
+
   const currentMonthNameForTitle = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
   // console.log("currentMonthNameForTitle: ", currentMonthNameForTitle);
 
@@ -53,6 +53,8 @@ export const Calendar = ({ isEditTask }) => {
     }
   };
 
+  const dates = Array.from({ length: daysInCurrentMonthToDisplay }, (_, i) => i + 1);
+  // console.log("dates: ", dates);
 
   return (
     <SCalendarContainer>
@@ -90,7 +92,10 @@ export const Calendar = ({ isEditTask }) => {
             <SCalendarDayNameWeekend>вс</SCalendarDayNameWeekend>
           </SCalendarDaysNames>
           <SCalendarCells>
-            <SCalendarCellOtherMonth>28</SCalendarCellOtherMonth>
+
+            {dates.map((date) => <SCalendarCellDay key={date}>{date}</SCalendarCellDay>)}
+
+            {/* <SCalendarCellOtherMonth>28</SCalendarCellOtherMonth>
             <SCalendarCellOtherMonth>29</SCalendarCellOtherMonth>
             <SCalendarCellOtherMonth>30</SCalendarCellOtherMonth>
             <SCalendarCellDay>31</SCalendarCellDay>
@@ -124,7 +129,7 @@ export const Calendar = ({ isEditTask }) => {
             <SCalendarCellDay>28</SCalendarCellDay>
             <SCalendarCellDay>29</SCalendarCellDay>
             <SCalendarCellDayWeekend>30</SCalendarCellDayWeekend>
-            <SCalendarCellOtherMonthWeekend>1</SCalendarCellOtherMonthWeekend>
+            <SCalendarCellOtherMonthWeekend>1</SCalendarCellOtherMonthWeekend> */}
           </SCalendarCells>
         </SCalendarContent>
 
