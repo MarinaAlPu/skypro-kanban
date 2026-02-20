@@ -11,6 +11,7 @@ export const TasksProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
+  const [selectedDate, setSelectedDate] = useState(null);
 
 
   const getTasks = useCallback(async () => {
@@ -87,6 +88,10 @@ export const TasksProvider = ({ children }) => {
     }
   };
 
+  const updateSelectedDate = (date) => {
+    setSelectedDate(date);
+  };
+
 
   return (
     <TasksContext.Provider
@@ -99,7 +104,9 @@ export const TasksProvider = ({ children }) => {
         token,
         updateTasks,
         editTasks,
-        deleteTasks
+        deleteTasks,
+        selectedDate,
+        updateSelectedDate
       }}
     >
       {children}
