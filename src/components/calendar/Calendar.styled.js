@@ -109,18 +109,24 @@ export const SCalendarCellDay = styled.div`
   /* color: #94A6BE; */
   ${({ $isDateSelected }) => ($isDateSelected ? "color: #FFFFFF;" : "color: #94A6BE;")}
   ${({ $isDateSelected }) => ($isDateSelected ? "background-color: #94A6BE;" : "background-color: transparent;")}
-
+  
   font-size: 10px;
   line-height: 1;
   letter-spacing: -0.2px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: ${({ $isClickable }) => $isClickable ? "pointer" : "default"};
+
   &:hover {
-  color: #94A6BE;
-  background-color: #EAEEF6;
+    /* color: #94A6BE;
+    background-color: #EAEEF6; */
+    ${({ $isClickable }) => ($isClickable ? "color: #94A6BE;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "background-color: #EAEEF6;" : "")}
   }
   &:active {
-    color: #FFFFFF;
-    background-color: #94A6BE;
+    /* color: #FFFFFF;
+    background-color: #94A6BE; */
+    ${({ $isClickable }) => ($isClickable ? "color: #FFFFFF;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "background-color: #94A6BE;" : "")}
   }
 `
 

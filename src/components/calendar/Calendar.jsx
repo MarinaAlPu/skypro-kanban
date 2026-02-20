@@ -99,7 +99,7 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
 
   const onSelectDate = (date) => {
     if (!date) return;
-    
+
     const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
     // console.log("dateToSave: ", dateToSave);
 
@@ -119,14 +119,34 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
     }
   };
 
+  // const isDateSelected = (date) => {
+  //   if (!date) return false;
+
+  //   if (isEditTask && currentTaskDate) {
+  //     try {
+  //       const taskDate = new Date(currentTaskDate);
+  //       if (isNaN(taskDate.getTime())) return false;
+
+  //       return taskDate.getDate() === date &&
+  //         taskDate.getMonth() === currentMonthToDisplay &&
+  //         taskDate.getFullYear() === currentYearToDisplay;
+  //     } catch {
+  //       return false;
+  //     }
+  //   }
+
+  //   return selectedDateInCalendar === date;
+  // };
+
   const isDateSelected = (date) => {
     if (!date) return false;
 
-    if (isEditTask && currentTaskDate) {
+    // if (isEditTask && currentTaskDate) {
+    if (currentTaskDate) {
       try {
         const taskDate = new Date(currentTaskDate);
         if (isNaN(taskDate.getTime())) return false;
-        
+
         return taskDate.getDate() === date &&
           taskDate.getMonth() === currentMonthToDisplay &&
           taskDate.getFullYear() === currentYearToDisplay;
@@ -134,6 +154,19 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
         return false;
       }
     }
+
+    // if (!isEditTask && currentTaskDate) {
+    //   try {
+    //     const taskDate = new Date(currentTaskDate);
+    //     if (isNaN(taskDate.getTime())) return false;
+
+    //     return taskDate.getDate() === date &&
+    //       taskDate.getMonth() === currentMonthToDisplay &&
+    //       taskDate.getFullYear() === currentYearToDisplay;
+    //   } catch {
+    //     return false;
+    //   }
+    // }
 
     return selectedDateInCalendar === date;
   };
@@ -180,10 +213,13 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
                 <SCalendarCellDay
                   key={index}
                   onClick={() => {
-                    onSelectDate(date);
-                    // console.log(date);
+                    if (isEditTask) {
+                      onSelectDate(date);
+                      // console.log(date);
+                    }
                   }}
                   $isDateSelected={isDateSelected(date)}
+                  $isClickable={isEditTask}
                 >
                   {date}
                 </SCalendarCellDay>
