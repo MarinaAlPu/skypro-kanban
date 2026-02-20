@@ -53,8 +53,43 @@ export const Calendar = ({ isEditTask }) => {
     }
   };
 
-  const dates = Array.from({ length: daysInCurrentMonthToDisplay }, (_, i) => i + 1);
+  const datesOfMonth = Array.from({ length: daysInCurrentMonthToDisplay }, (_, i) => i + 1);
+  // console.log("datesOfMonth: ", datesOfMonth);
+
+
+  const firstDayOfCurrentMonth = new Date(currentYearToDisplay, currentMonthToDisplay, 1);//.toLocaleString("ru-Ru")
+  // console.log("firstDayOfCurrentMonth: ", firstDayOfCurrentMonth);
+
+  const weekDayOfFirstDay = firstDayOfCurrentMonth.getDay();
+  // console.log("weekDayOfFirstDay: ", weekDayOfFirstDay);
+
+  let firstDayOfCurrentMonthToDisplay = 0;
+  // let emptyCellsQuantity = 0;
+
+  if (weekDayOfFirstDay === 0) {
+    firstDayOfCurrentMonthToDisplay = 7;
+  } else {
+    firstDayOfCurrentMonthToDisplay = weekDayOfFirstDay +1
+  }
+  // console.log("firstDayOfCurrentMonthToDisplay: ", firstDayOfCurrentMonthToDisplay);
+
+  const emptyCellsQuantity = firstDayOfCurrentMonthToDisplay - 1;
+  // console.log("emptyCellsQuantity: ", emptyCellsQuantity);
+
+
+  // // добавить пустые ячейки перед первым днём месяца
+  // const datesToDisplay = datesOfMonth.unshift(undefined);
+  // console.log("datesToDisplay: ", datesToDisplay);
+
+
+  // создать массив из пустых ячеек
+  const dates = new Array(emptyCellsQuantity);
   // console.log("dates: ", dates);
+
+  // объединить пустые ячейки и даты
+  const datesToDisplay = [...dates, ...datesOfMonth];
+  // console.log("datesToDisplay: ", datesToDisplay);
+
 
   return (
     <SCalendarContainer>
@@ -93,7 +128,9 @@ export const Calendar = ({ isEditTask }) => {
           </SCalendarDaysNames>
           <SCalendarCells>
 
-            {dates.map((date) => <SCalendarCellDay key={date}>{date}</SCalendarCellDay>)}
+            {
+              datesToDisplay.map((date, index) => <SCalendarCellDay key={index}>{date}</SCalendarCellDay>)
+            }
 
             {/* <SCalendarCellOtherMonth>28</SCalendarCellOtherMonth>
             <SCalendarCellOtherMonth>29</SCalendarCellOtherMonth>
