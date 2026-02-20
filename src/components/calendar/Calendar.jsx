@@ -9,6 +9,7 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
   // const [isDateSelected, setIsDateSelected] = useState(false);
   const [selectedDateInCalendar, setSelectedDateInCalendar] = useState(null);
   const { selectedDate, updateSelectedDate } = useContext(TasksContext);
+  // console.log("selectedDate: ", selectedDate);
 
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
   // console.log("currentDateToDisplay: ", currentDateToDisplay);
@@ -84,13 +85,14 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
 
   const onSelectDate = (date) => {
     const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
-    console.log("dateToSave: ", dateToSave);
+    // console.log("dateToSave: ", dateToSave);
 
-    console.log("date: ", date);
+    // console.log("date: ", date);
     // setIsDateSelected(!isDateSelected);
     setSelectedDateInCalendar(date);
 
     onSelectTaskNewDate(dateToSave);
+    updateSelectedDate(dateToSave);
 
     if (isEditTask) {
       setCurrentTaskDate(dateToSave);
