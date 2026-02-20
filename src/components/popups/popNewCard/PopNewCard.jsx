@@ -15,7 +15,7 @@ export const PopNewCard = () => {
   } = useContext(TasksContext);
 
   // console.log("selectedDate в карточке новой задачи: ", selectedDate);
-  selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
+  // selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
 
   const navigate = useNavigate();
 

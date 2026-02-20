@@ -3,7 +3,7 @@ import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation
 import { TasksContext } from "../../context/TasksContext";
 
 
-export const Calendar = ({ isEditTask, initialTaskDateToDisplay }) => {
+export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate, setCurrentTaskDate, onSelectTaskNewDate }) => {
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
   // const [isDateSelected, setIsDateSelected] = useState(false);
@@ -85,11 +85,16 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay }) => {
   const onSelectDate = (date) => {
     const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
     console.log("dateToSave: ", dateToSave);
-    
+
     console.log("date: ", date);
     // setIsDateSelected(!isDateSelected);
     setSelectedDateInCalendar(date);
-    updateSelectedDate(dateToSave);
+
+    onSelectTaskNewDate(dateToSave);
+
+    if (isEditTask) {
+      setCurrentTaskDate(dateToSave);
+    }
   };
 
 

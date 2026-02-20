@@ -54,6 +54,11 @@ export const PopBrowse = () => {
     setCurrentTaskStatus(newStatus);
   };
 
+  const onSelectTaskNewDate = (newDate) => {
+    setCurrentTaskDate(newDate);
+    updateSelectedDate(newDate);
+  };
+
   const onSaveTask = async () => {
     navigate("/");
     try {
@@ -61,6 +66,7 @@ export const PopBrowse = () => {
         ...card,
         description: currentTaskDescription,
         status: currentTaskStatus,
+        date: currentTaskDate
       };
 
       await editTasks(token, id, updatedTask);
@@ -84,6 +90,7 @@ export const PopBrowse = () => {
   const onCancel = () => {
     setCurrentTaskStatus(initialTaskStatus);
     setCurrentTaskDescription(initialTaskDescription);
+    setCurrentTaskDate(initialTaskDate);
   };
 
 
@@ -147,7 +154,7 @@ export const PopBrowse = () => {
                 </SFormBlock>
               </SForm>
 
-              <Calendar isEditTask={isEditTask} initialTaskDateToDisplay={initialTaskDateToDisplay} />
+              <Calendar isEditTask={isEditTask} initialTaskDateToDisplay={initialTaskDateToDisplay} currentTaskDate={currentTaskDate} setCurrentTaskDate={setCurrentTaskDate} onSelectTaskNewDate={onSelectTaskNewDate}/>
 
             </SFormWrapper>
 
