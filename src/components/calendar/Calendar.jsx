@@ -1,22 +1,10 @@
 import { useState } from "react";
-import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation, SCalendarMonth, SCalendarNavActions, SCalendarNavAction, SCalendarArrow, SCalendarContent, SCalendarDaysNames, SCalendarDayName, SCalendarDayNameWeekend, SCalendarCells, SCalendarCellDay, SCalendarCellDayWeekend, SCalendarCellDayCurrent, SCalendarCellOtherMonth, SCalendarCellOtherMonthWeekend, SCalendarPeriod, SCalendarDateEnd, SCalendarDateControl } from "./Calendar.styled";
+import { SCalendarContainer, SCalendarTitle, SCalendarBlock, SCalendarNavigation, SCalendarMonth, SCalendarNavActions, SCalendarNavAction, SCalendarArrow, SCalendarContent, SCalendarDaysNames, SCalendarDayName, SCalendarDayNameWeekend, SCalendarCells, SCalendarCellDay, SCalendarPeriod, SCalendarDateEnd, SCalendarDateControl } from "./Calendar.styled";
 
 
 export const Calendar = ({ isEditTask }) => {
-  // console.log("isEditTask: ", isEditTask);
-
-  // const currentDateForTitle = new Date();
-
-  // let currentMonthName = currentDateForTitle.toLocaleString('ru-RU', { month: 'long' });
-  // currentMonthName = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
-  // let currentMonthYear = currentMonthName + " " + currentDateForTitle.getFullYear();
-
-
-  // const [currentDateToDisplay, setCurrentDateToDisplay] = useState(new Date());
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
-  // const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState("");
-  // const [currentYearToDisplay, setCurrentYearToDisplay] = useState("");
 
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
   // console.log("currentDateToDisplay: ", currentDateToDisplay);
@@ -32,7 +20,7 @@ export const Calendar = ({ isEditTask }) => {
 
 
   const daysInCurrentMonthToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay + 1, 0).getDate();
-  console.log("daysInCurrentMonth: ", daysInCurrentMonthToDisplay);
+  // console.log("daysInCurrentMonth: ", daysInCurrentMonthToDisplay);
 
 
   const onSelectPrevMonth = () => {
@@ -69,7 +57,7 @@ export const Calendar = ({ isEditTask }) => {
   if (weekDayOfFirstDay === 0) {
     firstDayOfCurrentMonthToDisplay = 7;
   } else {
-    firstDayOfCurrentMonthToDisplay = weekDayOfFirstDay +1
+    firstDayOfCurrentMonthToDisplay = weekDayOfFirstDay + 1
   }
   // console.log("firstDayOfCurrentMonthToDisplay: ", firstDayOfCurrentMonthToDisplay);
 
@@ -127,46 +115,9 @@ export const Calendar = ({ isEditTask }) => {
             <SCalendarDayNameWeekend>вс</SCalendarDayNameWeekend>
           </SCalendarDaysNames>
           <SCalendarCells>
-
             {
               datesToDisplay.map((date, index) => <SCalendarCellDay key={index}>{date}</SCalendarCellDay>)
             }
-
-            {/* <SCalendarCellOtherMonth>28</SCalendarCellOtherMonth>
-            <SCalendarCellOtherMonth>29</SCalendarCellOtherMonth>
-            <SCalendarCellOtherMonth>30</SCalendarCellOtherMonth>
-            <SCalendarCellDay>31</SCalendarCellDay>
-            <SCalendarCellDay>1</SCalendarCellDay>
-            <SCalendarCellDayWeekend>2</SCalendarCellDayWeekend>
-            <SCalendarCellDayWeekend>3</SCalendarCellDayWeekend>
-            <SCalendarCellDay>4</SCalendarCellDay>
-            <SCalendarCellDay>5</SCalendarCellDay>
-            <SCalendarCellDay>6</SCalendarCellDay>
-            <SCalendarCellDay>7</SCalendarCellDay>
-            <SCalendarCellDayCurrent>8</SCalendarCellDayCurrent>
-            <SCalendarCellDayWeekend>9</SCalendarCellDayWeekend>
-            <SCalendarCellDayWeekend>10</SCalendarCellDayWeekend>
-            <SCalendarCellDay>11</SCalendarCellDay>
-            <SCalendarCellDay>12</SCalendarCellDay>
-            <SCalendarCellDay>13</SCalendarCellDay>
-            <SCalendarCellDay>14</SCalendarCellDay>
-            <SCalendarCellDay>15</SCalendarCellDay>
-            <SCalendarCellDayWeekend>16</SCalendarCellDayWeekend>
-            <SCalendarCellDayWeekend>17</SCalendarCellDayWeekend>
-            <SCalendarCellDay>18</SCalendarCellDay>
-            <SCalendarCellDay>19</SCalendarCellDay>
-            <SCalendarCellDay>20</SCalendarCellDay>
-            <SCalendarCellDay>21</SCalendarCellDay>
-            <SCalendarCellDay>22</SCalendarCellDay>
-            <SCalendarCellDayWeekend>23</SCalendarCellDayWeekend>
-            <SCalendarCellDayWeekend>24</SCalendarCellDayWeekend>
-            <SCalendarCellDay>25</SCalendarCellDay>
-            <SCalendarCellDay>26</SCalendarCellDay>
-            <SCalendarCellDay>27</SCalendarCellDay>
-            <SCalendarCellDay>28</SCalendarCellDay>
-            <SCalendarCellDay>29</SCalendarCellDay>
-            <SCalendarCellDayWeekend>30</SCalendarCellDayWeekend>
-            <SCalendarCellOtherMonthWeekend>1</SCalendarCellOtherMonthWeekend> */}
           </SCalendarCells>
         </SCalendarContent>
 
