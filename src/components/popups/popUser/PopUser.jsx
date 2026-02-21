@@ -11,9 +11,9 @@ export const PopUser = ({ setIsPopUserOpen }) => {
   const userName = user.name;
   const userEmail = user.login;
 
-  const { theme, themeName, toggleTheme } = useContext(ThemeContext);
-  console.log("текущая тема: ", theme);
-  console.log("название темы, на которую можно переключиться: ", themeName);
+  const { currentTheme, themeNameToSelect, toggleTheme } = useContext(ThemeContext);
+  console.log("текущая тема: ", currentTheme);
+  console.log("название темы, на которую можно переключиться: ", themeNameToSelect);
 
   const handleLogoutClick = () => {
     setIsPopUserOpen(false);
@@ -25,7 +25,7 @@ export const PopUser = ({ setIsPopUserOpen }) => {
       <SName>{userName}</SName>
       <SMail>{userEmail}</SMail>
       <SThemeButton>
-        <SThemeTitle>{themeName}</SThemeTitle>
+        <SThemeTitle>{themeNameToSelect}</SThemeTitle>
         <SThemeInput
           type="checkbox"
           name="checkbox"
