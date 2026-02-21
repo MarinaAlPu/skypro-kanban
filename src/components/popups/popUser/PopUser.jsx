@@ -1,17 +1,25 @@
 import { SWrapper, SName, SMail, SThemeButton, SThemeTitle, SThemeInput, SButtonWrapper } from "./PopUser.styled";
 import { Button } from "../../button/Button";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 
 export const PopUser = ({setIsPopUserOpen}) => {
+    const { user } = useContext(AuthContext);
+    const userName = user.name;
+    const userEmail = user.login;
+
+
   const handleLogoutClick = () => {
     setIsPopUserOpen(false);
   };
 
+  
   return (
     <SWrapper id="user-set-target" >
-      <SName>Ivan Ivanov</SName>
-      <SMail>ivan.ivanov@gmail.com</SMail>
+      <SName>{userName}</SName>
+      <SMail>{userEmail}</SMail>
       <SThemeButton>
         <SThemeTitle>Темная тема</SThemeTitle>
         <SThemeInput type="checkbox" name="checkbox" />

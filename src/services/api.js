@@ -10,8 +10,6 @@ export async function fetchTasks({ token }) {
         Authorization: "Bearer " + token,
       },
     });
-    // console.log("data в fetchTasks");
-    // console.log(data);
     return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
@@ -19,8 +17,6 @@ export async function fetchTasks({ token }) {
 }
 
 export async function postTask({ token, newTask }) {
-  // console.log("task в postTask");
-  // console.log(newTask);
   try {
     const data = await axios.post(API_URL, newTask, {
       headers: {
@@ -42,38 +38,35 @@ export async function getTask({ token, id }) {
         "Content-Type": ""
       },
     });
-    console.log(data);
     return data.data;
   } catch (error) {
     throw new Error(error.message);
   }
 }
 
-export async function editTask({ token, id, task }) {
+export async function editTask(token, id, task ) {
   try {
-    const data = await axios.put(API_URL + id, task, {
+    const data = await axios.put(API_URL + "/" + id, task, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": ""
       },
     });
-    console.log(data);
-    return data.data.cards;
+    return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
   }
 }
 
-export async function deleteTask({ token, id }) {
+export async function deleteTask(token, id) {
   try {
-    const data = await axios.delete(API_URL + id, {
+    const data = await axios.delete(API_URL + "/" + id, {
       headers: {
         Authorization: "Bearer " + token,
         "Content-Type": "text"
       },
     });
-    console.log(data);
-    return data.data.cards;
+    return data.data.tasks;
   } catch (error) {
     throw new Error(error.message);
   }

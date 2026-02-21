@@ -27,23 +27,20 @@ export const SButton = styled.button`
 `;
 
 export const PrimaryButton = styled(SButton)`
-  /* background-color: #565EEF; */
   background-color: ${({ disabled }) => (disabled ? "#94A6BE" : "#565EEF")};
   width: ${({ width }) => width};
   &:hover {
     background-color: ${({ disabled }) => (disabled ? "#94A6BE" : "#33399b")};
-    /* background-color: #33399b; */
   }
 `;
 
 export const SecondaryButton = styled(SButton)`
-  /* background-color: #FFFFFF; */
   background-color: transparent;
   color: #565EEF;
   border: 0.7px solid #565EEF;
   width: ${({ width }) => width};
   &:hover {
-    background-color: #33399b;
+    background-color: #565EEF;
     color: #FFFFFF;
   }
 `;

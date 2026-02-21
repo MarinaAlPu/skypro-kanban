@@ -2,10 +2,21 @@ import { Calendar } from "../../calendar/Calendar";
 import { SWrapper, SContainer, SBlock, SContent, STitle, SXButton, SNewCardWrapper, SFormNewCard, SFormBlock, SFormTitle, SFormInput, SFormDescribe, SCategoriesWrapper, SCategoriesTitle, SCategoriesThemesWrapper, SCategoriesThemeContainerOrange, SCategoriesThemeOrange, SCategoriesThemeContainerGreen, SCategoriesThemeGreen, SCategoriesThemeContainerPurple, SCategoriesThemePurple, BSButtonWrapper } from "./PopNewCard.styled";
 import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { TasksContext } from "../../../context/TasksContext";
 
 
-export const PopNewCard = ({ token, addTask }) => {
+export const PopNewCard = () => {
+  const {
+    addTask,
+    token,
+    selectedDate,
+    updateSelectedDate
+  } = useContext(TasksContext);
+
+  // console.log("selectedDate в карточке новой задачи: ", selectedDate);
+  // selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,9 +29,41 @@ export const PopNewCard = ({ token, addTask }) => {
 
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
-  const [status, setStatus] = useState("");
+  // const [status, setStatus] = useState("");
   const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  // const [date, setDate] = useState("");
+  const [isCategorySelected, setIsCategorySelected] = useState("");
+  // const [isEditTask, setIsEditTask] = useState(false);
+
+
+  const onSelectCategory = (categoryName) => {
+    setTopic(categoryName);
+    setIsCategorySelected(categoryName);
+  };
+
+  const handleCreateTask = async () => {
+    if (!description.trim()) {
+      alert("Описание задачи не может быть пустым");
+      return;
+    };
+
+    navigate("/");
+
+    await addTask({
+      newTask: {
+        title: title || "Новая задача",
+        topic: topic || "Research",
+        status: "Без статуса",
+        description: description,
+        date: selectedDate?.toISOString() || currentDate,
+      }
+    });
+    setTitle("");
+    setDescription("");
+    setTopic("");
+    updateSelectedDate(null);
+  }
+
 
   return token ? (
     <SWrapper>
@@ -53,20 +96,27 @@ export const PopNewCard = ({ token, addTask }) => {
                 </SFormBlock>
 
               </SFormNewCard>
-              <Calendar />
+              <Calendar isEditTask={true} />
             </SNewCardWrapper>
             <SCategoriesWrapper>
               <SCategoriesTitle>Категория</SCategoriesTitle>
               <SCategoriesThemesWrapper>
-                <SCategoriesThemeContainerOrange>
+                <SCategoriesThemeContainerOrange
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemeOrange>Web Design</SCategoriesThemeOrange>
                 </SCategoriesThemeContainerOrange>
-                {/* </div> */}
-                <SCategoriesThemeContainerGreen>
+                <SCategoriesThemeContainerGreen
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemeGreen>Research</SCategoriesThemeGreen>
                 </SCategoriesThemeContainerGreen>
-                {/* </div> */}
-                <SCategoriesThemeContainerPurple>
+                <SCategoriesThemeContainerPurple
+                  onClick={(e) => onSelectCategory(e.target.textContent)}
+                  $isCategorySelected={isCategorySelected}
+                >
                   <SCategoriesThemePurple>Copywriting</SCategoriesThemePurple>
                 </SCategoriesThemeContainerPurple>
               </SCategoriesThemesWrapper>
@@ -74,22 +124,7 @@ export const PopNewCard = ({ token, addTask }) => {
           </SContent>
           <BSButtonWrapper>
             <Button
-              onClick={async() => {
-                navigate("/");
-                await addTask({
-                  // token,
-                  newTask: {
-                    title: title,
-                    topic: "Research",
-                    status: "Без статуса",
-                    description: description,
-                    date: currentDate,
-                  }
-                });
-                setTitle("");
-                setDescription("");
-                // navigate("/");
-              }}
+              onClick={handleCreateTask}
               id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
           </BSButtonWrapper>
         </SBlock>

@@ -1,13 +1,6 @@
 import styled from "styled-components";
 
 
-// const labelColors = {
-//   "Web Design": "_orange",
-//   "Research": "_green",
-//   "Copywriting": "_purple",
-// }
-
-
 export const SDateContainer = styled.div`
   display: flex;
   align-items: center;
@@ -104,7 +97,3 @@ export const SCardContainer = styled.div`
   justify-content: stretch;
   padding: 15px 13px 19px;
 `
-
-
-
-

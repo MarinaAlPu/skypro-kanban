@@ -106,90 +106,103 @@ export const SCalendarCellDay = styled.div`
   flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  ${({ $isDateSelected }) => ($isDateSelected ? "color: #FFFFFF;" : "color: #94A6BE;")}
+  ${({ $isDateSelected }) => ($isDateSelected ? "background-color: #94A6BE;" : "background-color: transparent;")}
+  
   font-size: 10px;
   line-height: 1;
   letter-spacing: -0.2px;
-  cursor: pointer;
+  /* cursor: pointer; */
+  cursor: ${({ $isClickable }) => $isClickable ? "pointer" : "default"};
+
   &:hover {
-  color: #94A6BE;
-  background-color: #EAEEF6;
-}
+    /* color: #94A6BE;
+    background-color: #EAEEF6; */
+    ${({ $isClickable }) => ($isClickable ? "color: #94A6BE;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "background-color: #EAEEF6;" : "")}
+  }
+  &:active {
+    /* color: #FFFFFF;
+    background-color: #94A6BE; */
+    ${({ $isClickable }) => ($isClickable ? "color: #FFFFFF;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "background-color: #94A6BE;" : "")}
+  }
 `
 
-export const SCalendarCellDayWeekend = styled.div`
-  width: 22px;
-  height: 22px;
-  margin: 2px;
-  border-radius: 50%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: -0.2px;
-  cursor: pointer;
-  &:hover {
-  color: #94A6BE;
-  background-color: #EAEEF6;
-}
-`
+// export const SCalendarCellDayWeekend = styled.div`
+//   width: 22px;
+//   height: 22px;
+//   margin: 2px;
+//   border-radius: 50%;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   align-items: center;
+//   justify-content: center;
+//   color: #94A6BE;
+//   font-size: 10px;
+//   line-height: 1;
+//   letter-spacing: -0.2px;
+//   cursor: pointer;
+//   &:hover {
+//   color: #94A6BE;
+//   background-color: #EAEEF6;
+// }
+// `
 
-export const SCalendarCellDayCurrent = styled.div`
-  width: 22px;
-  height: 22px;
-  margin: 2px;
-  border-radius: 50%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: -0.2px;
-  cursor: pointer;
-  font-weight: 700;
-  &:hover {
-    color: #94A6BE;
-    background-color: #EAEEF6;
-}
-`
+// export const SCalendarCellDayCurrent = styled.div`
+//   width: 22px;
+//   height: 22px;
+//   margin: 2px;
+//   border-radius: 50%;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   align-items: center;
+//   justify-content: center;
+//   color: #94A6BE;
+//   font-size: 10px;
+//   line-height: 1;
+//   letter-spacing: -0.2px;
+//   cursor: pointer;
+//   font-weight: 700;
+//   &:hover {
+//     color: #94A6BE;
+//     background-color: #EAEEF6;
+// }
+// `
 
-export const SCalendarCellOtherMonth = styled.div`
-  width: 22px;
-  height: 22px;
-  margin: 2px;
-  border-radius: 50%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: -0.2px;
-  cursor: pointer;
-  opacity: 0;
-`
+// export const SCalendarCellOtherMonth = styled.div`
+//   width: 22px;
+//   height: 22px;
+//   margin: 2px;
+//   border-radius: 50%;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   align-items: center;
+//   justify-content: center;
+//   color: #94A6BE;
+//   font-size: 10px;
+//   line-height: 1;
+//   letter-spacing: -0.2px;
+//   cursor: pointer;
+//   opacity: 0;
+// `
 
-export const SCalendarCellOtherMonthWeekend = styled.div`
-  width: 22px;
-  height: 22px;
-  margin: 2px;
-  border-radius: 50%;
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  color: #94A6BE;
-  font-size: 10px;
-  line-height: 1;
-  letter-spacing: -0.2px;
-  cursor: pointer;
-`
+// export const SCalendarCellOtherMonthWeekend = styled.div`
+//   width: 22px;
+//   height: 22px;
+//   margin: 2px;
+//   border-radius: 50%;
+//   display: flex;
+//   flex-wrap: nowrap;
+//   align-items: center;
+//   justify-content: center;
+//   color: #94A6BE;
+//   font-size: 10px;
+//   line-height: 1;
+//   letter-spacing: -0.2px;
+//   cursor: pointer;
+// `
 
 export const SCalendarPeriod = styled.div`
   padding: 0 7px;

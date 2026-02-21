@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 
-
 export const SPageBackground = styled.div`
     width: 100vw;
     height: 100vh;
@@ -12,7 +11,6 @@ export const SPageBackground = styled.div`
 `;
 
 export const SWrapper = styled.div`
-  /* display: none; */
   width: 100%;
   height: 100%;
   min-width: 320px;

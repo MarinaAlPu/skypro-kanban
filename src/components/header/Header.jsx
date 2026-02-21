@@ -1,13 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import { PopUser } from "../popups/popUser/PopUser";
 import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight, SHeaderLogoDark, SHeaderNavigation, SButtonWrapper, SHeaderLink, SPopUserWrapper } from "./Header.styled";
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContext";
 
 
 export const Header = () => {
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
   const popUserRef = useRef(null);
+
+  const { user } = useContext(AuthContext);
+  const userName = user.name;
+
+
   const handleClick = () => {
     setIsPopUserOpen(!isPopUserOpen);
   };
@@ -49,7 +55,7 @@ export const Header = () => {
                 </Button>
               </Link>
             </SButtonWrapper>
-            <SHeaderLink href="#user-set-target" onClick={handleClick}>Ivan Ivanov</SHeaderLink>
+            <SHeaderLink href="#user-set-target" onClick={handleClick}>{userName}</SHeaderLink>
             {isPopUserOpen && <SPopUserWrapper ref={popUserRef}><PopUser setIsPopUserOpen={setIsPopUserOpen} /></SPopUserWrapper>}
           </SHeaderNavigation>
         </SHeaderBlock>

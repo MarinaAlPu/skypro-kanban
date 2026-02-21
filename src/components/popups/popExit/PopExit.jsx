@@ -1,16 +1,19 @@
 import { SWrapper, SContainer, SBlock, SContent, STitle, SForm, SButtonWrapper } from "./PopExit.styled";
 import { Button } from "../../button/Button";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../../context/AuthContext";
 
 
 export const PopExit = () => {
-  const navigate = useNavigate();
+  const { handleLogout } = useContext(AuthContext);
 
-  const handleLogout = (e) => {
+
+  const handleExit = (e) => {
     e.preventDefault();
-    localStorage.removeItem("userInfo");
-    navigate("/login");
+    handleLogout();
   };
+
 
   return (
     <SWrapper>
@@ -20,7 +23,7 @@ export const PopExit = () => {
             <STitle>Выйти из аккаунта?</STitle>
             <SForm >
               <SButtonWrapper>
-                <Button onClick={handleLogout} width="153px" text="Да, выйти" type="primary" disabled={false}></Button>
+                <Button onClick={handleExit} width="153px" text="Да, выйти" type="primary" disabled={false}></Button>
                 <Link to="/">
                   <Button width="153px" text="Нет, остаться" type="secondary" disabled={false}></Button>
                 </Link>

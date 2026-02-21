@@ -1,8 +1,20 @@
 import styled from "styled-components";
 
 
+const categoryBackgroundColors = {
+  "Web Design": "#FFE4C2",
+  "Research": "#B4FDD1",
+  "Copywriting": "#E9D4FF",
+};
+
+const categoryColors = {
+  "Web Design": "#FF6D00",
+  "Research": "#06B16E",
+  "Copywriting": "#9A48F1",
+};
+
+
 export const SWrapper = styled.div`
-  /* display: none; */
   width: 100%;
   height: 100%;
   min-width: 375px;
@@ -57,32 +69,22 @@ export const STitle = styled.h3`
 `;
 
 export const SCategoriesThemeTop = styled.div`
-  /* display: inline-block; */
   width: auto;
   height: 30px;
   padding: 8px 20px;
   border-radius: 24px;
   margin-right: 7px;
-  opacity: 0.4;
   display: block;
 
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
-
-// active
-  opacity: 1 !important;
-`;
+  background-color: ${({ $taskCategory }) => categoryBackgroundColors[$taskCategory]};
+  color: ${({ $taskCategory }) => categoryColors[$taskCategory]};
+  `;
 
 export const SCategoryThemeTop = styled.p`
   font-size: 14px;
   font-weight: 600;
   line-height: 14px;
   white-space: nowrap;
-
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
 `;
 
 export const SStatusesWrapper = styled.div`
@@ -104,81 +106,53 @@ export const SStatusesContent = styled.div`
   justify-content: flex-start;
 `;
 
-export const SStatusHide = styled.div`
+export const SStatus = styled.div`
   border-radius: 24px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
   padding: 11px 14px 10px;
   margin-right: 7px;
   margin-bottom: 7px;
+  background-color: ${({ $isStatusSelected }) => $isStatusSelected ? "#94A6BE" : "transparent"};
+  `;
 
-  // hide
-  /* display: none; */
-`;
-
-export const SStatusThemeHide = styled.p`
+export const SStatusTheme = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-
-  // hide
-  /* display: none; */
-`;
-
-export const SStatusGray = styled.div`
-  border-radius: 24px;
-  border: 0.7px solid rgba(148, 166, 190, 0.4);
-  color: #94A6BE;
-  padding: 11px 14px 10px;
-  margin-right: 7px;
-  margin-bottom: 7px;
-
-  // gray
-  background: #94A6BE;
-  color: #FFFFFF;
-`;
-
-export const SStatusThemeGray = styled.p`
-  font-size: 14px;
-  line-height: 1;
-  letter-spacing: -0.14px;
-
-  // gray
-  background: #94A6BE;
-  color: #FFFFFF;
-`;
+  color: ${({ $isStatusSelected }) => $isStatusSelected ? "#FFFFFF" : "#94A6BE"};
+  `;
 
 export const SFormWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-`;
+  `;
 
 export const SForm = styled.form`
   max-width: 370px;
   width: 100%;
   display: block;
   margin-bottom: 20px;
-`;
+  `;
 
 export const SFormBlock = styled.div`
   display: flex;
   flex-direction: column;
-`;
+  `;
 
 export const SFormLabel = styled.label`
   color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
-`;
+  `;
 
 export const SFormText = styled.textarea`
   max-width: 370px;
   width: 100%;
   outline: none;
   padding: 14px;
-  background: #EAEEF6;
+  background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "#EAEEF6"};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -202,50 +176,8 @@ export const SFormText = styled.textarea`
   }
 `;
 
-export const SCategoriesThemeDownWrapper = styled.div`
-  margin-bottom: 20px;
-`;
-
-export const SCategoryThemeDownTitle = styled.p`
-  margin-bottom: 14px;
-  color: #000;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1;
-`;
-
-export const SCategoriesThemeDownActive = styled.div`
-  display: inline-block;
-  width: auto;
-  height: 30px;
-  padding: 8px 20px;
-  border-radius: 24px;
-  margin-right: 7px;
-  opacity: 0.4;
-  /* display: block; */
-
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
-
-// active
-  opacity: 1 !important;
-`;
-
-export const SCategoryThemeDown = styled.p`
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 14px;
-  white-space: nowrap;
-
-// orange
-  background-color: #FFE4C2;
-  color: #FF6D00;
-`;
-
 export const SButtonsWrapper = styled.div`
   display: flex;
-  /* flex-wrap: wrap; */
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
@@ -257,4 +189,3 @@ export const SButtonsGroup = styled.div`
   flex-direction: row;
   gap: 8px;
 `;
-
