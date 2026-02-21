@@ -98,7 +98,7 @@ export const TasksProvider = ({ children }) => {
       value={{
         tasks,
         setTasks,
-        error,
+        error, setError,
         isLoading, setIsLoading,
         getTasks, addTask,
         token,
