@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { AuthProvider } from './context/AuthProvider.jsx';
 import { TasksProvider } from './context/TasksProvider.jsx';
 import { GlobalStyle } from './components/GlobalStyles.js';
+import { ThemeProvider } from './context/ThemeProvider.jsx';
 
 
 function App() {
@@ -13,11 +14,13 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <AuthProvider>
-        <TasksProvider>
-          <AppRoutes token={token} setToken={setToken} />
-        </TasksProvider>
-      </AuthProvider>
+      <ThemeProvider>
+        <AuthProvider>
+          <TasksProvider>
+            <AppRoutes token={token} setToken={setToken} />
+          </TasksProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </>
   )
 }
