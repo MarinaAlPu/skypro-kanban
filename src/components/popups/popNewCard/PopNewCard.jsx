@@ -51,7 +51,7 @@ export const PopNewCard = () => {
 
     await addTask({
       newTask: {
-        title: title || "Новая задача",
+        title: title.trim() || "Новая задача",
         topic: topic || "Research",
         status: "Без статуса",
         description: description,
