@@ -7,7 +7,7 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
   // console.log("\ncurrentTaskDate в календаре: ", currentTaskDate);
   // console.log("\nтип данных currentTaskDate в календаре: ", typeof(currentTaskDate));
 
-  let formattedCurrentTaskDate = null;
+  // let formattedCurrentTaskDate = null;
   if (currentTaskDate) {
     const dateObj = new Date(currentTaskDate);
     if (!isNaN(dateObj.getTime())) {
