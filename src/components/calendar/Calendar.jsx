@@ -8,12 +8,12 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
   // console.log("\nтип данных currentTaskDate в календаре: ", typeof(currentTaskDate));
 
   // let formattedCurrentTaskDate = null;
-  if (currentTaskDate) {
-    const dateObj = new Date(currentTaskDate);
-    if (!isNaN(dateObj.getTime())) {
-      formattedCurrentTaskDate = dateObj.toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
-    }
-  }
+  // if (currentTaskDate) {
+  //   const dateObj = new Date(currentTaskDate);
+  //   if (!isNaN(dateObj.getTime())) {
+  //     formattedCurrentTaskDate = dateObj.toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
+  //   }
+  // }
 
   // console.log("formattedCurrentTaskDate в календаре после преобразования: ", formattedCurrentTaskDate);
   // console.log("тип данных formattedCurrentTaskDate в календаре после преобразования: ", typeof(formattedCurrentTaskDate));
