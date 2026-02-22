@@ -55,8 +55,8 @@ export const PopNewCard = () => {
     };
 
     try {
-      navigate("/");
-
+      // navigate("/");
+      
       await addTask({
         newTask: {
           title: title.trim() || "Новая задача",
@@ -66,13 +66,15 @@ export const PopNewCard = () => {
           date: selectedDate?.toISOString() || currentDate,
         }
       });
-
+      
       setTitle("");
       setDescription("");
       setTopic("");
       updateSelectedDate(null);
       setErrorMessage("");
       setError("");
+      
+      navigate("/");
     } catch (err) {
       setErrorMessage("Ошибка при создании задачи");
       setError("Ошибка при создании задачи");

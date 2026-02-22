@@ -60,7 +60,7 @@ export const PopBrowse = () => {
   };
 
   const onSaveTask = async () => {
-    navigate("/");
+    // navigate("/");
     try {
       const updatedTask = {
         ...card,
@@ -71,16 +71,19 @@ export const PopBrowse = () => {
 
       await editTasks(token, id, updatedTask);
 
+      navigate("/");
     } catch (error) {
       console.error("Ошибка при сохранении отдерактированной задачи:", error.message);
     }
   };
 
   const onDeleteTask = async () => {
-    navigate("/");
+    // navigate("/");
     try {
       await deleteTasks(token, id);
       // updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+
+      navigate("/");
     }
     catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
@@ -155,11 +158,11 @@ export const PopBrowse = () => {
               </SForm>
 
               <Calendar
-              isEditTask={isEditTask}
-              initialTaskDateToDisplay={initialTaskDateToDisplay}
-              currentTaskDate={currentTaskDate}
-              setCurrentTaskDate={isEditTask ? setCurrentTaskDate : undefined}
-              onSelectTaskNewDate={isEditTask ? onSelectTaskNewDate : undefined}
+                isEditTask={isEditTask}
+                initialTaskDateToDisplay={initialTaskDateToDisplay}
+                currentTaskDate={currentTaskDate}
+                setCurrentTaskDate={isEditTask ? setCurrentTaskDate : undefined}
+                onSelectTaskNewDate={isEditTask ? onSelectTaskNewDate : undefined}
               />
 
             </SFormWrapper>
