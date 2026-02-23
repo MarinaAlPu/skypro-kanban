@@ -52,7 +52,7 @@ body, body.light-theme {
 body.dark-theme {
   /* --bg-header: #20202C; */
   --text-header-link: #FFFFFF;
-  --bg-primary: #000000;
+  --bg-primary: #151419;
   --bg-secondary: #20202C;
 }
 
