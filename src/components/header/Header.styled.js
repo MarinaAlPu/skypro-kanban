@@ -4,7 +4,8 @@ import styled from "styled-components";
 export const SHeader = styled.header`
   width: 100%;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
+  background-color: var(--bg-header);
 `;
 
 export const SHeaderContainer = styled.div`
@@ -79,12 +80,16 @@ export const SHeaderLink = styled.div`
   justify-content: center;
   font-size: 14px;
   line-height: 20px;
-  color: #565EEF;
+  /* color: #565EEF; */
+  color: var(--text-header-link);
   &:hover {
-    color: #33399b;
+    /* color: #33399b; */
+    color: var(--text-header-link);
     &::after {
-      border-left: 1.9px solid #33399b;
-      border-bottom: 1.9px solid #33399b;
+      /* border-left: 1.9px solid #33399b; */
+      border-left: 1.9px solid var(--text-header-link);
+      /* border-bottom: 1.9px solid #33399b; */
+      border-bottom: 1.9px solid var(--text-header-link);
     }
   }
   &::after {
@@ -93,8 +98,10 @@ export const SHeaderLink = styled.div`
     width: 6px;
     height: 6px;
     border-radius: 1px;
-    border-left: 1.9px solid #565EEF;
-    border-bottom: 1.9px solid #565EEF;
+    /* border-left: 1.9px solid #565EEF; */
+    border-left: 1.9px solid var(--text-header-link);
+    /* border-bottom: 1.9px solid #565EEF; */
+    border-bottom: 1.9px solid var(--text-header-link);
     transform: rotate(-45deg);
     margin: -6px 0 0 5px;
     padding: 0;

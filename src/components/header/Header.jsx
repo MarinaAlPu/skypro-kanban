@@ -4,9 +4,14 @@ import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight,
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 
 export const Header = () => {
+    // const currentTheme = localStorage.getItem("currentTheme");
+    const{currentTheme} = useContext(ThemeContext)
+    // console.log("currentTheme в хэдере: ", currentTheme);
+
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
   const popUserRef = useRef(null);
 
@@ -38,7 +43,7 @@ export const Header = () => {
     <SHeader>
       <SHeaderContainer>
         <SHeaderBlock>
-          <SHeaderLogo>
+          {/* <SHeaderLogo>
             <a href="" target="_self">
               <SHeaderLogoLight src="/images/logo.png" alt="logo" />
             </a>
@@ -47,7 +52,18 @@ export const Header = () => {
             <a href="" target="_self">
               <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
             </a>
+          </SHeaderLogo> */}
+
+          <SHeaderLogo>
+            <a href="/" target="_self">
+              {currentTheme === 'light' ? (
+                <SHeaderLogoLight src="/images/logo.png" alt="logo" />
+              ) : (
+                <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
+              )}
+            </a>
           </SHeaderLogo>
+
           <SHeaderNavigation>
             <SButtonWrapper>
               <Link to="/card/add">
