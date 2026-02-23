@@ -53,17 +53,33 @@ export const SCardHeader = styled.header`
   justify-content: space-between;
 `
 
+
+
+const categoryBackgroundColors = {
+  "Web Design": "var(--bg-web-design)",
+  "Research": "var(--bg-research)",
+  "Copywriting": "var(--bg-copywriting)",
+};
+
+const categoryColors = {
+  "Web Design": "var(--color-web-design)",
+  "Research": "var(--color-research)",
+  "Copywriting": "var(--color-copywriting)",
+};
+
 export const SCardLabel = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  background-color: ${(props) => {
+  /* background-color: ${(props) => {
     return props.$labelColor
   }};
   color: ${(props) => {
     return props.$textColor
-  }};
+  }}; */
+  background-color: ${({ $topic }) => categoryBackgroundColors[$topic]};
+  color: ${({ $topic }) => categoryColors[$topic]};
 `
 
 export const SCardButton = styled.div`

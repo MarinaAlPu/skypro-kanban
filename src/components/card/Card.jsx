@@ -3,24 +3,25 @@ import { Link } from "react-router-dom";
 
 
 export const Card = ({ id, topic, title, date }) => {
-  let labelColor;
-  let textColor;
-  if (topic === "Web Design") {
-    labelColor = "#FFE4C2";
-    textColor = "#FF6D00";
-  } else if (topic === "Research") {
-    labelColor = "#B4FDD1";
-    textColor = "#06B16E";
-  } else if (topic === "Copywriting") {
-    labelColor = "#E9D4FF";
-    textColor = "#9A48F1";
-  }
+  // let labelColor;
+  // let textColor;
+  // if (topic === "Web Design") {
+  //   labelColor = "#FFE4C2";
+  //   textColor = "#FF6D00";
+  // } else if (topic === "Research") {
+  //   labelColor = "#B4FDD1";
+  //   textColor = "#06B16E";
+  // } else if (topic === "Copywriting") {
+  //   labelColor = "#E9D4FF";
+  //   textColor = "#9A48F1";
+  // }
 
 
   return (
     <SCardContainer>
       <SCardHeader>
-        <SCardLabel $labelColor={labelColor} $textColor={textColor}>
+        {/* <SCardLabel $labelColor={labelColor} $textColor={textColor}> */}
+        <SCardLabel $topic={topic}>
           <SCardTopic>{topic}</SCardTopic>
         </SCardLabel>
 

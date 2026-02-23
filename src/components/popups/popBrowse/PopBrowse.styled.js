@@ -1,16 +1,28 @@
 import styled from "styled-components";
 
 
+// const categoryBackgroundColors = {
+//   "Web Design": "#FFE4C2",
+//   "Research": "#B4FDD1",
+//   "Copywriting": "#E9D4FF",
+// };
+
+// const categoryColors = {
+//   "Web Design": "#FF6D00",
+//   "Research": "#06B16E",
+//   "Copywriting": "#9A48F1",
+// };
+
 const categoryBackgroundColors = {
-  "Web Design": "#FFE4C2",
-  "Research": "#B4FDD1",
-  "Copywriting": "#E9D4FF",
+  "Web Design": "var(--bg-web-design)",
+  "Research": "var(--bg-research)",
+  "Copywriting": "var(--bg-copywriting)",
 };
 
 const categoryColors = {
-  "Web Design": "#FF6D00",
-  "Research": "#06B16E",
-  "Copywriting": "#9A48F1",
+  "Web Design": "var(--color-web-design)",
+  "Research": "var(--color-research)",
+  "Copywriting": "var(--color-copywriting)",
 };
 
 
@@ -78,8 +90,8 @@ export const SCategoriesThemeTop = styled.div`
   margin-right: 7px;
   display: block;
 
-  background-color: ${({ $taskCategory }) => categoryBackgroundColors[$taskCategory]};
-  color: ${({ $taskCategory }) => categoryColors[$taskCategory]};
+    background-color: ${({ $taskCategory }) => categoryBackgroundColors [$taskCategory]};
+    color: ${({ $taskCategory }) => categoryColors [$taskCategory]};
   `;
 
 export const SCategoryThemeTop = styled.p`
