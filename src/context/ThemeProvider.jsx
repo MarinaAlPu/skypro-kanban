@@ -15,6 +15,9 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    document.body.classList.remove("light-theme", "dark-theme");
+    document.body.classList.add(`${currentTheme}-theme`);
+
     localStorage.setItem("currentTheme", currentTheme);
     localStorage.setItem("themeNameToSelect", themeNameToSelect);
   }, [currentTheme]);
