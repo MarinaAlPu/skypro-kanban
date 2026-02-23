@@ -43,13 +43,17 @@ export const GlobalStyle = createGlobalStyle`
 
 // стили для темы
 body, body.light-theme {
-  --bg-header: #FFFFFF;
+  /* --bg-header: #FFFFFF; */
   --text-header-link: #565EEF;
+  --bg-primary: #EAEEF6;
+  --bg-secondary: #FFFFFF;
 }
 
 body.dark-theme {
-  --bg-header: #20202C;
+  /* --bg-header: #20202C; */
   --text-header-link: #FFFFFF;
+  --bg-primary: #000000;
+  --bg-secondary: #20202C;
 }
 
 `
