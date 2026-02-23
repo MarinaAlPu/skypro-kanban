@@ -48,12 +48,12 @@ body, body.light-theme {
   --borders: #D4DBE5;
   --borders-button: #565EEF;
   
-  --bg-web-design: "#FFE4C2",
+  /* --bg-web-design: "#FFE4C2",
   --bg-research: "#B4FDD1",
   --bg-copywriting: "#E9D4FF",
   --color-web-design: "#FF6D00",
   --color-research: "#06B16E",
-  --color-copywriting: "#9A48F1",
+  --color-copywriting: "#9A48F1", */
 }
 
 body.dark-theme {
@@ -69,12 +69,12 @@ body.dark-theme {
   --borders: #4E5566;
   --borders-button: #FFFFFF;
   
-  --bg-web-design: "#FF6D00",
+  /* --bg-web-design: "#FF6D00",
   --bg-research: "#B4FDD1",
   --bg-copywriting: "#9A48F1",
   --color-web-design: "#FFE4C2",
   --color-research: "#06B16E",
-  --color-copywriting: "#E9D4FF",
+  --color-copywriting: "#E9D4FF", */
 }
 
   html,
