@@ -5,7 +5,7 @@ export const SHeader = styled.header`
   width: 100%;
   margin: 0 auto;
   /* background-color: #FFFFFF; */
-  background-color: var(--bg-header);
+  background-color: var(--bg-secondary);
 `;
 
 export const SHeaderContainer = styled.div`
