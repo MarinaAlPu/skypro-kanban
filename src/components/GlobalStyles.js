@@ -33,29 +33,58 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  
+// стили для темы
+body, body.light-theme {
+  --bg-primary: #EAEEF6;
+  --bg-secondary: #FFFFFF;
+  --bg-tertiary: #FFFFFF;
+  
+  --text-header-link: #565EEF;
+  --text-primary: #000000;
+  --text-secondary: #94A6BE;
+  --text-tertiary: #FFFFFF;
+
+  --borders: #D4DBE5;
+  --borders-button: #565EEF;
+  
+  --bg-web-design: "#FFE4C2",
+  --bg-research: "#B4FDD1",
+  --bg-copywriting: "#E9D4FF",
+  --color-web-design: "#FF6D00",
+  --color-research: "#06B16E",
+  --color-copywriting: "#9A48F1",
+}
+
+body.dark-theme {
+  --bg-primary: #151419;
+  --bg-secondary: #20202C;
+  --bg-tertiary: #202229;
+  
+  --text-header-link: #FFFFFF;
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A6BE;
+  --text-tertiary: #FFFFFF;
+  
+  --borders: #4E5566;
+  --borders-button: #FFFFFF;
+  
+  --bg-web-design: "#FF6D00",
+  --bg-research: "#B4FDD1",
+  --bg-copywriting: "#9A48F1",
+  --color-web-design: "#FFE4C2",
+  --color-research: "#06B16E",
+  --color-copywriting: "#E9D4FF",
+}
+
   html,
   body {
     width: 100%;
     height: 100%;
     font-family: "Roboto", Arial, Helvetica, sans-serif;
-    color: #000000;
+    /* color: #000000; */
+    color: var(--text-primary);
 }
-
-// стили для темы
-body, body.light-theme {
-  /* --bg-header: #FFFFFF; */
-  --text-header-link: #565EEF;
-  --bg-primary: #EAEEF6;
-  --bg-secondary: #FFFFFF;
-}
-
-body.dark-theme {
-  /* --bg-header: #20202C; */
-  --text-header-link: #FFFFFF;
-  --bg-primary: #151419;
-  --bg-secondary: #20202C;
-}
-
 `
 
 

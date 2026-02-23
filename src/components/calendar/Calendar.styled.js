@@ -11,7 +11,8 @@ export const SCalendarContainer = styled.div`
 `
 
 export const SCalendarTitle = styled.p`
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -35,7 +36,8 @@ export const SCalendarNavigation = styled.div`
 `
 
 export const SCalendarMonth = styled.div`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 25px;
   font-weight: 600;
@@ -58,7 +60,8 @@ export const SCalendarNavAction = styled.div`
 `
 
 export const SCalendarArrow = styled.svg`
-  fill: #94A6BE;
+  /* fill: #94A6BE; */
+  fill: var(--text-secondary);
 `
 
 export const SCalendarContent = styled.div`
@@ -75,7 +78,8 @@ export const SCalendarDaysNames = styled.div`
 `
 
 export const SCalendarDayName = styled.div`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 10px;
   font-weight: 500;
   line-height: normal;
@@ -83,7 +87,8 @@ export const SCalendarDayName = styled.div`
 `
 
 export const SCalendarDayNameWeekend = styled.div`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 10px;
   font-weight: 500;
   line-height: normal;
@@ -107,7 +112,7 @@ export const SCalendarCellDay = styled.div`
   align-items: center;
   justify-content: center;
   /* color: #94A6BE; */
-  ${({ $isDateSelected }) => ($isDateSelected ? "color: #FFFFFF;" : "color: #94A6BE;")}
+  ${({ $isDateSelected }) => ($isDateSelected ? "color: var(--text-tertiary);" : "color: var(--text-secondary);")}
   ${({ $isDateSelected }) => ($isDateSelected ? "background-color: #94A6BE;" : "background-color: transparent;")}
   
   font-size: 10px;
@@ -119,13 +124,13 @@ export const SCalendarCellDay = styled.div`
   &:hover {
     /* color: #94A6BE;
     background-color: #EAEEF6; */
-    ${({ $isClickable }) => ($isClickable ? "color: #94A6BE;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "color: var(--text-secondary);" : "")}
     ${({ $isClickable }) => ($isClickable ? "background-color: #EAEEF6;" : "")}
   }
   &:active {
     /* color: #FFFFFF;
     background-color: #94A6BE; */
-    ${({ $isClickable }) => ($isClickable ? "color: #FFFFFF;" : "")}
+    ${({ $isClickable }) => ($isClickable ? "color: var(--text-tertiary);" : "")}
     ${({ $isClickable }) => ($isClickable ? "background-color: #94A6BE;" : "")}
   }
 `
@@ -209,12 +214,14 @@ export const SCalendarPeriod = styled.div`
 `
 
 export const SCalendarDateEnd = styled.p`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 10px;
   line-height: 1;
 `
 
 export const SCalendarDateControl = styled.span`
-  color: #000000;
+  /* color: #000000; */
+  color: var(--text-primary);
 `
 

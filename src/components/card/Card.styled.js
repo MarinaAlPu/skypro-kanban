@@ -17,7 +17,8 @@ export const SDate = styled.p`
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   letter-spacing: 0.2px;
 `
 
@@ -38,7 +39,8 @@ export const SCardTitle = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  color: #000000;
+  /* color: #000000; */
+  color: var(--text-primary);
   margin-bottom: 10px;
 `
 
@@ -89,7 +91,7 @@ export const SCardTopic = styled.p`
 export const SCardContainer = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   display: flex;
   flex-direction: column;

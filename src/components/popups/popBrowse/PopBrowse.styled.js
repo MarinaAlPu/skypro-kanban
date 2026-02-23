@@ -40,12 +40,13 @@ export const SContainer = styled.div`
 export const SBlock = styled.div`
   display: block;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: var(--bg-secondary);
   max-width: 630px;
   width: 100%;
   padding: 40px 30px 38px;
   border-radius: 10px;
-  border: 0.7px solid #D4DBE5;
+  /* border: 0.7px solid #D4DBE5; */
+  border: 0.7px solid var(--borders);
   position: relative;
 `;
 
@@ -62,7 +63,8 @@ export const STopBlock = styled.div`
 `;
 
 export const STitle = styled.h3`
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
@@ -93,7 +95,8 @@ export const SStatusesWrapper = styled.div`
 
 export const SStatusesTitle = styled.p`
   margin-bottom: 14px;
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -119,7 +122,7 @@ export const SStatusTheme = styled.p`
   font-size: 14px;
   line-height: 1;
   letter-spacing: -0.14px;
-  color: ${({ $isStatusSelected }) => $isStatusSelected ? "#FFFFFF" : "#94A6BE"};
+  color: ${({ $isStatusSelected }) => $isStatusSelected ? "var(--text-tertiary);" : "var(--text-secondary);"};
   `;
 
 export const SFormWrapper = styled.div`
@@ -141,7 +144,8 @@ export const SFormBlock = styled.div`
   `;
 
 export const SFormLabel = styled.label`
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -152,7 +156,7 @@ export const SFormText = styled.textarea`
   width: 100%;
   outline: none;
   padding: 14px;
-  background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "#EAEEF6"};
+  background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "var(--bg-primary)"};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;
@@ -164,14 +168,16 @@ export const SFormText = styled.textarea`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    color: #94A6BE;
+    /* color: #94A6BE; */
+    color: var(--text-secondary);
     letter-spacing: -0.14px;
   }
   &::placeholder {
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    color: #94A6BE;
+    /* color: #94A6BE; */
+    color: var(--text-secondary);
     letter-spacing: -0.14px;
   }
 `;

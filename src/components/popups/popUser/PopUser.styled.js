@@ -9,7 +9,7 @@ export const SWrapper = styled.div`
   height: 205px;
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
-  background: #FFF;
+  background-color: var(--bg-tertiary);
   box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
   padding: 34px;
   text-align: center;
@@ -17,7 +17,8 @@ export const SWrapper = styled.div`
 `;
 
 export const SName = styled.p`
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 14px;
   font-weight: 500;
   line-height: 21px;
@@ -26,7 +27,8 @@ export const SName = styled.p`
 `;
 
 export const SMail = styled.p`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
@@ -34,7 +36,8 @@ export const SMail = styled.p`
 `;
 
 export const SThemeButton = styled.div`
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
@@ -47,7 +50,8 @@ export const SThemeButton = styled.div`
 `;
 
 export const SThemeTitle = styled.p`
-  color: #000;
+  /* color: #000; */
+  color: var(--text-primary);
   font-size: 14px;
   line-height: 21px;
   letter-spacing: -0.14px;
