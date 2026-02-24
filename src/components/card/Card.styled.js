@@ -114,4 +114,8 @@ export const SCardContainer = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
+
+  &:hover {
+    box-shadow: 0px 10px 39px 0px var(--card-shadow);
+  }
 `

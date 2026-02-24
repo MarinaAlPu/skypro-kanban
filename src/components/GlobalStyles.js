@@ -49,6 +49,7 @@ body, body.light-theme {
   --borders-button: #565EEF;
 
   --shadow: rgba(26, 56, 101, 0.21);
+  --card-shadow: rgba(148, 166, 190, 0.4);
   
   --bg-web-design: #FFE4C2;
   --bg-research: #B4FDD1;
@@ -72,6 +73,7 @@ body.dark-theme {
   --borders-button: #FFFFFF;
   
   --shadow: rgba(148, 166, 190, 0.4);
+  --card-shadow: rgba(148, 166, 190, 0.4);
   
   --bg-web-design: #FF6D00;
   --bg-research: #06B16E;
