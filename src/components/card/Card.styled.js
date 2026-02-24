@@ -118,4 +118,12 @@ export const SCardContainer = styled.div`
   &:hover, &:active {
     box-shadow: 0px 10px 39px 0px var(--card-shadow);
   }
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
 `
