@@ -47,6 +47,8 @@ body, body.light-theme {
 
   --borders: #D4DBE5;
   --borders-button: #565EEF;
+
+  --shadow: rgba(26, 56, 101, 0.21);
   
   --bg-web-design: #FFE4C2;
   --bg-research: #B4FDD1;
@@ -69,6 +71,8 @@ body.dark-theme {
   --borders: #4E5566;
   --borders-button: #FFFFFF;
   
+  --shadow: rgba(148, 166, 190, 0.4);
+  
   --bg-web-design: #FF6D00;
   --bg-research: #06B16E;
   --bg-copywriting: #9A48F1;
@@ -85,4 +89,14 @@ body.dark-theme {
     /* color: #000000; */
     color: var(--text-primary);
 }
+
+  input, textarea {
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+    border-color: var(--border-color);
+  }
+
+  input::placeholder, textarea::placeholder {
+    color: var(--text-secondary);
+  }
 `

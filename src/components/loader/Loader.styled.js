@@ -24,7 +24,8 @@ export const SSceleton = styled.div`
 export const SCardContainer = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   display: flex;
   flex-direction: row;
@@ -34,7 +35,8 @@ export const SCardContainer = styled.div`
 
 export const SLeft = styled.div`
   max-width: 113px;
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
+  /* background-color: var(--bg-secondary); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -44,7 +46,8 @@ export const SLeft = styled.div`
 
 export const SRight = styled.div`
   min-width: 18px;
-  background-color: #FFFFFF;
+  /* background-color: #FFFFFF; */
+  /* background-color: var(--bg-secondary); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;

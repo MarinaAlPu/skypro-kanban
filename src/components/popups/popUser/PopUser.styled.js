@@ -10,7 +10,8 @@ export const SWrapper = styled.div`
   border-radius: 10px;
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   background-color: var(--bg-tertiary);
-  box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21);
+  /* box-shadow: 0px 10px 39px 0px rgba(26, 56, 101, 0.21); */
+  box-shadow: 0px 10px 39px 0px var(--shadow);
   padding: 34px;
   text-align: center;
   z-index: 2;
