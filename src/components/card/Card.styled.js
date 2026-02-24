@@ -115,7 +115,7 @@ export const SCardContainer = styled.div`
   justify-content: stretch;
   padding: 15px 13px 19px;
 
-  &:hover {
+  &:hover, &:active {
     box-shadow: 0px 10px 39px 0px var(--card-shadow);
   }
 `
