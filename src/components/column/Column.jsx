@@ -6,9 +6,21 @@ import { format } from "date-fns";
 import { TasksContext } from "../../context/TasksContext";
 
 
-export const Column = ({ title, cardsByStatus }) => {
+export const Column = ({ title, cardsByStatus, onMoveCard }) => {
   const { isLoading } = useContext(TasksContext);
   // console.log("isLoading: ", isLoading);
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const cardId = e.dataTransfer.getData('text/plain');
+    console.log(`В Column перемещаем карточку с id ${cardId} в столбец ${title}`);
+
+    onMoveCard(cardId, title);
+  };
 
 
   return (
@@ -16,7 +28,9 @@ export const Column = ({ title, cardsByStatus }) => {
       <SColumnTitleContainer>
         <SColumnTitle>{title}</SColumnTitle>
       </SColumnTitleContainer>
-      <SCards>
+      <SCards
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}>
         {
           isLoading
             ?

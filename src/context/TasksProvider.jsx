@@ -92,6 +92,10 @@ export const TasksProvider = ({ children }) => {
     setSelectedDate(date);
   };
 
+  const updateTaskStatus = (taskId, newStatus) => {
+    setTasks(prevTasks => prevTasks.map(task => task._id === taskId ? { ...task, status: newStatus } : task))
+  };
+
 
   return (
     <TasksContext.Provider
@@ -106,7 +110,8 @@ export const TasksProvider = ({ children }) => {
         editTasks,
         deleteTasks,
         selectedDate,
-        updateSelectedDate
+        updateSelectedDate,
+        updateTaskStatus,
       }}
     >
       {children}

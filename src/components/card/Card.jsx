@@ -2,7 +2,7 @@ import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLi
 import { Link } from "react-router-dom";
 
 
-export const Card = ({ id, topic, title, date }) => {
+export const Card = ({ id, topic, title, date, isDragging }) => {
   // let labelColor;
   // let textColor;
   // if (topic === "Web Design") {
@@ -17,8 +17,23 @@ export const Card = ({ id, topic, title, date }) => {
   // }
 
 
+  const handleDragCard = (e) => {
+    e.dataTransfer.setData('text/plain', id);
+
+    e.currentTarget.style.opacity = '0.5';
+  };
+
+  const handleDragEnd = (e) => {
+    e.currentTarget.style.opacity = '1';
+  };
+
+
   return (
-    <SCardContainer>
+    <SCardContainer
+      draggable="true"
+      onDragStart={handleDragCard}
+      onDragEnd={handleDragEnd}
+    >
       <SCardHeader>
         {/* <SCardLabel $labelColor={labelColor} $textColor={textColor}> */}
         <SCardLabel $topic={topic}>
