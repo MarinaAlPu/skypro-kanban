@@ -66,6 +66,7 @@ export const AuthProvider = ({ children }) => {
 
   const resetError = () => {
     setError(null);
+    setIsValid(true);
   };
 
 
