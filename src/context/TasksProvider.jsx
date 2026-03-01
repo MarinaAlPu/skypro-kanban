@@ -12,6 +12,8 @@ export const TasksProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isDraggable, setIsDraggable] = useState(false);
+  const [draggableCardId, setDraggableCardId] = useState(null);
 
 
   const getTasks = useCallback(async () => {
@@ -92,13 +94,17 @@ export const TasksProvider = ({ children }) => {
     setSelectedDate(date);
   };
 
+  const updateTaskStatus = (taskId, newStatus) => {
+    setTasks(prevTasks => prevTasks.map(task => task._id === taskId ? { ...task, status: newStatus } : task))
+  };
+
 
   return (
     <TasksContext.Provider
       value={{
         tasks,
         setTasks,
-        error,
+        error, setError,
         isLoading, setIsLoading,
         getTasks, addTask,
         token,
@@ -106,7 +112,12 @@ export const TasksProvider = ({ children }) => {
         editTasks,
         deleteTasks,
         selectedDate,
-        updateSelectedDate
+        updateSelectedDate,
+        updateTaskStatus,
+        isDraggable,
+        setIsDraggable,
+        draggableCardId,
+        setDraggableCardId,
       }}
     >
       {children}

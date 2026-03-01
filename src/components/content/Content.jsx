@@ -9,12 +9,25 @@ export const Content = () => {
   const {
     tasks,
     error,
+    updateTaskStatus
   } = useContext(TasksContext);
-    
-    const cardsByStatus = statuses.reduce((acc, status) => {
-      acc[status] = tasks.filter((task) => task.status === status);
+
+  const cardsByStatus = statuses.reduce((acc, status) => {
+    acc[status] = tasks.filter((task) => task.status === status);
     return acc;
   }, {});
+
+
+  const onMoveCard = (cardId, targetColumnTitle) => {
+    console.log(`В Content перемещаем карточку c cardId ${cardId} в столбец ${targetColumnTitle}`);
+
+    // проверить новый статус карточки
+    const currentCard = tasks.find(task => task._id === cardId);
+
+    if (currentCard && currentCard.status !== targetColumnTitle) {
+      updateTaskStatus(cardId, targetColumnTitle);
+    }
+  };
 
 
   return (
@@ -23,7 +36,13 @@ export const Content = () => {
       <SContainer>
         <SBlock>
           <SData>
-            {statuses.map((status) => <Column key={status} title={status} cardsByStatus={cardsByStatus} />)}
+            {statuses.map((status) =>
+              <Column
+                key={status}
+                title={status}
+                cardsByStatus={cardsByStatus}
+                onMoveCard={onMoveCard}
+              />)}
           </SData>
         </SBlock>
       </SContainer>

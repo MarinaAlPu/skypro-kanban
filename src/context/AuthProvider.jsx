@@ -64,6 +64,11 @@ export const AuthProvider = ({ children }) => {
     updateUserInfo(null);
   };
 
+  const resetError = () => {
+    setError(null);
+    setIsValid(true);
+  };
+
 
   return (
     <AuthContext.Provider value={{
@@ -73,6 +78,7 @@ export const AuthProvider = ({ children }) => {
       errors,
       error,
       isValid,
+      resetError
     }}>
       {children}
     </AuthContext.Provider>

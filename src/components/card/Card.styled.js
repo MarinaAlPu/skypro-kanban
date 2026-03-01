@@ -17,7 +17,8 @@ export const SDate = styled.p`
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  color: #94A6BE;
+  /* color: #94A6BE; */
+  color: var(--text-secondary);
   letter-spacing: 0.2px;
 `
 
@@ -38,7 +39,8 @@ export const SCardTitle = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  color: #000000;
+  /* color: #000000; */
+  color: var(--text-primary);
   margin-bottom: 10px;
 `
 
@@ -51,17 +53,33 @@ export const SCardHeader = styled.header`
   justify-content: space-between;
 `
 
+
+
+const categoryBackgroundColors = {
+  "Web Design": "var(--bg-web-design)",
+  "Research": "var(--bg-research)",
+  "Copywriting": "var(--bg-copywriting)",
+};
+
+const categoryColors = {
+  "Web Design": "var(--color-web-design)",
+  "Research": "var(--color-research)",
+  "Copywriting": "var(--color-copywriting)",
+};
+
 export const SCardLabel = styled.div`
   width: auto;
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  background-color: ${(props) => {
+  /* background-color: ${(props) => {
     return props.$labelColor
   }};
   color: ${(props) => {
     return props.$textColor
-  }};
+  }}; */
+  background-color: ${({ $topic }) => categoryBackgroundColors[$topic]};
+  color: ${({ $topic }) => categoryColors[$topic]};
 `
 
 export const SCardButton = styled.div`
@@ -89,11 +107,32 @@ export const SCardTopic = styled.p`
 export const SCardContainer = styled.div`
   width: 220px;
   height: 130px;
-  background-color: #FFFFFF;
+  background-color: var(--bg-secondary);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
+
+  &:hover, &:active {
+    box-shadow: 0px 10px 39px 0px var(--card-shadow);
+  }
+
+  &:hover {
+    cursor: grab;
+  }
+
+  &:active {
+    cursor: grabbing;
+  }
+`
+
+export const SCardContainerGhost = styled.div`
+  width: 220px;
+  height: 130px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 166, 190, 1);
+  opacity: 0.5;  
 `

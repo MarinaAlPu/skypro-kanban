@@ -36,11 +36,15 @@ export const PrimaryButton = styled(SButton)`
 
 export const SecondaryButton = styled(SButton)`
   background-color: transparent;
-  color: #565EEF;
-  border: 0.7px solid #565EEF;
+  /* color: #565EEF; */
+  color: var(--text-header-link);
+  /* border: 0.7px solid #565EEF; */
+  border: 0.7px solid var(--borders-button);
   width: ${({ width }) => width};
   &:hover {
     background-color: #565EEF;
+    /* color: #FFFFFF; */
     color: #FFFFFF;
+    border: 0.7px solid transparent;
   }
 `;
