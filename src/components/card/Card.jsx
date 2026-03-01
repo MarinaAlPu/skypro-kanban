@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardButton, SCardButtonPoint, SCardTopic, SCardContainer } from "./Card.styled";
 import { Link } from "react-router-dom";
+import { TasksContext } from "../../context/TasksContext";
 
 
 export const Card = ({ id, topic, title, date, isDragging }) => {
@@ -16,11 +18,15 @@ export const Card = ({ id, topic, title, date, isDragging }) => {
   //   textColor = "#9A48F1";
   // }
 
+  const {isDraggable, setIsDraggable} = useContext(TasksContext);
+
 
   const handleDragCard = (e) => {
     e.dataTransfer.setData('text/plain', id);
 
     e.currentTarget.style.opacity = '0.5';
+
+    setIsDraggable(true)
   };
 
   const handleDragEnd = (e) => {

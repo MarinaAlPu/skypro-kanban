@@ -127,3 +127,12 @@ export const SCardContainer = styled.div`
     cursor: grabbing;
   }
 `
+
+export const SCardContainerGhost = styled.div`
+  width: 220px;
+  height: 130px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px dashed rgba(148, 166, 190, 1);
+  opacity: 0.5;  
+`

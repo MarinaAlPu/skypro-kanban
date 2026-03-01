@@ -12,6 +12,8 @@ export const TasksProvider = ({ children }) => {
   const [tasks, setTasks] = useState([]);
   const [error, setError] = useState("");
   const [selectedDate, setSelectedDate] = useState(null);
+  const [isDraggable, setIsDraggable] = useState(false);
+  const [draggableCardId, setDraggableCardId] = useState(null);
 
 
   const getTasks = useCallback(async () => {
@@ -112,6 +114,10 @@ export const TasksProvider = ({ children }) => {
         selectedDate,
         updateSelectedDate,
         updateTaskStatus,
+        isDraggable,
+        setIsDraggable,
+        draggableCardId,
+        setDraggableCardId,
       }}
     >
       {children}
