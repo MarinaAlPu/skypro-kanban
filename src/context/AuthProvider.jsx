@@ -40,24 +40,29 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleLogin = async (isSignUp) => {
-    setIsValid(false);
+    // setIsValid(false);
 
     if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
-      return;
-    }
-
-    try {
-      const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
-
-      if (data) {
-        updateUserInfo(data);
-        return true;
-      }
-    } catch (err) {
-      setError(err.message);
-      setIsValid(false)
       return false;
     }
+
+    setIsValid(false);
+
+    // if (isValid) {
+      try {
+        const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
+
+        if (data) {
+          updateUserInfo(data);
+          return true;
+        }
+      } catch (err) {
+        setError(err.message);
+        setIsValid(false)
+        return false;
+      }
+    // }
+
   };
 
   const handleLogout = (e) => {
