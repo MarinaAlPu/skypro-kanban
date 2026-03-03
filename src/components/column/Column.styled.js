@@ -32,6 +32,7 @@ export const SCards = styled.div`
   grid-template-columns: 1fr;
   grid-auto-rows: 130px;
   align-content: start;
+  min-height: 100vh;
 `
 
 const cardAnimation = keyframes`
