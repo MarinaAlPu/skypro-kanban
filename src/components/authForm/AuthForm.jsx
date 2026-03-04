@@ -40,7 +40,8 @@ export const AuthForm = ({ isSignUp }) => {
 
           <SErrorMessageWrapper><SErrorMessageText>{error}</SErrorMessageText></SErrorMessageWrapper>
 
-          <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} />
+          {/* <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={!isValid} /> */}
+          <Button text={isSignUp ? "Зарегистрироваться" : "Войти"} type="primary" disabled={error} />
 
           {!isSignUp && (
             <SFooterWrapper>
