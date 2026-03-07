@@ -28,32 +28,49 @@ const categoryColors = {
 
 export const SWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height: 100vh;
   min-width: 375px;
-  min-height: 100vh;
-  position: absolute;
+  /* min-height: 100vh; */
+  /* position: absolute; */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 7;
+  /* overflow-y: auto; */
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SContainer = styled.div`
   width: 100%;
-  height: 100%;
-  min-height: 100vh;
+  max-width: 630px;
+  /* height: 100%; */
+  /* min-height: 100vh; */
+  /* min-height: 90vh; */
+  min-height: calc(100vh - 40px);
   padding: 0 16px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 0, 0, 0.4);
+  /* align-items: center;
+  justify-content: center; */
+  /* background: rgba(0, 0, 0, 0.4); */
+  overflow-y: auto;
+/* 
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  } */
 `;
 
 export const SBlock = styled.div`
   display: block;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  margin: auto;
   background-color: var(--bg-secondary);
-  max-width: 630px;
+  /* max-width: 630px; */
   width: 100%;
   padding: 40px 30px 38px;
   border-radius: 10px;
@@ -90,8 +107,8 @@ export const SCategoriesThemeTop = styled.div`
   margin-right: 7px;
   display: block;
 
-    background-color: ${({ $taskCategory }) => categoryBackgroundColors [$taskCategory]};
-    color: ${({ $taskCategory }) => categoryColors [$taskCategory]};
+    background-color: ${({ $taskCategory }) => categoryBackgroundColors[$taskCategory]};
+    color: ${({ $taskCategory }) => categoryColors[$taskCategory]};
   `;
 
 export const SCategoryThemeTop = styled.p`
@@ -169,7 +186,7 @@ export const SFormText = styled.textarea`
   outline: none;
   padding: 14px;
   background-color: ${({ $isEditTask }) => $isEditTask ? "transparent" : "var(--bg-primary)"};
-  color: ${({ $isEditTask }) => {$isEditTask ? "var(--text-secondary)" : "var(--text-primary)"}};
+  color: ${({ $isEditTask }) => { $isEditTask ? "var(--text-secondary)" : "var(--text-primary)" }};
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
   font-size: 14px;

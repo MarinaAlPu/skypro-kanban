@@ -101,4 +101,9 @@ body.dark-theme {
   input::placeholder, textarea::placeholder {
     color: var(--text-secondary);
   }
+
+#root {
+  min-height: 100%;
+  position: relative;
+}
 `

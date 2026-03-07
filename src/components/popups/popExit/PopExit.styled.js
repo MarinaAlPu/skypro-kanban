@@ -12,13 +12,19 @@ export const SPageBackground = styled.div`
 
 export const SWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  height: 100vh;
   min-width: 320px;
   min-height: 100vh;
-  position: absolute;
+  /* position: absolute; */
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 5;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const SContainer = styled.div`
