@@ -22,7 +22,7 @@ export const Content = () => {
 
 
   const onMoveCard = async (cardId, targetColumnTitle) => {
-    console.log(`В Content перемещаем карточку c cardId ${cardId} в столбец ${targetColumnTitle}`);
+    // console.log(`В Content перемещаем карточку c cardId ${cardId} в столбец ${targetColumnTitle}`);
 
     // проверить новый статус карточки
     const currentCard = tasks.find(task => task._id === cardId);
