@@ -6,9 +6,8 @@ import { format } from "date-fns";
 import { TasksContext } from "../../context/TasksContext";
 import { SCardContainerGhost } from "../card/Card.styled";
 
-
 export const Column = ({ title, cardsByStatus, onMoveCard }) => {
-  const { isLoading, isDraggable, draggableCardId, setDraggableCardId } = useContext(TasksContext);
+  const { isLoading, isDraggable, draggableCardId, setIsDraggable, setDraggableCardId } = useContext(TasksContext);
   // console.log("isLoading: ", isLoading);
 
   const handleDragOver = (e) => {
@@ -18,10 +17,10 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
   const handleDrop = (e) => {
     e.preventDefault();
     const cardId = e.dataTransfer.getData('text/plain');
-    console.log(`В Column перемещаем карточку с id ${cardId} в столбец ${title}`);
-    setDraggableCardId(cardId);
-
+    // console.log(`В Column перемещаем карточку с id ${cardId} в столбец ${title}`);
     onMoveCard(cardId, title);
+    setIsDraggable(false);
+    setDraggableCardId(null);
   };
 
 
@@ -33,31 +32,34 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
       <SCards
         onDragOver={handleDragOver}
         onDrop={handleDrop}>
-        {
-          isLoading
-            ?
-            (
-              <Loader />
-            )
-            :
-            (
-              cardsByStatus[title].map((card) => {
-                return (
-                  <SCardItem key={card._id}>
-                    {isDraggable && card._id === draggableCardId
+        {isLoading ? (
+          <Loader />
+        ) : (
+          cardsByStatus[title].map((card) =>
+          // {
+          // return 
+          (
+            <SCardItem key={card._id}>
+              {/* {isDraggable && card._id === draggableCardId
                       ?
                       <SCardContainerGhost />
-                      :
-                      <Card
-                        id={card._id}
-                        topic={card.topic}
-                        title={card.title}
-                        date={format(card.date, "dd.MM.yy")}
-                      />}
-                  </SCardItem>
-                )
-              })
-            )
+                      : */}
+              <Card
+                id={card._id}
+                topic={card.topic}
+                title={card.title}
+                date={format(card.date, "dd.MM.yy")}
+                isDragging={isDraggable && draggableCardId === card._id}
+              />
+              {/* } */}
+              {isDraggable && draggableCardId === card._id && (
+                <SCardContainerGhost />
+              )}
+            </SCardItem>
+          )
+            // }
+          )
+        )
         }
       </SCards>
     </SColumn>

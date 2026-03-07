@@ -1,10 +1,10 @@
-// import { useContext } from "react";
+import { useContext } from "react";
 import { SDateContainer, SDateIcon, SDate, SCardContentContainer, SCardContentLink, SCardTitle, SCardHeader, SCardLabel, SCardButton, SCardButtonPoint, SCardTopic, SCardContainer } from "./Card.styled";
 import { Link } from "react-router-dom";
-// import { TasksContext } from "../../context/TasksContext";
+import { TasksContext } from "../../context/TasksContext";
 
 
-export const Card = ({ id, topic, title, date, isDragging }) => {
+export const Card = ({ id, topic, title, date, isDragging = false }) => {
   // let labelColor;
   // let textColor;
   // if (topic === "Web Design") {
@@ -18,27 +18,29 @@ export const Card = ({ id, topic, title, date, isDragging }) => {
   //   textColor = "#9A48F1";
   // }
 
-  // const {isDraggable, setIsDraggable} = useContext(TasksContext);
+  const { setIsDraggable, setDraggableCardId } = useContext(TasksContext);
 
 
-  const handleDragCard = (e) => {
+  const handleDragStart = (e) => {
     e.dataTransfer.setData('text/plain', id);
-
-    e.currentTarget.style.opacity = '0.5';
-
-    // setIsDraggable(true)
+    // e.currentTarget.style.opacity = '0.5';
+    setIsDraggable(true);
+    setDraggableCardId(id);
   };
 
   const handleDragEnd = (e) => {
-    e.currentTarget.style.opacity = '1';
+    // e.currentTarget.style.opacity = '1';
+    setIsDraggable(false);
+    setDraggableCardId(null);
   };
 
 
   return (
     <SCardContainer
       draggable="true"
-      onDragStart={handleDragCard}
+      onDragStart={handleDragStart}
       onDragEnd={handleDragEnd}
+      $isDragging={isDragging}
     >
       <SCardHeader>
         {/* <SCardLabel $labelColor={labelColor} $textColor={textColor}> */}

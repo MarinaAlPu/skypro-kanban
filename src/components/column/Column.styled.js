@@ -54,4 +54,5 @@ export const SCardItem = styled.div`
   animation-duration: 500ms;
   animation-timing-function: linear;
   /* width: 100%; */
+  position: relative;
 `

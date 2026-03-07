@@ -5,6 +5,15 @@ export const SDateContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
+
+  ${({ $isDragging }) =>
+    $isDragging &&
+    `
+    opacity: 0.1;
+    transform: scale(0.98);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    cursor: grabbing;
+  `}
 `
 
 export const SDateIcon = styled.svg`
@@ -114,6 +123,13 @@ export const SCardContainer = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
+  transition: opacity 0.2s ease;
+
+  ${({ $isDragging }) =>
+    $isDragging &&
+    `
+    opacity: 0.3;
+  `}
 
   &:hover, &:active {
     box-shadow: 0px 10px 39px 0px var(--card-shadow);
@@ -129,10 +145,17 @@ export const SCardContainer = styled.div`
 `
 
 export const SCardContainerGhost = styled.div`
+  position: absolute;
+  top: 5px;
+  left: 5px;
   width: 220px;
   height: 130px;
-  background-color: transparent;
+  /* background-color: transparent; */
+  background-color: rgba(148, 166, 190, 0.1);
   border-radius: 10px;
-  border: 1px dashed rgba(148, 166, 190, 1);
-  opacity: 0.5;  
+  /* border: 1px dashed rgba(148, 166, 190, 1); */
+  border: 1px dashed #94a6be;
+  /* opacity: 0.5;   */
+  box-sizing: border-box;
+  pointer-events: none;
 `
