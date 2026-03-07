@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 
 export const SContent = styled.main`
+    margin-top: 70px;
     width: 100%;
     /* height: 100%; */
-    background-color: #EAEEF6;
+    /* background-color: #EAEEF6; */
+    background-color: var(--bg-primary);
     flex-grow: 1;
 `
 
