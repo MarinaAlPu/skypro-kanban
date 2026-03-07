@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 
 export const SContent = styled.main`
+    margin-top: 70px;
     width: 100%;
     /* height: 100%; */
     /* background-color: #EAEEF6; */

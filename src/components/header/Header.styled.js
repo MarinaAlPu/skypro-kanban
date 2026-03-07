@@ -6,6 +6,9 @@ export const SHeader = styled.header`
   margin: 0 auto;
   /* background-color: #FFFFFF; */
   background-color: var(--bg-secondary);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 `;
 
 export const SHeaderContainer = styled.div`
