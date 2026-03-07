@@ -56,3 +56,14 @@ export const SCardItem = styled.div`
   /* width: 100%; */
   position: relative;
 `
+
+export const SGhostContainer = styled.div`
+  width: 100%;
+  height: 130px;
+  padding: 5px;
+  margin-top: 5px;
+  position: relative;
+  animation-name: ${cardAnimation};
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+  `

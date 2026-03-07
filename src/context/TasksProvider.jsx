@@ -14,7 +14,7 @@ export const TasksProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isDraggable, setIsDraggable] = useState(false);
   const [draggableCardId, setDraggableCardId] = useState(null);
-
+const [dragStartColumn, setDragStartColumn] = useState(null);
 
   const getTasks = useCallback(async () => {
     try {
@@ -118,6 +118,8 @@ export const TasksProvider = ({ children }) => {
         setIsDraggable,
         draggableCardId,
         setDraggableCardId,
+        dragStartColumn,
+        setDragStartColumn
       }}
     >
       {children}

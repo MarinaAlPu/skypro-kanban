@@ -159,3 +159,17 @@ export const SCardContainerGhost = styled.div`
   box-sizing: border-box;
   pointer-events: none;
 `
+
+export const SCardContainerGhostColumnEnd = styled.div`
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 220px;
+  height: 130px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px dashed #94a6be;
+  box-sizing: border-box;
+  pointer-events: none;
+  /* z-index: 5; */
+`

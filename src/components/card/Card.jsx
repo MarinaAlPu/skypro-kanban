@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { TasksContext } from "../../context/TasksContext";
 
 
-export const Card = ({ id, topic, title, date, isDragging = false }) => {
+export const Card = ({ id, topic, title, date, isDragging = false, columnTitle }) => {
   // let labelColor;
   // let textColor;
   // if (topic === "Web Design") {
@@ -18,7 +18,7 @@ export const Card = ({ id, topic, title, date, isDragging = false }) => {
   //   textColor = "#9A48F1";
   // }
 
-  const { setIsDraggable, setDraggableCardId } = useContext(TasksContext);
+  const { setIsDraggable, setDraggableCardId, setDragStartColumn } = useContext(TasksContext);
 
 
   const handleDragStart = (e) => {
@@ -26,12 +26,16 @@ export const Card = ({ id, topic, title, date, isDragging = false }) => {
     // e.currentTarget.style.opacity = '0.5';
     setIsDraggable(true);
     setDraggableCardId(id);
+
+    // console.log("columnTitle: ", columnTitle);
+    setDragStartColumn(columnTitle);
   };
 
   const handleDragEnd = (e) => {
     // e.currentTarget.style.opacity = '1';
     setIsDraggable(false);
     setDraggableCardId(null);
+    setDragStartColumn(null);
   };
 
 
