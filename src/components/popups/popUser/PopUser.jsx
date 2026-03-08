@@ -6,7 +6,7 @@ import { AuthContext } from "../../../context/AuthContext";
 import { ThemeContext } from "../../../context/ThemeContext";
 
 
-export const PopUser = ({ setIsPopUserOpen }) => {
+export const PopUser = ({ setIsPopUserOpen, setIsActive }) => {
   const { user } = useContext(AuthContext);
   const userName = user.name;
   const userEmail = user.login;
@@ -15,6 +15,7 @@ export const PopUser = ({ setIsPopUserOpen }) => {
 
   const handleLogoutClick = () => {
     setIsPopUserOpen(false);
+    setIsActive(false);
   };
 
 

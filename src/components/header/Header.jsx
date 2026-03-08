@@ -75,7 +75,7 @@ export const Header = () => {
               ref={popUserRef}
               $isActive={isActive}
             >
-              <PopUser setIsPopUserOpen={setIsPopUserOpen} />
+              <PopUser setIsPopUserOpen={setIsPopUserOpen} setIsActive={setIsActive}/>
             </SPopUserWrapper>
           </SHeaderNavigation>
         </SHeaderBlock>
