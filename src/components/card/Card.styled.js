@@ -6,14 +6,14 @@ export const SDateContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
 
-  ${({ $isDragging }) =>
+  /* ${({ $isDragging }) =>
     $isDragging &&
     `
     opacity: 0.1;
-    transform: scale(0.98);
+    // transform: scale(0.98);
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     cursor: grabbing;
-  `}
+  `} */
 `
 
 export const SDateIcon = styled.svg`
@@ -128,7 +128,11 @@ export const SCardContainer = styled.div`
   ${({ $isDragging }) =>
     $isDragging &&
     `
-    opacity: 0.3;
+    // opacity: 0.3;
+    opacity: 0;
+    cursor: grabbing;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    // background-color: #ff00e6;
   `}
 
   &:hover, &:active {

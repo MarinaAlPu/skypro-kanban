@@ -78,6 +78,7 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
                   title={card.title}
                   date={format(card.date, "dd.MM.yy")}
                   columnTitle={title}
+                  isDragging={draggableCardId === card._id}
                 />
                 {/* призрак на месте перетаскиваемой карточки */}
                 {isDraggable &&
