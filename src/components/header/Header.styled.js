@@ -98,11 +98,15 @@ export const SHeaderLink = styled.div`
     border-radius: 1px;
     border-left: 1.9px solid var(--text-header-link);
     border-bottom: 1.9px solid var(--text-header-link);
-    transform: rotate(-45deg);
     margin: -6px 0 0 5px;
     padding: 0;
+    transform:
+      ${({ $isActive }) => ($isActive ? "translateY(3px)" : "translateY(0)")}
+      rotateZ(${({ $isActive }) => ($isActive ? "135deg" : "-45deg")});
+    transition: transform 0.5s ease-in-out;
   }
 `;
 
 export const SPopUserWrapper = styled.div`
+  display: ${({ $isActive }) => ($isActive ? "block" : "none")};    
 `;

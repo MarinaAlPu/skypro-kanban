@@ -8,12 +8,13 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 
 export const Header = () => {
-    // const currentTheme = localStorage.getItem("currentTheme");
-    const{currentTheme} = useContext(ThemeContext)
-    // console.log("currentTheme в хэдере: ", currentTheme);
+  const { currentTheme } = useContext(ThemeContext)
 
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
   const popUserRef = useRef(null);
+  const headerLinkRef = useRef(null);
 
   const { user } = useContext(AuthContext);
   const userName = user.name;
@@ -21,11 +22,13 @@ export const Header = () => {
 
   const handleClick = () => {
     setIsPopUserOpen(!isPopUserOpen);
+    setIsActive(!isActive);
   };
 
   const handleOutsideClick = (event) => {
-    if (popUserRef.current && !popUserRef.current.contains(event.target)) {
-      setIsPopUserOpen(false); // закрыть PopUser, если клик вне его
+    if (popUserRef.current && !popUserRef.current.contains(event.target) && headerLinkRef.current && !headerLinkRef.current.contains(event.target)) {
+      setIsPopUserOpen(false); // закрыть PopUser, если клик вне его 
+      setIsActive(false);
     }
   };
 
@@ -60,8 +63,15 @@ export const Header = () => {
                 </Button>
               </Link>
             </SButtonWrapper>
-            <SHeaderLink href="#user-set-target" onClick={handleClick}>{userName}</SHeaderLink>
-            {isPopUserOpen && <SPopUserWrapper ref={popUserRef}><PopUser setIsPopUserOpen={setIsPopUserOpen} /></SPopUserWrapper>}
+            <SHeaderLink
+              href="#user-set-target"
+              onClick={handleClick}
+              $isActive={isActive}
+              ref={headerLinkRef}
+            >
+              {userName}
+            </SHeaderLink>
+            {isPopUserOpen && <SPopUserWrapper ref={popUserRef} $isActive={isActive}><PopUser setIsPopUserOpen={setIsPopUserOpen} /></SPopUserWrapper>}
           </SHeaderNavigation>
         </SHeaderBlock>
       </SHeaderContainer>
