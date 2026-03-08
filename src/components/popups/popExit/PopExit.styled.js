@@ -84,5 +84,9 @@ export const SButtonWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 7px;
+  @media only screen and (max-width: 375px) {
+    flex-direction: column;
+    gap: 7px;
+  }
 `;
 
