@@ -11,13 +11,10 @@ export const SPageBackground = styled.div`
 `;
 
 export const SWrapper = styled.div`
-  /* display: none; */
   width: 100%;
   min-width: 375px;
-  /* height: 100%; */
   height: 100vh;
   min-height: 100vh;
-  /* position: absolute; */
   position: fixed;
   top: 0;
   left: 0;
@@ -48,7 +45,6 @@ export const SBlock = styled.div`
   width: 100%;
   padding: 40px 30px 48px;
   border-radius: 10px;
-  /* border: 0.7px solid #D4DBE5; */
   border: 0.7px solid var(--borders);
   position: relative;
 `;
@@ -59,7 +55,6 @@ export const SContent = styled.div`
 `;
 
 export const STitle = styled.p`
-  /* color: #000; */
   color: var(--text-primary);
   font-size: 20px;
   font-weight: 600;
@@ -71,11 +66,9 @@ export const SXButton = styled.div`
   position: absolute;
   top: 20px;
   right: 30px;
-  /* color: #94A6BE; */
   color: var(--text-secondary);
   cursor: pointer;
   &:hover {
-    /* color: #000000; */
     color: var(--text-primary);
   }
 `;
@@ -99,7 +92,6 @@ export const SFormBlock = styled.div`
 `;
 
 export const SFormTitle = styled.label`
-  /* color: #000; */
   color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;
@@ -110,7 +102,6 @@ export const SFormInput = styled.input`
   width: 100%;
   outline: none;
   padding: 14px;
-  /* background: transparent; */
   background-color: var(--bg-secondary);
   border: 0.7px solid rgba(148, 166, 190, 0.4);
   border-radius: 8px;
@@ -122,7 +113,6 @@ export const SFormInput = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    /* color: #94A6BE; */
     color: var(--text-secondary);
     letter-spacing: -0.14px;
   };
@@ -130,7 +120,6 @@ export const SFormInput = styled.input`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    /* color: #94A6BE; */
     color: var(--text-secondary);
     letter-spacing: -0.14px;
   }
@@ -153,7 +142,6 @@ export const SFormDescribe = styled.textarea`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    /* color: #94A6BE; */
     color: var(--text-secondary);
     letter-spacing: -0.14px;
   };
@@ -161,7 +149,6 @@ export const SFormDescribe = styled.textarea`
     font-weight: 400;
     font-size: 14px;
     line-height: 1px;
-    /* color: #94A6BE; */
     color: var(--text-secondary);
     letter-spacing: -0.14px;
   }
@@ -173,7 +160,6 @@ export const SCategoriesWrapper = styled.div`
 `
 
 export const SCategoriesTitle = styled.p`
-  /* color: #000; */
   color: var(--text-primary);
   font-size: 14px;
   font-weight: 600;

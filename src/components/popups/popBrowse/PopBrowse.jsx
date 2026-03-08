@@ -15,11 +15,8 @@ export const PopBrowse = () => {
     token,
     editTasks,
     deleteTasks,
-    // selectedDate,
     updateSelectedDate
   } = useContext(TasksContext);
-  // console.log(tasks);
-
 
   const [isEditTask, setIsEditTask] = useState(false);
 
@@ -30,9 +27,7 @@ export const PopBrowse = () => {
   const initialTaskStatus = card?.status;
   const initialTaskDescription = card?.description;
   const initialTaskDate = card?.date;
-  // console.log("initialTaskDate: ", initialTaskDate);
   const initialTaskDateToDisplay = new Date(initialTaskDate).toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
-  // console.log("initialTaskDateToDisplay: ", initialTaskDateToDisplay);
 
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
   const [currentTaskDescription, setCurrentTaskDescription] = useState(initialTaskDescription || "");
@@ -60,7 +55,6 @@ export const PopBrowse = () => {
   };
 
   const onSaveTask = async () => {
-    // navigate("/");
     try {
       const updatedTask = {
         ...card,
@@ -78,10 +72,8 @@ export const PopBrowse = () => {
   };
 
   const onDeleteTask = async () => {
-    // navigate("/");
     try {
       await deleteTasks(token, id);
-      // updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
 
       navigate("/");
     }

@@ -12,8 +12,6 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
   } = useContext(TasksContext);
 
   // проверить, исходная колонка или нет
-  // console.log("dragStartColumn: ", dragStartColumn);
-  // console.log("title: ", title);
   const isStartColumn = dragStartColumn === title;
 
   const handleDragOver = (e) => {
@@ -23,7 +21,6 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
   const handleDrop = (e) => {
     e.preventDefault();
     const cardId = e.dataTransfer.getData('text/plain');
-    // console.log(`В Column перемещаем карточку с id ${cardId} в столбец ${title}`);
     onMoveCard(cardId, title);
     setIsDraggable(false);
     setDraggableCardId(null);

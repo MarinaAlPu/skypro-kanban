@@ -12,7 +12,6 @@ export const Content = () => {
     error,
     updateTaskStatus,
     token,
-
   } = useContext(TasksContext);
 
   const cardsByStatus = statuses.reduce((acc, status) => {
@@ -22,17 +21,13 @@ export const Content = () => {
 
 
   const onMoveCard = async (cardId, targetColumnTitle) => {
-    // console.log(`В Content перемещаем карточку c cardId ${cardId} в столбец ${targetColumnTitle}`);
-
     // проверить новый статус карточки
     const currentCard = tasks.find(task => task._id === cardId);
-    // console.log("currentCard: ", currentCard);
 
     const updatedTask = {
       ...currentCard,
       status: targetColumnTitle
     };
-    // console.log("updatedTask: ", updatedTask);
 
     if (currentCard && currentCard.status !== targetColumnTitle) {
       updateTaskStatus(cardId, targetColumnTitle);

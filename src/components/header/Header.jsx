@@ -43,17 +43,6 @@ export const Header = () => {
     <SHeader>
       <SHeaderContainer>
         <SHeaderBlock>
-          {/* <SHeaderLogo>
-            <a href="" target="_self">
-              <SHeaderLogoLight src="/images/logo.png" alt="logo" />
-            </a>
-          </SHeaderLogo>
-          <SHeaderLogo>
-            <a href="" target="_self">
-              <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
-            </a>
-          </SHeaderLogo> */}
-
           <SHeaderLogo>
             <a href="/" target="_self">
               {currentTheme === 'light' ? (

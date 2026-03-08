@@ -14,7 +14,7 @@ export const TasksProvider = ({ children }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [isDraggable, setIsDraggable] = useState(false);
   const [draggableCardId, setDraggableCardId] = useState(null);
-const [dragStartColumn, setDragStartColumn] = useState(null);
+  const [dragStartColumn, setDragStartColumn] = useState(null);
 
   const getTasks = useCallback(async () => {
     try {
@@ -63,9 +63,6 @@ const [dragStartColumn, setDragStartColumn] = useState(null);
         .then((data) => {
           setTasks(data);
         })
-
-      // const updatedTasks = await editTask(token, id, task);
-      // setTasks(updatedTasks);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -80,9 +77,6 @@ const [dragStartColumn, setDragStartColumn] = useState(null);
         .then((data) => {
           setTasks(data);
         })
-
-      // await deleteTask(token, id);
-      // setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (err) {
       setError(err.message);
     } finally {

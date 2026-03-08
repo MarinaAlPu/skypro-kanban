@@ -4,7 +4,6 @@ import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { TasksContext } from "../../../context/TasksContext";
-// import { PopError } from "../popError/PopError";
 import { toast } from 'react-toastify';
 
 
@@ -18,9 +17,6 @@ export const PopNewCard = () => {
     setError
   } = useContext(TasksContext);
 
-  // console.log("selectedDate в карточке новой задачи: ", selectedDate);
-  // selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,12 +29,8 @@ export const PopNewCard = () => {
 
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
-  // const [status, setStatus] = useState("");
   const [description, setDescription] = useState("");
-  // const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
-  // const [isEditTask, setIsEditTask] = useState(false);
-  // const [errorMessage, setErrorMessage] = useState("");
 
 
   const onSelectCategory = (categoryName) => {
@@ -48,17 +40,11 @@ export const PopNewCard = () => {
 
   const handleCreateTask = async () => {
     if (!description.trim()) {
-      // alert("Описание задачи не может быть пустым");
-      // console.log("error: ", error);
-      // setErrorMessage("Описание задачи не может быть пустым");
-      // setError("Описание задачи не может быть пустым");
       toast.error("Описание задачи не может быть пустым");
       return;
     };
 
     try {
-      // navigate("/");
-      
       await addTask({
         newTask: {
           title: title.trim() || "Новая задача",
@@ -68,24 +54,17 @@ export const PopNewCard = () => {
           date: selectedDate?.toISOString() || currentDate,
         }
       });
-      
+
       setTitle("");
       setDescription("");
       setTopic("");
       updateSelectedDate(null);
-      // setErrorMessage("");
-      // setError("");
-      
+
       navigate("/");
     } catch (err) {
-      // setErrorMessage("Ошибка при создании задачи");
       setError("Ошибка при создании задачи");
     }
   };
-
-  // const handleCloseError = () => {
-  //   setErrorMessage("");
-  // };
 
 
   return token ? (
@@ -151,8 +130,6 @@ export const PopNewCard = () => {
               id="btnCreate" width="132px" text="Создать задачу" type="primary" disabled={false}></Button>
           </BSButtonWrapper>
         </SBlock>
-        {/* {errorMessage && <PopError errorMessage={errorMessage} onClose={handleCloseError} />} */}
-        {/* {error && {notify}} */}
       </SContainer>
     </SWrapper >
   ) : null;

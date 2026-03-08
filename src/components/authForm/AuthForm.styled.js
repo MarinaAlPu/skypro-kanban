@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 export const SPageBackground = styled.div`
     width: 100vw;
     height: 100vh;
-    /* background-color: #EAEEF6; */
     background-color: var(--bg-primary);
     display: flex;
     justify-content: center;
@@ -14,10 +13,7 @@ export const SPageBackground = styled.div`
 
 export const SWrapper = styled.div`
   width: 368px;
-  /* height: 329px; */
-  /* background-color: #FFFFFF; */
   background-color: var(--bg-secondary);
-  /* border: 0.7px solid #D4DBE5; */
   border: 0.7px solid var(--borders);
   border-radius: 10px;
   padding: 50px 60px;
@@ -33,12 +29,9 @@ export const SWrapper = styled.div`
 export const STitle = styled.p`
   font-size: 20px;
   font-weight: 700;
-  /* color: var(--text-primary); */
 `;
 
 export const SForm = styled.form`
-  /* font-size: 20px;
-  font-weight: 700; */
 `;
 
 export const SInputWrapper = styled.div`
@@ -52,7 +45,6 @@ export const SFooterWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 7px; */
   line-height: 150%;
   margin-top: 20px;
 `;
@@ -69,13 +61,9 @@ export const SFooterLink = styled(Link)`
   text-decoration: underline;
   color: rgba(148, 166, 190, 0.4);
   cursor: pointer;
-  /* &:visited {
-    color: rgba(148, 166, 190, 0.4);
-  } */
 `;
 
 export const SErrorMessageWrapper = styled.div`
-  /* width: 250px; */
   display: flex;
   flex-direction: column;
   align-items: center;

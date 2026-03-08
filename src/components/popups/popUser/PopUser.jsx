@@ -11,9 +11,7 @@ export const PopUser = ({ setIsPopUserOpen }) => {
   const userName = user.name;
   const userEmail = user.login;
 
-  const { currentTheme, themeNameToSelect, toggleTheme } = useContext(ThemeContext);
-  // console.log("текущая тема: ", currentTheme);
-  // console.log("название темы, на которую можно переключиться: ", themeNameToSelect);
+  const { themeNameToSelect, toggleTheme } = useContext(ThemeContext);
 
   const handleLogoutClick = () => {
     setIsPopUserOpen(false);

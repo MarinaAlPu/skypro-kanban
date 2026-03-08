@@ -15,7 +15,6 @@ export const SColumnTitleContainer = styled.div`
 `
 
 export const SColumnTitle = styled.p`
-  /* color: #94A6BE; */
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 600;
@@ -24,9 +23,6 @@ export const SColumnTitle = styled.p`
 `
 
 export const SCards = styled.div`
-  /* width: 100%;
-  display: block;
-  position: relative; */
   gap: 10px;
   display: grid;
   grid-template-columns: 1fr;
@@ -48,12 +44,10 @@ const cardAnimation = keyframes`
 `
 
 export const SCardItem = styled.div`
-  /* height: 130px; */
   padding: 5px;
   animation-name: ${cardAnimation};
   animation-duration: 500ms;
   animation-timing-function: linear;
-  /* width: 100%; */
   position: relative;
 `
 

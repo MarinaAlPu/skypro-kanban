@@ -12,7 +12,6 @@ export const SSceleton = styled.div`
   height: ${({ $height }) => $height};
   border-radius: ${({ $radius }) => $radius || "0"};
   margin-bottom: ${({ $marginbottom }) => $marginbottom || "0"};
-  /* background-color: #C1CDDC; */
   background-repeat: no-repeat;
 
   background: linear-gradient(270deg, #C1CDDC 0%, #E9EEF7 25%, #C1CDDC 50%, #E9EEF7 75%, #C1CDDC 100%);
@@ -24,7 +23,6 @@ export const SSceleton = styled.div`
 export const SCardContainer = styled.div`
   width: 220px;
   height: 130px;
-  /* background-color: #FFFFFF; */
   background-color: var(--bg-secondary);
   border-radius: 10px;
   display: flex;
@@ -35,8 +33,6 @@ export const SCardContainer = styled.div`
 
 export const SLeft = styled.div`
   max-width: 113px;
-  /* background-color: #FFFFFF; */
-  /* background-color: var(--bg-secondary); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -46,38 +42,9 @@ export const SLeft = styled.div`
 
 export const SRight = styled.div`
   min-width: 18px;
-  /* background-color: #FFFFFF; */
-  /* background-color: var(--bg-secondary); */
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   justify-content: stretch;
 `
-
-
-
-/* export const STopic = styled.div`
-  width: 82px;
-  height: 20px;
-  border-radius: 18px;
-  background-color: #C1CDDC;
-`
-
-export const STitle = styled.div`
-  width: 113px;
-  height: 13px;
-  background-color: #C1CDDC;
-`
-
-export const SDate = styled.div`
-  width: 58px;
-  height: 13px;
-  background-color: #C1CDDC;
-`
-
-export const SActionButton = styled.div`
-  width: 18px;
-  height: 4px;
-  background-color: #C1CDDC;
-` */
