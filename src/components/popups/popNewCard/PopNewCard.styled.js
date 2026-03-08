@@ -23,6 +23,10 @@ export const SWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 495px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const SContainer = styled.div`
@@ -42,6 +46,8 @@ export const SContainer = styled.div`
   @media screen and (max-width: 495px) {
     padding: 0;
     justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -60,12 +66,18 @@ export const SBlock = styled.div`
   }
   @media screen and (max-width: 495px) {
     padding: 20px 16px 32px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 export const SContent = styled.div`
   display: block;
   text-align: left;
+  @media screen and (max-width: 495px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const STitle = styled.p`
@@ -109,6 +121,8 @@ export const SFormNewCard = styled.form`
   @media screen and (max-width: 495px) {
     max-width: 100%;
     height: 34px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -268,4 +282,7 @@ export const BSButtonWrapper = styled.div`
   flex-wrap: nowrap;
   flex-direction: row;
   justify-content: flex-end;
+  @media screen and (max-width: 495px) {
+    width: 100%;
+  }
 `

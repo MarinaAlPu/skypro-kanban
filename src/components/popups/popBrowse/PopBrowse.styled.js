@@ -29,6 +29,10 @@ export const SWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  @media screen and (max-width: 495px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const SContainer = styled.div`
@@ -42,6 +46,10 @@ export const SContainer = styled.div`
   @media screen and (max-width: 660px) {
     padding: 0;
     justify-content: flex-start;
+  }
+  @media screen and (max-width: 495px) {
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -59,12 +67,19 @@ export const SBlock = styled.div`
   }
   @media screen and (max-width: 495px) {
     padding: 20px 16px 32px;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
 export const SContent = styled.div`
   display: block;
   text-align: left;
+  @media screen and (max-width: 495px) {
+    /* padding: 20px 16px 32px; */
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const STopBlock = styled.div`
@@ -209,11 +224,17 @@ export const SButtonsWrapper = styled.div`
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: row;
-  `;
+  @media screen and (max-width: 495px) {
+    width: 100%;
+  }
+`;
 
 export const SButtonsGroup = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   gap: 8px;
+  @media screen and (max-width: 495px) {
+    width: 100%;
+  }
 `;

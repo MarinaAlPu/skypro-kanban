@@ -51,6 +51,17 @@ export const SHeaderNavigation = styled.nav`
 
 export const SButtonWrapper = styled.div`
   margin-right: 20px;
+  @media only screen and (max-width: 495px) {
+    z-index: 3;
+    position: fixed;
+    left: 16px;
+    bottom: 30px;
+    top: auto;
+    width: calc(100vw - 32px);
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 0;
+  }
 `;
 
 export const SHeaderButton = styled.button`
