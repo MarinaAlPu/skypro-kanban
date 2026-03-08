@@ -103,10 +103,12 @@ export const SHeaderLink = styled.div`
     transform:
       ${({ $isActive }) => ($isActive ? "translateY(3px)" : "translateY(0)")}
       rotateZ(${({ $isActive }) => ($isActive ? "135deg" : "-45deg")});
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.2s ease-in-out;
   }
 `;
 
 export const SPopUserWrapper = styled.div`
-  display: ${({ $isActive }) => ($isActive ? "block" : "none")};    
+  opacity: ${({ $isActive }) => ($isActive ? "1" : "0")};
+  visibility: ${({ $isActive }) => ($isActive ? "visible" : "hidden")};
+  transition: all 0.2s ease-in-out;
 `;
