@@ -5,6 +5,11 @@ export const SColumn = styled.div`
   width: 20%;
   margin: 0 auto;
   display: block;
+  @media screen and (max-width: 1200px) { 
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
   grid-template-rows: auto 1fr;
   height: 100%;
 `
@@ -29,6 +34,12 @@ export const SCards = styled.div`
   grid-auto-rows: 130px;
   align-content: start;
   min-height: 100vh;
+  
+  @media screen and (max-width: 1200px) { 
+    width: 100%;
+    display: flex;
+    overflow-y: auto;
+  }
 `
 
 const cardAnimation = keyframes`

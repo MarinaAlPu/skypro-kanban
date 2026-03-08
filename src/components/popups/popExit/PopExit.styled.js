@@ -47,6 +47,9 @@ export const SBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid var(--borders);
   box-shadow: 0px 4px 67px -12px rgba(0, 0, 0, 0.13);
+  @media only screen and (max-width: 375px) {
+    padding: 50px 20px;
+  }
 `;
 
 export const SContent = styled.div`

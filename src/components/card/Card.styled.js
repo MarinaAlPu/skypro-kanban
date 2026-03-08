@@ -104,6 +104,20 @@ export const SCardContainer = styled.div`
   align-items: flex-start;
   justify-content: stretch;
   padding: 15px 13px 19px;
+
+  @media screen and (max-width: 1200px) { 
+    width: 220px;
+    height: 130px;
+    /* background-color: #FFFFFF; */
+    background-color: var(--bg-secondary);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: stretch;
+    padding: 15px 13px 19px;
+  }
+
   transition: opacity 0.2s ease;
 
   ${({ $isDragging }) =>

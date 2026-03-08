@@ -20,6 +20,9 @@ export const SWrapper = styled.div`
   min-width: 375px;
   position: fixed;
   top: 0;
+  @media screen and (max-width: 660px) {
+    top: 70px;
+  }
   left: 0;
   z-index: 7;
   background: rgba(0, 0, 0, 0.4);
@@ -36,6 +39,10 @@ export const SContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  @media screen and (max-width: 660px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
 `;
 
 export const SBlock = styled.div`
@@ -47,6 +54,12 @@ export const SBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid var(--borders);
   position: relative;
+  @media screen and (max-width: 660px) {
+    border-radius: 0;
+  }
+  @media screen and (max-width: 495px) {
+    padding: 20px 16px 32px;
+  }
 `;
 
 export const SContent = styled.div`
@@ -59,6 +72,12 @@ export const STopBlock = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 18px;
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
+  @media screen and (max-width: 495px) {
+    display: none;
+  }
 `;
 
 export const STitle = styled.h3`
@@ -133,7 +152,10 @@ export const SForm = styled.form`
   width: 100%;
   display: block;
   margin-bottom: 20px;
-  `;
+  @media screen and (max-width: 495px) {
+    max-width: 100%;
+  }
+`;
 
 export const SFormBlock = styled.div`
   display: flex;
@@ -174,6 +196,11 @@ export const SFormText = styled.textarea`
     line-height: 1px;
     color: var(--text-secondary);
     letter-spacing: -0.14px;
+  }
+
+  @media screen and (max-width: 495px) {
+    max-width: 100%;
+    height: 37px;
   }
 `;
 

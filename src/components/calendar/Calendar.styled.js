@@ -4,6 +4,10 @@ import styled from "styled-components";
 export const SCalendarContainer = styled.div`
   width: 182px;
   margin-bottom: 20px;
+  @media screen and (max-width: 660px) {
+    max-width: 340px;
+    width: 100%;
+  }
 `
 
 export const SCalendarTitle = styled.p`
@@ -27,6 +31,9 @@ export const SCalendarNavigation = styled.div`
   justify-content: space-between;
   margin-top: 14px;
   padding: 0 7px;
+  @media screen and (max-width: 660px) {
+    padding: 0;
+  }
 `
 
 export const SCalendarMonth = styled.div`
@@ -82,6 +89,9 @@ export const SCalendarDayNameWeekend = styled.div`
   font-weight: 500;
   line-height: normal;
   letter-spacing: -0.2px;
+  @media screen and (max-width: 660px) {
+    font-size: 14px;
+  }
 `
 
 export const SCalendarCells = styled.div`
@@ -89,6 +99,13 @@ export const SCalendarCells = styled.div`
   height: 126px;
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 660px) {
+    width: 344px;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
 `
 
 export const SCalendarCellDay = styled.div`
@@ -116,16 +133,28 @@ export const SCalendarCellDay = styled.div`
     ${({ $isClickable }) => ($isClickable ? "color: var(--text-tertiary);" : "")}
     ${({ $isClickable }) => ($isClickable ? "background-color: #94A6BE;" : "")}
   }
+
+  @media screen and (max-width: 660px) {
+    width: 42px;
+    height: 42px;
+    font-size: 14px;
+  }
 `
 
 export const SCalendarPeriod = styled.div`
   padding: 0 7px;
+  @media screen and (max-width: 660px) {
+    padding: 0;
+  }
 `
 
 export const SCalendarDateEnd = styled.p`
   color: var(--text-secondary);
   font-size: 10px;
   line-height: 1;
+  @media screen and (max-width: 660px) {
+    font-size: 14px;
+  }
 `
 
 export const SCalendarDateControl = styled.span`

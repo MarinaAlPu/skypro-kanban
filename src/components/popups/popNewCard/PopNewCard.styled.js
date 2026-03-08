@@ -35,6 +35,14 @@ export const SContainer = styled.div`
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.4);
+  @media screen and (max-width: 660px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
+  @media screen and (max-width: 495px) {
+    padding: 0;
+    justify-content: flex-start;
+  }
 `;
 
 export const SBlock = styled.div`
@@ -47,6 +55,12 @@ export const SBlock = styled.div`
   border-radius: 10px;
   border: 0.7px solid var(--borders);
   position: relative;
+  @media screen and (max-width: 660px) {
+    border-radius: 0;
+  }
+  @media screen and (max-width: 495px) {
+    padding: 20px 16px 32px;
+  }
 `;
 
 export const SContent = styled.div`
@@ -77,6 +91,9 @@ export const SNewCardWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  @media screen and (max-width: 660px) {
+    display: block;
+  }
 `;
 
 export const SFormNewCard = styled.form`
@@ -84,7 +101,16 @@ export const SFormNewCard = styled.form`
   width: 100%;
   display: block;
   margin-bottom: 20px;
-  `;
+  @media screen and (max-width: 495px) {
+    max-width: 100%;
+    width: 100%;
+    display: block;
+  }
+  @media screen and (max-width: 495px) {
+    max-width: 100%;
+    height: 34px;
+  }
+`;
 
 export const SFormBlock = styled.div`
   display: flex;
