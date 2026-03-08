@@ -4,38 +4,19 @@ import { Link } from "react-router-dom";
 import { TasksContext } from "../../context/TasksContext";
 
 
-export const Card = ({ id, topic, title, date,
-  // isDragging = false,
-  isDragging,
-  columnTitle }) => {
-  // let labelColor;
-  // let textColor;
-  // if (topic === "Web Design") {
-  //   labelColor = "#FFE4C2";
-  //   textColor = "#FF6D00";
-  // } else if (topic === "Research") {
-  //   labelColor = "#B4FDD1";
-  //   textColor = "#06B16E";
-  // } else if (topic === "Copywriting") {
-  //   labelColor = "#E9D4FF";
-  //   textColor = "#9A48F1";
-  // }
-
-  const { isDraggable, setIsDraggable, setDraggableCardId, setDragStartColumn } = useContext(TasksContext);
+export const Card = ({ id, topic, title, date, isDragging, columnTitle }) => {
+  const { setIsDraggable, setDraggableCardId, setDragStartColumn } = useContext(TasksContext);
 
 
   const handleDragStart = (e) => {
     e.dataTransfer.setData('text/plain', id);
-    // e.currentTarget.style.opacity = '0.5';
     setIsDraggable(true);
     setDraggableCardId(id);
 
-    // console.log("columnTitle: ", columnTitle);
     setDragStartColumn(columnTitle);
   };
 
   const handleDragEnd = (e) => {
-    // e.currentTarget.style.opacity = '1';
     setIsDraggable(false);
     setDraggableCardId(null);
     setDragStartColumn(null);
@@ -50,7 +31,6 @@ export const Card = ({ id, topic, title, date,
       $isDragging={isDragging}
     >
       <SCardHeader>
-        {/* <SCardLabel $labelColor={labelColor} $textColor={textColor}> */}
         <SCardLabel $topic={topic}>
           <SCardTopic>{topic}</SCardTopic>
         </SCardLabel>

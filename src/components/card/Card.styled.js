@@ -5,15 +5,6 @@ export const SDateContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-
-  /* ${({ $isDragging }) =>
-    $isDragging &&
-    `
-    opacity: 0.1;
-    // transform: scale(0.98);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-    cursor: grabbing;
-  `} */
 `
 
 export const SDateIcon = styled.svg`
@@ -26,7 +17,6 @@ export const SDate = styled.p`
   margin-left: 6px;
   font-size: 10px;
   line-height: 13px;
-  /* color: #94A6BE; */
   color: var(--text-secondary);
   letter-spacing: 0.2px;
 `
@@ -48,7 +38,6 @@ export const SCardTitle = styled.h3`
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
-  /* color: #000000; */
   color: var(--text-primary);
   margin-bottom: 10px;
 `
@@ -61,8 +50,6 @@ export const SCardHeader = styled.header`
   align-items: center;
   justify-content: space-between;
 `
-
-
 
 const categoryBackgroundColors = {
   "Web Design": "var(--bg-web-design)",
@@ -81,12 +68,6 @@ export const SCardLabel = styled.div`
   height: 20px;
   padding: 5px 14px;
   border-radius: 18px;
-  /* background-color: ${(props) => {
-    return props.$labelColor
-  }};
-  color: ${(props) => {
-    return props.$textColor
-  }}; */
   background-color: ${({ $topic }) => categoryBackgroundColors[$topic]};
   color: ${({ $topic }) => categoryColors[$topic]};
 `
@@ -154,12 +135,9 @@ export const SCardContainerGhost = styled.div`
   left: 5px;
   width: 220px;
   height: 130px;
-  /* background-color: transparent; */
   background-color: rgba(148, 166, 190, 0.1);
   border-radius: 10px;
-  /* border: 1px dashed rgba(148, 166, 190, 1); */
   border: 1px dashed #94a6be;
-  /* opacity: 0.5;   */
   box-sizing: border-box;
   pointer-events: none;
 `
@@ -175,5 +153,4 @@ export const SCardContainerGhostColumnEnd = styled.div`
   border: 1px dashed #94a6be;
   box-sizing: border-box;
   pointer-events: none;
-  /* z-index: 5; */
 `

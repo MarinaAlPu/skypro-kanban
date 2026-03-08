@@ -4,13 +4,12 @@ import { Loader } from "../loader/Loader";
 import { SColumn, SColumnTitleContainer, SColumnTitle, SCards, SCardItem, SGhostContainer } from "./Column.styled";
 import { format } from "date-fns";
 import { TasksContext } from "../../context/TasksContext";
-import { SCardContainerGhost, SCardContainerGhostColumnEnd } from "../card/Card.styled";
+import { SCardContainerGhostColumnEnd } from "../card/Card.styled";
 
 export const Column = ({ title, cardsByStatus, onMoveCard }) => {
   const { isLoading, isDraggable, draggableCardId, setIsDraggable, setDraggableCardId,
     dragStartColumn
   } = useContext(TasksContext);
-  // console.log("isLoading: ", isLoading);
 
   // проверить, исходная колонка или нет
   // console.log("dragStartColumn: ", dragStartColumn);
@@ -42,32 +41,6 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
         {isLoading ? (
           <Loader />
         ) : (
-          // cardsByStatus[title].map((card) =>
-          // // {
-          // // return 
-          // (
-          //   <SCardItem key={card._id}>
-          //     {/* {isDraggable && card._id === draggableCardId
-          //             ?
-          //             <SCardContainerGhost />
-          //             : */}
-          //     <Card
-          //       id={card._id}
-          //       topic={card.topic}
-          //       title={card.title}
-          //       date={format(card.date, "dd.MM.yy")}
-          //       isDragging={isDraggable && draggableCardId === card._id}
-          //     />
-          //     {/* } */}
-          //     {isDraggable && draggableCardId === card._id && (
-          //       <SCardContainerGhost />
-          //     )}
-          //   </SCardItem>
-          // )
-          //   // }
-          // )
-
-
           <>
             {/* карточки */}
             {cardsByStatus[title].map((card) => (
@@ -84,7 +57,6 @@ export const Column = ({ title, cardsByStatus, onMoveCard }) => {
                 {isDraggable &&
                   isStartColumn &&
                   draggableCardId === card._id && (
-                    // <SCardContainerGhost />
                     <SCardContainerGhostColumnEnd />
                   )}
               </SCardItem>
