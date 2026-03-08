@@ -67,6 +67,8 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = (e) => {
     updateUserInfo(null);
+    localStorage.removeItem("currentTheme");
+    localStorage.removeItem("themeNameToSelect");
   };
 
   const resetError = () => {
