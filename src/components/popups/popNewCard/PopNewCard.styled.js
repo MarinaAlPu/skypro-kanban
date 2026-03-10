@@ -284,5 +284,6 @@ export const BSButtonWrapper = styled.div`
   justify-content: flex-end;
   @media screen and (max-width: 495px) {
     width: 100%;
+    justify-content: center;
   }
 `
