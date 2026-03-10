@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -253,5 +254,14 @@ export const SButtonsGroup = styled.div`
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+`;
+
+export const SStyledLink = styled(Link)`
+  text-decoration: none;
+  @media only screen and (max-width: 495px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `;

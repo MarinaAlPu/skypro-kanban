@@ -1,4 +1,4 @@
-import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatus, SStatusTheme, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SButtonsWrapper, SButtonsGroup } from "./PopBrowse.styled";
+import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatus, SStatusTheme, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SButtonsWrapper, SButtonsGroup, SStyledLink } from "./PopBrowse.styled";
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -190,9 +190,9 @@ export const PopBrowse = () => {
                       onClick={onDeleteTask}
                       text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
                   </SButtonsGroup>
-                  <Link to="/">
+                  <SStyledLink to="/">
                     <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-                  </Link>
+                  </SStyledLink>
                 </SButtonsWrapper>
             }
 
