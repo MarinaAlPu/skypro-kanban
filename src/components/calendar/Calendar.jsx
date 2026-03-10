@@ -4,42 +4,16 @@ import { TasksContext } from "../../context/TasksContext";
 
 
 export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate, setCurrentTaskDate, onSelectTaskNewDate }) => {
-  // console.log("\ncurrentTaskDate в календаре: ", currentTaskDate);
-  // console.log("\nтип данных currentTaskDate в календаре: ", typeof(currentTaskDate));
-
-  let formattedCurrentTaskDate = null;
-  if (currentTaskDate) {
-    const dateObj = new Date(currentTaskDate);
-    if (!isNaN(dateObj.getTime())) {
-      formattedCurrentTaskDate = dateObj.toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
-    }
-  }
-
-  // console.log("formattedCurrentTaskDate в календаре после преобразования: ", formattedCurrentTaskDate);
-  // console.log("тип данных formattedCurrentTaskDate в календаре после преобразования: ", typeof(formattedCurrentTaskDate));
-
   const [currentMonthToDisplay, setCurrentMonthToDisplay] = useState(new Date().getMonth());
   const [currentYearToDisplay, setCurrentYearToDisplay] = useState(new Date().getFullYear());
-  // const [isDateSelected, setIsDateSelected] = useState(false);
   const [selectedDateInCalendar, setSelectedDateInCalendar] = useState(null);
-  const { selectedDate, updateSelectedDate } = useContext(TasksContext);
-  // console.log("selectedDate: ", selectedDate);
+  const { updateSelectedDate } = useContext(TasksContext);
 
   const currentDateToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay);
-  // console.log("currentDateToDisplay: ", currentDateToDisplay);
-
   const currentMonthName = currentDateToDisplay.toLocaleString('ru-RU', { month: 'long' });
-  // console.log("currentMonthName: ", currentMonthName);
-
   const currentMonthNameForTitle = currentMonthName.charAt(0).toUpperCase() + currentMonthName.slice(1);
-  // console.log("currentMonthNameForTitle: ", currentMonthNameForTitle);
-
   const currentPeriodToDisplay = currentMonthNameForTitle + " " + currentYearToDisplay;
-  // console.log("currentPeriodToDisplay: ", currentPeriodToDisplay);
-
-
   const daysInCurrentMonthToDisplay = new Date(currentYearToDisplay, currentMonthToDisplay + 1, 0).getDate();
-  // console.log("daysInCurrentMonth: ", daysInCurrentMonthToDisplay);
 
 
   const onSelectPrevMonth = () => {
@@ -61,50 +35,30 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
   };
 
   const datesOfMonth = Array.from({ length: daysInCurrentMonthToDisplay }, (_, i) => i + 1);
-  // console.log("datesOfMonth: ", datesOfMonth);
-
-
-  const firstDayOfCurrentMonth = new Date(currentYearToDisplay, currentMonthToDisplay, 1);//.toLocaleString("ru-Ru")
-  // console.log("firstDayOfCurrentMonth: ", firstDayOfCurrentMonth);
-
+  const firstDayOfCurrentMonth = new Date(currentYearToDisplay, currentMonthToDisplay, 1);
   const weekDayOfFirstDay = firstDayOfCurrentMonth.getDay();
-  // console.log("weekDayOfFirstDay: ", weekDayOfFirstDay);
 
   let firstDayOfCurrentMonthToDisplay = 0;
-  // let emptyCellsQuantity = 0;
 
   if (weekDayOfFirstDay === 0) {
     firstDayOfCurrentMonthToDisplay = 7;
   } else {
     firstDayOfCurrentMonthToDisplay = weekDayOfFirstDay + 1
   }
-  // console.log("firstDayOfCurrentMonthToDisplay: ", firstDayOfCurrentMonthToDisplay);
 
   const emptyCellsQuantity = firstDayOfCurrentMonthToDisplay - 1;
-  // console.log("emptyCellsQuantity: ", emptyCellsQuantity);
-
-
-  // // добавить пустые ячейки перед первым днём месяца
-  // const datesToDisplay = datesOfMonth.unshift(undefined);
-  // console.log("datesToDisplay: ", datesToDisplay);
-
 
   // создать массив из пустых ячеек
   const dates = new Array(emptyCellsQuantity);
-  // console.log("dates: ", dates);
 
   // объединить пустые ячейки и даты
   const datesToDisplay = [...dates, ...datesOfMonth];
-  // console.log("datesToDisplay: ", datesToDisplay);
 
   const onSelectDate = (date) => {
     if (!date) return;
 
     const dateToSave = new Date(currentYearToDisplay, currentMonthToDisplay, date);
-    // console.log("dateToSave: ", dateToSave);
 
-    // console.log("date: ", date);
-    // setIsDateSelected(!isDateSelected);
     setSelectedDateInCalendar(date);
 
     updateSelectedDate(dateToSave);
@@ -119,29 +73,9 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
     }
   };
 
-  // const isDateSelected = (date) => {
-  //   if (!date) return false;
-
-  //   if (isEditTask && currentTaskDate) {
-  //     try {
-  //       const taskDate = new Date(currentTaskDate);
-  //       if (isNaN(taskDate.getTime())) return false;
-
-  //       return taskDate.getDate() === date &&
-  //         taskDate.getMonth() === currentMonthToDisplay &&
-  //         taskDate.getFullYear() === currentYearToDisplay;
-  //     } catch {
-  //       return false;
-  //     }
-  //   }
-
-  //   return selectedDateInCalendar === date;
-  // };
-
   const isDateSelected = (date) => {
     if (!date) return false;
 
-    // if (isEditTask && currentTaskDate) {
     if (currentTaskDate) {
       try {
         const taskDate = new Date(currentTaskDate);
@@ -154,19 +88,6 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
         return false;
       }
     }
-
-    // if (!isEditTask && currentTaskDate) {
-    //   try {
-    //     const taskDate = new Date(currentTaskDate);
-    //     if (isNaN(taskDate.getTime())) return false;
-
-    //     return taskDate.getDate() === date &&
-    //       taskDate.getMonth() === currentMonthToDisplay &&
-    //       taskDate.getFullYear() === currentYearToDisplay;
-    //   } catch {
-    //     return false;
-    //   }
-    // }
 
     return selectedDateInCalendar === date;
   };
@@ -215,7 +136,6 @@ export const Calendar = ({ isEditTask, initialTaskDateToDisplay, currentTaskDate
                   onClick={() => {
                     if (isEditTask) {
                       onSelectDate(date);
-                      // console.log(date);
                     }
                   }}
                   $isDateSelected={isDateSelected(date)}

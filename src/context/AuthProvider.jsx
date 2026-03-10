@@ -40,11 +40,11 @@ export const AuthProvider = ({ children }) => {
   };
 
   const handleLogin = async (isSignUp) => {
-    setIsValid(false);
-
     if (!validateForm(formData, isSignUp, setErrors, setError, setIsValid)) {
-      return;
+      return false;
     }
+
+    setIsValid(false);
 
     try {
       const data = !isSignUp ? await login({ login: formData.login, password: formData.password }) : await registration(formData);
@@ -62,6 +62,13 @@ export const AuthProvider = ({ children }) => {
 
   const handleLogout = (e) => {
     updateUserInfo(null);
+    localStorage.removeItem("currentTheme");
+    localStorage.removeItem("themeNameToSelect");
+  };
+
+  const resetError = () => {
+    setError(null);
+    setIsValid(true);
   };
 
 
@@ -73,6 +80,7 @@ export const AuthProvider = ({ children }) => {
       errors,
       error,
       isValid,
+      resetError
     }}>
       {children}
     </AuthContext.Provider>

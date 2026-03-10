@@ -4,11 +4,17 @@ import { SHeader, SHeaderContainer, SHeaderBlock, SHeaderLogo, SHeaderLogoLight,
 import { Button } from "../button/Button";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
+import { ThemeContext } from "../../context/ThemeContext";
 
 
 export const Header = () => {
+  const { currentTheme } = useContext(ThemeContext)
+
   const [isPopUserOpen, setIsPopUserOpen] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
   const popUserRef = useRef(null);
+  const headerLinkRef = useRef(null);
 
   const { user } = useContext(AuthContext);
   const userName = user.name;
@@ -16,11 +22,13 @@ export const Header = () => {
 
   const handleClick = () => {
     setIsPopUserOpen(!isPopUserOpen);
+    setIsActive(!isActive);
   };
 
   const handleOutsideClick = (event) => {
-    if (popUserRef.current && !popUserRef.current.contains(event.target)) {
-      setIsPopUserOpen(false); // закрыть PopUser, если клик вне его
+    if (popUserRef.current && !popUserRef.current.contains(event.target) && headerLinkRef.current && !headerLinkRef.current.contains(event.target)) {
+      setIsPopUserOpen(false); // закрыть PopUser, если клик вне его 
+      setIsActive(false);
     }
   };
 
@@ -39,15 +47,15 @@ export const Header = () => {
       <SHeaderContainer>
         <SHeaderBlock>
           <SHeaderLogo>
-            <a href="" target="_self">
-              <SHeaderLogoLight src="/images/logo.png" alt="logo" />
+            <a href="/" target="_self">
+              {currentTheme === 'light' ? (
+                <SHeaderLogoLight src="/images/logo.png" alt="logo" />
+              ) : (
+                <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
+              )}
             </a>
           </SHeaderLogo>
-          <SHeaderLogo>
-            <a href="" target="_self">
-              <SHeaderLogoDark src="/images/logo_dark.png" alt="logo" />
-            </a>
-          </SHeaderLogo>
+
           <SHeaderNavigation>
             <SButtonWrapper>
               <Link to="/card/add">
@@ -55,8 +63,20 @@ export const Header = () => {
                 </Button>
               </Link>
             </SButtonWrapper>
-            <SHeaderLink href="#user-set-target" onClick={handleClick}>{userName}</SHeaderLink>
-            {isPopUserOpen && <SPopUserWrapper ref={popUserRef}><PopUser setIsPopUserOpen={setIsPopUserOpen} /></SPopUserWrapper>}
+            <SHeaderLink
+              href="#user-set-target"
+              onClick={handleClick}
+              $isActive={isActive}
+              ref={headerLinkRef}
+            >
+              {userName}
+            </SHeaderLink>
+            <SPopUserWrapper
+              ref={popUserRef}
+              $isActive={isActive}
+            >
+              <PopUser setIsPopUserOpen={setIsPopUserOpen} setIsActive={setIsActive}/>
+            </SPopUserWrapper>
           </SHeaderNavigation>
         </SHeaderBlock>
       </SHeaderContainer>

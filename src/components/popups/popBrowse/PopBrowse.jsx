@@ -1,4 +1,4 @@
-import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatus, SStatusTheme, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SButtonsWrapper, SButtonsGroup } from "./PopBrowse.styled";
+import { SWrapper, SContainer, SBlock, SContent, STopBlock, STitle, SCategoriesThemeTop, SCategoryThemeTop, SStatusesWrapper, SStatusesTitle, SStatusesContent, SStatus, SStatusTheme, SFormWrapper, SForm, SFormBlock, SFormLabel, SFormText, SButtonsWrapper, SButtonsGroup, SStyledLink } from "./PopBrowse.styled";
 import { Calendar } from "../../calendar/Calendar";
 import { Button } from "../../button/Button";
 import { Link, useParams, useNavigate } from "react-router-dom";
@@ -15,11 +15,8 @@ export const PopBrowse = () => {
     token,
     editTasks,
     deleteTasks,
-    // selectedDate,
     updateSelectedDate
   } = useContext(TasksContext);
-  // console.log(tasks);
-
 
   const [isEditTask, setIsEditTask] = useState(false);
 
@@ -30,9 +27,7 @@ export const PopBrowse = () => {
   const initialTaskStatus = card?.status;
   const initialTaskDescription = card?.description;
   const initialTaskDate = card?.date;
-  // console.log("initialTaskDate: ", initialTaskDate);
   const initialTaskDateToDisplay = new Date(initialTaskDate).toLocaleDateString('ru-RU', { year: "2-digit", month: "2-digit", day: "2-digit" });
-  // console.log("initialTaskDateToDisplay: ", initialTaskDateToDisplay);
 
   const [currentTaskStatus, setCurrentTaskStatus] = useState(initialTaskStatus);
   const [currentTaskDescription, setCurrentTaskDescription] = useState(initialTaskDescription || "");
@@ -60,7 +55,6 @@ export const PopBrowse = () => {
   };
 
   const onSaveTask = async () => {
-    navigate("/");
     try {
       const updatedTask = {
         ...card,
@@ -71,16 +65,17 @@ export const PopBrowse = () => {
 
       await editTasks(token, id, updatedTask);
 
+      navigate("/");
     } catch (error) {
       console.error("Ошибка при сохранении отдерактированной задачи:", error.message);
     }
   };
 
   const onDeleteTask = async () => {
-    navigate("/");
     try {
       await deleteTasks(token, id);
-      // updateTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
+
+      navigate("/");
     }
     catch (error) {
       console.error("Ошибка при удалении задачи:", error.message);
@@ -155,11 +150,11 @@ export const PopBrowse = () => {
               </SForm>
 
               <Calendar
-              isEditTask={isEditTask}
-              initialTaskDateToDisplay={initialTaskDateToDisplay}
-              currentTaskDate={currentTaskDate}
-              setCurrentTaskDate={isEditTask ? setCurrentTaskDate : undefined}
-              onSelectTaskNewDate={isEditTask ? onSelectTaskNewDate : undefined}
+                isEditTask={isEditTask}
+                initialTaskDateToDisplay={initialTaskDateToDisplay}
+                currentTaskDate={currentTaskDate}
+                setCurrentTaskDate={isEditTask ? setCurrentTaskDate : undefined}
+                onSelectTaskNewDate={isEditTask ? onSelectTaskNewDate : undefined}
               />
 
             </SFormWrapper>
@@ -195,9 +190,9 @@ export const PopBrowse = () => {
                       onClick={onDeleteTask}
                       text="Удалить задачу" type="secondary" width="131px" disabled={false}><a href="#"></a></Button>
                   </SButtonsGroup>
-                  <Link to="/">
+                  <SStyledLink to="/">
                     <Button text="Закрыть" type="primary" width="86px" disabled={false}><a href="#"></a></Button>
-                  </Link>
+                  </SStyledLink>
                 </SButtonsWrapper>
             }
 

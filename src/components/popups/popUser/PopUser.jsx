@@ -3,26 +3,33 @@ import { Button } from "../../button/Button";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthContext";
+import { ThemeContext } from "../../../context/ThemeContext";
 
 
-export const PopUser = ({setIsPopUserOpen}) => {
-    const { user } = useContext(AuthContext);
-    const userName = user.name;
-    const userEmail = user.login;
+export const PopUser = ({ setIsPopUserOpen, setIsActive }) => {
+  const { user } = useContext(AuthContext);
+  const userName = user.name;
+  const userEmail = user.login;
 
+  const { themeNameToSelect, toggleTheme } = useContext(ThemeContext);
 
   const handleLogoutClick = () => {
     setIsPopUserOpen(false);
+    setIsActive(false);
   };
 
-  
+
   return (
     <SWrapper id="user-set-target" >
       <SName>{userName}</SName>
       <SMail>{userEmail}</SMail>
       <SThemeButton>
-        <SThemeTitle>Темная тема</SThemeTitle>
-        <SThemeInput type="checkbox" name="checkbox" />
+        <SThemeTitle>{themeNameToSelect}</SThemeTitle>
+        <SThemeInput
+          type="checkbox"
+          name="checkbox"
+          onClick={toggleTheme}
+        />
       </SThemeButton>
       <SButtonWrapper>
         <Link to="/exit" onClick={handleLogoutClick}>

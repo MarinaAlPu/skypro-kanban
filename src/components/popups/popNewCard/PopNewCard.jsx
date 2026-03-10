@@ -4,6 +4,7 @@ import { Button } from "../../button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { TasksContext } from "../../../context/TasksContext";
+import { toast } from 'react-toastify';
 
 
 export const PopNewCard = () => {
@@ -11,11 +12,10 @@ export const PopNewCard = () => {
     addTask,
     token,
     selectedDate,
-    updateSelectedDate
+    updateSelectedDate,
+    error,
+    setError
   } = useContext(TasksContext);
-
-  // console.log("selectedDate в карточке новой задачи: ", selectedDate);
-  // selectedDate ? console.log("selectedDate.toISOString(): ", selectedDate.toISOString()) : "нет даты";
 
   const navigate = useNavigate();
 
@@ -29,11 +29,8 @@ export const PopNewCard = () => {
 
   const [title, setTitle] = useState("");
   const [topic, setTopic] = useState("");
-  // const [status, setStatus] = useState("");
   const [description, setDescription] = useState("");
-  // const [date, setDate] = useState("");
   const [isCategorySelected, setIsCategorySelected] = useState("");
-  // const [isEditTask, setIsEditTask] = useState(false);
 
 
   const onSelectCategory = (categoryName) => {
@@ -43,26 +40,31 @@ export const PopNewCard = () => {
 
   const handleCreateTask = async () => {
     if (!description.trim()) {
-      alert("Описание задачи не может быть пустым");
+      toast.error("Описание задачи не может быть пустым");
       return;
     };
 
-    navigate("/");
+    try {
+      await addTask({
+        newTask: {
+          title: title.trim() || "Новая задача",
+          topic: topic || "Research",
+          status: "Без статуса",
+          description: description,
+          date: selectedDate?.toISOString() || currentDate,
+        }
+      });
 
-    await addTask({
-      newTask: {
-        title: title || "Новая задача",
-        topic: topic || "Research",
-        status: "Без статуса",
-        description: description,
-        date: selectedDate?.toISOString() || currentDate,
-      }
-    });
-    setTitle("");
-    setDescription("");
-    setTopic("");
-    updateSelectedDate(null);
-  }
+      setTitle("");
+      setDescription("");
+      setTopic("");
+      updateSelectedDate(null);
+
+      navigate("/");
+    } catch (err) {
+      setError("Ошибка при создании задачи");
+    }
+  };
 
 
   return token ? (
