@@ -22,10 +22,11 @@ export const SButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  white-space: nowrap;
   background-color: ${({ $type }) => colors[$type]};
   ${({ $type }) => ($type === "secondary" ? "color: #565EEF" : "")}
   @media screen and (max-width: 495px) {
-    width: 100%;
+    width: 100% !important;
   }
 `;
 
