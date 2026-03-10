@@ -4,6 +4,8 @@ import styled from "styled-components";
 export const SCalendarContainer = styled.div`
   width: 182px;
   margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
   @media screen and (max-width: 660px) {
     max-width: 340px;
     width: 100%;
@@ -20,7 +22,10 @@ export const SCalendarTitle = styled.p`
 `
 
 export const SCalendarBlock = styled.div`
-  display: block;
+  /* display: block; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 `
 
 export const SCalendarNavigation = styled.div`
@@ -96,12 +101,13 @@ export const SCalendarDayNameWeekend = styled.div`
 
 export const SCalendarCells = styled.div`
   width: 182px;
-  height: 126px;
+  min-height: 126px;
+  height: auto;
   display: flex;
   flex-wrap: wrap;
   @media screen and (max-width: 660px) {
     width: 344px;
-    height: auto;
+    min-height: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
