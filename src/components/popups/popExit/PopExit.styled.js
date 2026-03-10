@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 
@@ -84,9 +85,20 @@ export const SButtonWrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 7px;
+  & > * {
+    flex: 1; 
+  }
   @media only screen and (max-width: 375px) {
     flex-direction: column;
     gap: 7px;
   }
 `;
 
+export const SStyledLink = styled(Link)`
+  text-decoration: none;
+  @media only screen and (max-width: 375px) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+`;
