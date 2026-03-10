@@ -24,6 +24,9 @@ export const SButton = styled.button`
   justify-content: center;
   background-color: ${({ $type }) => colors[$type]};
   ${({ $type }) => ($type === "secondary" ? "color: #565EEF" : "")}
+  @media screen and (max-width: 495px) {
+    width: 100%;
+  }
 `;
 
 export const PrimaryButton = styled(SButton)`

@@ -158,8 +158,13 @@ export const SStatusTheme = styled.p`
 
 export const SFormWrapper = styled.div`
   display: flex;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  align-items: stretch;
   justify-content: space-between;
+  @media screen and (max-width: 660px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   `;
 
 export const SForm = styled.form`
@@ -197,7 +202,9 @@ export const SFormText = styled.textarea`
   line-height: 1;
   letter-spacing: -0.14px;
   margin-top: 14px;
-  height: 200px;
+  min-height: 200px;
+  flex: 1;
+
   &::-moz-placeholder {
     font-weight: 400;
     font-size: 14px;
@@ -213,6 +220,10 @@ export const SFormText = styled.textarea`
     letter-spacing: -0.14px;
   }
 
+  /* @media screen and (max-width: 660px) {
+    min-height: 150px;
+  } */
+
   @media screen and (max-width: 495px) {
     max-width: 100%;
     height: 37px;
@@ -226,6 +237,10 @@ export const SButtonsWrapper = styled.div`
   flex-direction: row;
   @media screen and (max-width: 495px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 8px;
   }
 `;
 
@@ -236,5 +251,7 @@ export const SButtonsGroup = styled.div`
   gap: 8px;
   @media screen and (max-width: 495px) {
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 `;
