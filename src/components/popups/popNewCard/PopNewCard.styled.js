@@ -120,7 +120,6 @@ export const SFormNewCard = styled.form`
   }
   @media screen and (max-width: 495px) {
     max-width: 100%;
-    height: 34px;
     display: flex;
     flex-direction: column;
   }
